@@ -10,7 +10,7 @@ public class Assets {
     public static Image packselect, levelselect, failmenu, finishmenu;
     public static Image background, backgroundmoon, backgroundnight;
     public static Image buttonretry, buttonresume, buttonnextlevel, buttonmainmenu;
-    public static Image buttonretry, buttonresume, buttonnextlevel, buttonmainmenu;
+    public static Image pushedbuttonretry, pushedbuttonresume, pushedbuttonnextlevel, pushedbuttonmainmenu;
 
     public static Image iChaser, iOrb, iTile;
     public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;

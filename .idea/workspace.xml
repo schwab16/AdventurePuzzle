@@ -73,7 +73,7 @@
       <file leaf-file-name="Assets.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/Assets.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="18" selection-start="2690" selection-end="2690" vertical-scroll-proportion="0.68786126" vertical-offset="714" max-vertical-offset="3111">
+            <state line="12" column="92" selection-start="527" selection-end="527" vertical-scroll-proportion="0.32755297" vertical-offset="0" max-vertical-offset="3111">
               <folding />
             </state>
           </provider>
@@ -665,7 +665,11 @@
       <created>1374523952222</created>
       <updated>1374523952222</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fail screen stuff">
+      <created>1374524064350</created>
+      <updated>1374524064350</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -909,7 +913,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/Assets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="18" selection-start="2690" selection-end="2690" vertical-scroll-proportion="0.68786126" vertical-offset="714" max-vertical-offset="3111">
+        <state line="12" column="92" selection-start="527" selection-end="527" vertical-scroll-proportion="0.32755297" vertical-offset="0" max-vertical-offset="3111">
           <folding />
         </state>
       </provider>
