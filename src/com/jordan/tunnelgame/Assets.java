@@ -8,7 +8,7 @@ public class Assets {
 
     public static Image splash;
     public static Image packselect, levelselect, failmenu, finishmenu;
-    public static Image background;
+    public static Image background, backgroundmoon, backgroundnight;
     public static Image iChaser, iOrb, iTile;
     public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
 
@@ -22,6 +22,8 @@ public class Assets {
     public static void load(Graphics g) {
 
         background = g.newImage("background.png", ImageFormat.RGB565);
+        backgroundmoon = g.newImage("backgroundmoon.png", ImageFormat.RGB565);
+        backgroundnight = g.newImage("backgroundnight.png", ImageFormat.RGB565);
 
         failmenu = g.newImage("failmenu.png", ImageFormat.RGB565);
         finishmenu = g.newImage("finishmenu.png", ImageFormat.RGB565);
@@ -46,9 +48,11 @@ public class Assets {
     public static Image backgroundByString(String bg)
     {
         if (bg.equals("")) return Assets.background;
+        else if (bg.equals("moon")) return Assets.backgroundmoon;
+        else if (bg.equals("night")) return Assets.backgroundnight;
 
 
-        return Assets.background;
+        else return Assets.background;
     }
 
     public static double distance(Coord a, Coord b)
@@ -103,7 +107,7 @@ public class Assets {
 
         switch (packID * 100 + levelNum)
         {
-            case 1: return "test1##" +
+            case 1: return "test1#moon#" +
                     "  w0                            " +
                     "                w2      Ob      " +
                     "            Oa    f!            " +
