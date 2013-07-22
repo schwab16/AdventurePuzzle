@@ -12,7 +12,7 @@ public class GameRunner {
 
     public static ScreenGame.GameState update(List<TouchEvent> touchEvents, float deltaTime, Level level)
     {
-        message = "";
+        //message = "";
 
         if (touchEvents.size() > 0)
             orbsByTouch(touchEvents,level.orbs);
@@ -55,8 +55,9 @@ public class GameRunner {
     }
 
     private static void chasersCollide(ArrayList<Chaser> chasers, Tile[][] tiles) {
-        for (Chaser c: chasers)
+        for (int z = 0; z < chasers.size(); z++)
         {
+            Chaser c = chasers.get(z);
             ArrayList<Tile> ti = Tile.getAdjacentTiles(tiles,c.coord);
             for (int k = 0; k < ti.size(); k++)
             {

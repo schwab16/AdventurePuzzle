@@ -50,16 +50,17 @@ public class Assets {
         {
             case 1:
                 return "test1#" +
-                        " 0              " +
-                        "         2  B   " +
-                        "      A   !     " +
-                        "          * b   " +
-                        "      -++/+__&  " +
-                        "+ 1             " +
-                        " &              " +
-                        "///     a       " +
-                        "/_-&^      0 *-^" +
-                        "+++++^+++__*-+++";
+                        "  w0                            " +
+                        "                w2    Ob        " +
+                        "            Oa    f!            " +
+                        "                  b+  Cb        " +
+                        "            b+b+b+b+b+b+b+b+    " +
+                        "b+  w1                          " +
+                        "  b+                            " +
+                        "b+b+b+          Ca              " +
+                        "b+b+b+b+b+            w0  b+b+b+" +
+                        "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+                      //"x1x2x3x4x5x6x7x8x9x0x1x2x3x4x5x6" +
             case 2:
                 return " ";
             case 3:
@@ -88,27 +89,24 @@ public class Assets {
     0: test
 
     TILE CHAR IDS
-    ' ' : empty space
-    '!' : finish tile
+    '  ' : empty space
+    'f!' : finish tile
 
-    '+' : basic tile
-    '-' : rock tile
-    '/' : stone tile
-    '^' : snow tile
-    '&' : metal tile
+    'b+' : basic tile
+    'b-' : rock tile
+    'b/' : stone tile
+    'b^' : snow tile
+    'b&' : metal tile
 
-    '*' : fire tile
+    'd*' : fire tile
 
-    '_' : ice tile
+    's_' : ice tile
 
-    '0123456789' : warp tile (their id is as they appear, they target the # representing them )
+    'w0' - 'w9' : warp tile (their id is as they appear, they target the # representing them )
 
     CHASER/ORB IDS 'a-j' 'A-J'
-    'a' : default chaser
-    'A' : default orb
-
-    UNUSED SO FAR
-    "$'(),.:;<>=?@KLMNOPQRSTUVWXYZ[]`klmnopqrstuvwxyz{}~|
+    'Ca' - 'Cj' : default chaser
+    'Oa' - 'Oj; : default orb
 
     TO REMEMBER WHEN ADDING:
     1) add picture in assets folder

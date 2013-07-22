@@ -2,8 +2,8 @@ package com.jordan.tunnelgame;
 
 import com.jordan.framework.Image;
 
-public class TileIce extends Tile {
-    public TileIce(Coord coord, char id) {
+public class TileSlip extends Tile {
+    public TileSlip(Coord coord, char id) {
         super(coord, id);
     }
 
