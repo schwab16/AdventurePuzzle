@@ -90,16 +90,75 @@ public class ScreenGame extends Screen {
         g.drawImage(Assets.readymenu,0,0);
     }
 
-
+    public int pauretryy = 475, paummy = 650, pauresy = 300;
 	private void updatePaused(List<TouchEvent> touchEvents) {
-		if (touchEvents.size() > 0 && touchEvents.get(0).type == TouchEvent.TOUCH_DOWN)
-		    resume();
+        for (Input.TouchEvent event: touchEvents) {
+            switch(event.type)
+            {
+                case Input.TouchEvent.TOUCH_DOWN:
+                    if (!Assets.buttonretry.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,pauretryy), new Coord(990,pauretryy+150)))
+                    {
+                        Assets.buttonretry.down = true;
+                        Assets.buttonretry.pointerID = event.pointer;
+                    }
+                    else if (!Assets.buttonmainmenu.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,paummy), new Coord(990,paummy+150)))
+                    {
+                        Assets.buttonmainmenu.down = true;
+                        Assets.buttonmainmenu.pointerID = event.pointer;
+                    }
+                    else if (!Assets.buttonresume.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,pauresy), new Coord(990,pauresy+150)))
+                    {
+                        Assets.buttonresume.down = true;
+                        Assets.buttonresume.pointerID = event.pointer;
+                    }
+                    break;
+                case Input.TouchEvent.TOUCH_DRAGGED:
+                    if (event.pointer == Assets.buttonretry.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,pauretryy), new Coord(990,pauretryy+150)))
+                    {
+                        Assets.buttonretry.reset();
+                    }
+                    else if (event.pointer == Assets.buttonmainmenu.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,paummy), new Coord(990,paummy+150)))
+                    {
+                        Assets.buttonmainmenu.reset();
+                    }
+                    else if (event.pointer == Assets.buttonresume.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,pauresy), new Coord(990,pauresy+150)))
+                    {
+                        Assets.buttonresume.reset();
+                    }
+                    break;
+                case Input.TouchEvent.TOUCH_UP:
+                    if (event.pointer == Assets.buttonretry.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,pauretryy), new Coord(990,pauretryy+150)))
+                    {
+                        Assets.buttonretry.reset();
+                        Assets.buttonmainmenu.reset();
+                        Assets.buttonresume.reset();
+                        retry();
+                    }
+                    else if (event.pointer == Assets.buttonmainmenu.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,paummy), new Coord(990,paummy+150)))
+                    {
+                        Assets.buttonretry.reset();
+                        Assets.buttonmainmenu.reset();
+                        Assets.buttonresume.reset();
+                        mainMenu();
+                    }
+                    else if (event.pointer == Assets.buttonresume.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,pauresy), new Coord(990,pauresy+150)))
+                    {
+                        Assets.buttonretry.reset();
+                        Assets.buttonmainmenu.reset();
+                        Assets.buttonresume.reset();
+                        resume();
+                    }
+            }
+        }
 	}
     private void drawPausedUI() {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
         g.drawARGB(darkness, 0, 0, 0);
         g.drawImage(Assets.pausemenu,0,0);
+        g.drawImage(Assets.buttonretry.getImage(),290,failretryy);
+        g.drawImage(Assets.buttonmainmenu.getImage(),290,failmmy);
+        g.drawImage(Assets.buttonresume.getImage(),290,failmmy);
     }
 
 
