@@ -15,3 +15,4 @@ TODO LIST:
 -animation
 -sound
 -music
+-3stars / time medals
