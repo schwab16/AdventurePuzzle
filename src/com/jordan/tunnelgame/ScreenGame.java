@@ -100,6 +100,7 @@ public class ScreenGame extends Screen {
         g.drawString("Tap to Resume", 240, 400, paint);
     }
 
+
     public int failretryy = 400, failmmy =600;
 	private void updateFail(List<TouchEvent> touchEvents) {
         for (Input.TouchEvent event: touchEvents) {
