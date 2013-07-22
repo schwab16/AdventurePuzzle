@@ -19,9 +19,9 @@ TODO LIST:
 
 
 TODO List Ike
--tiles: finish, lava, wood, clouds, spikes, bomb, glass, push button
+-tiles: finish, dirt, lava, wood, clouds, spikes, bomb, glass, push button
 -character
--backgrounds
+-backgrounds: dessert, ocean, forest, jungle, praire, city, building
 -splash screen
 -animations
 -level select screen
