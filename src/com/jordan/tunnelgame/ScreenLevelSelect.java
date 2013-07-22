@@ -11,12 +11,11 @@ public class ScreenLevelSelect extends Screen {
 
     public ScreenLevelSelect(Game game, int packID) {
         super(game);
-        packID = packID;
+        this.packID = packID;
     }
 
     @Override
     public void update(float deltaTime) {
-
 
         boolean pass = false;
         for (TouchEvent t : game.getInput().getTouchEvents())
