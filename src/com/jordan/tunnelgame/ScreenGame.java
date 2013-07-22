@@ -156,9 +156,9 @@ public class ScreenGame extends Screen {
         GameDrawer.draw(g,level);
         g.drawARGB(darkness, 0, 0, 0);
         g.drawImage(Assets.pausemenu,0,0);
-        g.drawImage(Assets.buttonretry.getImage(),290,failretryy);
-        g.drawImage(Assets.buttonmainmenu.getImage(),290,failmmy);
-        g.drawImage(Assets.buttonresume.getImage(),290,failmmy);
+        g.drawImage(Assets.buttonretry.getImage(),290,pauretryy);
+        g.drawImage(Assets.buttonmainmenu.getImage(),290,paummy);
+        g.drawImage(Assets.buttonresume.getImage(),290,pauresy);
     }
 
 

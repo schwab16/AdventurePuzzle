@@ -4,7 +4,6 @@ Programming: Jordan Haack
 Graphics: Isaac Schwab
 
 TODO LIST:
--pause menu (gem bug)
 -level editor
 -level select function
 -pack select function
