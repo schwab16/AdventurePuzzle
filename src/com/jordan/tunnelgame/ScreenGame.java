@@ -49,10 +49,6 @@ public class ScreenGame extends Screen {
 	}
 
 
-
-
-
-
 	private void updateRunning(List<TouchEvent> touchEvents, float deltaTime) {
 
         for (TouchEvent event: touchEvents)
@@ -77,12 +73,6 @@ public class ScreenGame extends Screen {
         if (C.cheats)
             g.drawString(lastDeltaTime + " " + GameRunner.message, 400,30, paint);
     }
-
-
-
-
-
-
 
 
     private void updateReady(List<TouchEvent> touchEvents) {
@@ -115,6 +105,7 @@ public class ScreenGame extends Screen {
         if (touchEvents.size() > 0 && touchEvents.get(0).type == TouchEvent.TOUCH_UP)
         {
             nullify();
+            level = levelPack.thisLevel();
 			state = GameState.Ready;
         }
     }
@@ -187,7 +178,6 @@ public class ScreenGame extends Screen {
     }
 
     private void nullify() {
-
         time = 0;
         ticks = 0;
         // Call garbage collector to clean up memory.
@@ -200,7 +190,6 @@ public class ScreenGame extends Screen {
         {
 			state = GameState.Paused;
         }
-
 	}
 
 	@Override

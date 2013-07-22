@@ -11,6 +11,7 @@ public class Level {
 
     public int packID;
     public int levelNum;
+    public String name = "";
 
     public Level(int packID, int levelNum)
     {
@@ -23,11 +24,14 @@ public class Level {
         Scanner sc = new Scanner(Assets.getLevelString(packID, levelNum));
         sc.useDelimiter("#");
 
-        String peachyDandy = sc.next();
+        name = sc.next();
         String levelString = sc.next();
 
         TileWarp.otherWarps = new ArrayList<TileWarp>();
         TileWarp.currentID = 0;
+        chasers = new ArrayList<Chaser>();
+        orbs = new ArrayList<Orb>();
+        tiles = new Tile[C.xBlocks][C.yBlocks];
 
         for (int y = 0; y < C.yBlocks; y++) {
             for (int x = 0; x < C.xBlocks; x++) {

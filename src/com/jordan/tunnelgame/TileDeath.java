@@ -10,11 +10,11 @@ public class TileDeath extends Tile {
     @Override
     public void collision(Chaser chaser, CollisionType type) {
         switch (type) {
-            case TOP: basicTopCollision(chaser);
+            case TOP: basicTopCollision(chaser); chaser.dead = true;
                 break;
-            case LEFT: basicLeftCollision(chaser);
+            case LEFT: basicLeftCollision(chaser); chaser.dead = true;
                 break;
-            case RIGHT: basicRightCollision(chaser);
+            case RIGHT: basicRightCollision(chaser); chaser.dead = true;
                 break;
             case BOTTOM: basicBottomCollision(chaser);
                 break;

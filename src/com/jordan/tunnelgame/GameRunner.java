@@ -29,6 +29,10 @@ public class GameRunner {
     }
 
     private static boolean chasersDie(ArrayList<Chaser> chasers) {
+        for (Chaser c: chasers)
+        {
+            if (c.dead) return true;
+        }
         return false;
     }
 

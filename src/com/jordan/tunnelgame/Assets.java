@@ -44,48 +44,7 @@ public class Assets {
         return Math.sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
     }
 
-    public static String getLevelString(int packID, int levelNum) {
-
-        switch (packID * 100 + levelNum)
-        {
-            case 1:
-                return "test1#" +
-                        "  w0                            " +
-                        "                w2    Ob        " +
-                        "            Oa    f!            " +
-                        "                  b+  Cb        " +
-                        "            b+b+b+b+b+b+b+b+    " +
-                        "b+  w1                          " +
-                        "  b+                            " +
-                        "b+b+b+          Ca              " +
-                        "b+b+b+b+b+            w0  b+b+b+" +
-                        "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
-                      //"x1x2x3x4x5x6x7x8x9x0x1x2x3x4x5x6" +
-            case 2:
-                return " ";
-            case 3:
-                return " ";
-            case 4:
-                return " ";
-            case 5:
-                return " ";
-            case 6:
-                return " ";
-            case 7:
-                return " ";
-            case 8:
-                return " ";
-            case 9:
-                return " ";
-            case 10:
-                return " ";
-
-        }
-
-        return "";
-    }
-
-    /*pack ids:
+     /*pack ids:
     0: test
 
     TILE CHAR IDS
@@ -113,9 +72,77 @@ public class Assets {
     2) load picture in assets class
     3) define char here
     4) make it recognised by the level class switch statement
-    5) add a class that extends tile, implements methods
+    5) add a class that extends tile, implements methods (jordan only)
     6) getImage needs to return the correct image
-    7) add functionality (in the class, in GameRunner)
+    7) add functionality (in the class, in GameRunner) (jordan only)
     8) add it to a level
     */
+
+    public static String getLevelString(int packID, int levelNum) {
+
+        switch (packID * 100 + levelNum)
+        {
+            case 1: return "test1#" +
+                    "  w0                            " +
+                    "                w2    Ob        " +
+                    "            Oa    f!            " +
+                    "                  b+      Cb    " +
+                    "            b+b+b+b+d*b+b+b+    " +
+                    "b+  w1                          " +
+                    "  b+                            " +
+                    "b+b+b+          Ca              " +
+                    "b+b+b+b+b+            w0  b+b+d*" +
+                    "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+            case 2: return "test2#" +
+                    "  w0                            " +
+                    "                w2    Ob        " +
+                    "            Oa    f!            " +
+                    "                  b+      Cb    " +
+                    "            b+b+b+b+d*b+b+b+    " +
+                    "b+  w1                          " +
+                    "  b+                            " +
+                    "b+b+b+          Ca              " +
+                    "b+b+b+b+b+            w0  b+b+d*" +
+                    "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+            case 3: return "test3#" +
+                    "  w0                            " +
+                    "                w2    Ob        " +
+                    "            Oa    f!            " +
+                    "                  b+      Cb    " +
+                    "            b+b+b+b+d*b+b+b+    " +
+                    "b+  w1                          " +
+                    "  b+                            " +
+                    "b+b+b+          Ca              " +
+                    "b+b+b+b+b+            w0  b+b+d*" +
+                    "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+            case 4: return "test4#" +
+                    "  w0                            " +
+                    "                w2    Ob        " +
+                    "            Oa    f!            " +
+                    "                  b+      Cb    " +
+                    "            b+b+b+b+d*b+b+b+    " +
+                    "b+  w1                          " +
+                    "  b+                            " +
+                    "b+b+b+          Ca              " +
+                    "b+b+b+b+b+            w0  b+b+d*" +
+                    "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+            case 5:
+                return " ";
+            case 6:
+                return " ";
+            case 7:
+                return " ";
+            case 8:
+                return " ";
+            case 9:
+                return " ";
+            case 10:
+                return " ";
+
+        }
+
+        return "";
+    }
+
+
 }
