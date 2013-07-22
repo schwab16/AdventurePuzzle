@@ -60,6 +60,10 @@ public class Assets {
         return Math.sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
     }
 
+    public boolean inBounds(Coord a, Coord b, Coord c) {
+        return a.x>b.x && a.x<c.x && a.y>b.y && a.y < c.y;
+    }
+
      /*pack ids:
     0: test
 
