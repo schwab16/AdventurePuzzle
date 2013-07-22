@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
 import com.jordan.framework.Image;
+import com.jordan.framework.Input;
 import com.jordan.framework.Input.TouchEvent;
 import com.jordan.framework.Screen;
 
@@ -99,18 +100,47 @@ public class ScreenGame extends Screen {
         g.drawString("Tap to Resume", 240, 400, paint);
     }
 
-
+    public int failretryy = 400, failmmy =600;
 	private void updateFail(List<TouchEvent> touchEvents) {
-        //if (touchEvents.size() > 0 && touchEvents.get(0).type == TouchEvent.TOUCH_UP)
-        //retry, mainmenu
-        for (TouchEvent t: touchEvents)
-        {
-            if (t.type == TouchEvent.TOUCH_DOWN)
+        for (Input.TouchEvent event: touchEvents) {
+            switch(event.type)
             {
-                if (Assets.inBounds(new Coord(t.x,t.y),new Coord(400,400),new Coord(800,500))) retry();
-                if (Assets.inBounds(new Coord(t.x,t.y),new Coord(400,600),new Coord(800,700))) mainMenu();
+                case Input.TouchEvent.TOUCH_DOWN:
+                    if (!Assets.buttonretry.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,failretryy), new Coord(990,failretryy+150)))
+                    {
+                        Assets.buttonretry.down = true;
+                        Assets.buttonretry.pointerID = event.pointer;
+                    }
+                    else if (!Assets.buttonmainmenu.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,failmmy), new Coord(990,failmmy+150)))
+                    {
+                        Assets.buttonmainmenu.down = true;
+                        Assets.buttonmainmenu.pointerID = event.pointer;
+                    }
+                    break;
+                case Input.TouchEvent.TOUCH_DRAGGED:
+                    if (event.pointer == Assets.buttonretry.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,failretryy), new Coord(990,failretryy+150)))
+                    {
+                        Assets.buttonretry.reset();
+                    }
+                    else if (event.pointer == Assets.buttonmainmenu.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,failmmy), new Coord(990,failmmy+150)))
+                    {
+                        Assets.buttonmainmenu.reset();
+                    }
+                    break;
+                case Input.TouchEvent.TOUCH_UP:
+                    if (event.pointer == Assets.buttonretry.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,failretryy), new Coord(990,failretryy+150)))
+                    {
+                        Assets.buttonretry.reset();
+                        Assets.buttonmainmenu.reset();
+                        retry();
+                    }
+                    else if (event.pointer == Assets.buttonmainmenu.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,failmmy), new Coord(990,failmmy+150)))
+                    {
+                        Assets.buttonretry.reset();
+                        Assets.buttonmainmenu.reset();
+                        mainMenu();
+                    }
             }
-
         }
     }
 	private void drawFailUI() {
@@ -118,8 +148,8 @@ public class ScreenGame extends Screen {
         GameDrawer.draw(g,level);
         g.drawARGB(200, 0, 0, 0);
         g.drawImage(Assets.failmenu,0,0);
-        g.drawRect(290,400,700,150,Color.GREEN);
-        g.drawRect(290,600,700,150,Color.GREEN);
+        g.drawImage(Assets.buttonretry.getImage(),290,failretryy);
+        g.drawImage(Assets.buttonmainmenu.getImage(),290,failmmy);
 	}
 
 

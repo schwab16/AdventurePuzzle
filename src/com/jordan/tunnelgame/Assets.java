@@ -9,8 +9,7 @@ public class Assets {
     public static Image splash;
     public static Image packselect, levelselect, failmenu, finishmenu;
     public static Image background, backgroundmoon, backgroundnight;
-    public static Image buttonretry, buttonresume, buttonnextlevel, buttonmainmenu;
-    public static Image pushedbuttonretry, pushedbuttonresume, pushedbuttonnextlevel, pushedbuttonmainmenu;
+    public static Button buttonretry, buttonresume, buttonnextlevel, buttonmainmenu;
 
     public static Image iChaser, iOrb, iTile;
     public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
@@ -27,6 +26,11 @@ public class Assets {
         background = g.newImage("background.png", ImageFormat.RGB565);
         backgroundmoon = g.newImage("backgroundmoon.png", ImageFormat.RGB565);
         backgroundnight = g.newImage("backgroundnight.png", ImageFormat.RGB565);
+
+        buttonretry = new Button(g.newImage("buttonretry.png", ImageFormat.RGB565),g.newImage("pushedbuttonretry.png", ImageFormat.RGB565));
+        buttonmainmenu = new Button(g.newImage("buttonmainmenu.png", ImageFormat.RGB565),g.newImage("pushedbuttonmainmenu.png", ImageFormat.RGB565));
+        buttonnextlevel = new Button(g.newImage("buttonnextlevel.png", ImageFormat.RGB565),g.newImage("pushedbuttonnextlevel.png", ImageFormat.RGB565));
+        buttonresume = new Button(g.newImage("buttonresume.png", ImageFormat.RGB565),g.newImage("pushedbuttonresume.png", ImageFormat.RGB565));
 
         failmenu = g.newImage("failmenu.png", ImageFormat.RGB565);
         finishmenu = g.newImage("finishmenu.png", ImageFormat.RGB565);
