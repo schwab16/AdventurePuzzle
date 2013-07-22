@@ -9,8 +9,6 @@ public class Assets {
     public static Image splash;
     public static Image packselect, levelselect, failmenu, finishmenu;
     public static Image background, backgroundmoon, backgroundnight;
-    public static Image buttonretry, buttonmainmenu, buttonresume, buttonnextlevel;
-    public static Image pushedbuttonretry, pushedbuttonmainmenu, pushedbuttonresume, pushedbuttonnextlevel;
     public static Image iChaser, iOrb, iTile;
     public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
 
@@ -60,10 +58,6 @@ public class Assets {
     public static double distance(Coord a, Coord b)
     {
         return Math.sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
-    }
-    public static boolean inBounds (Coord a, Coord b, Coord c)
-    {
-        return (a.x > b.x && a.x < c.x && a.y > b.y && a.y < c.y);
     }
 
      /*pack ids:
@@ -124,7 +118,7 @@ public class Assets {
                     "b+b+b+          Ca              " +
                     "b+b+b+b+b+            w0  b+b+d*" +
                     "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
-            case 2: return "test2#night#" +
+            case 2: return "test2##" +
                     "  w0                            " +
                     "                w2      Ob      " +
                     "            Oa    f!            " +
@@ -132,7 +126,7 @@ public class Assets {
                     "            b+b+b+b+d*b+b+b+    " +
                     "b+  w1                          " +
                     "  b+                            " +
-                    "  b+b+          Ca              " +
+                    "b+b+b+          Ca              " +
                     "b+b+b+b+b+            w0  b+b+d*" +
                     "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
             case 3: return "test3##" +
@@ -143,8 +137,8 @@ public class Assets {
                     "            b+b+b+b+d*b+b+b+    " +
                     "b+  w1                          " +
                     "  b+                            " +
-                    "  b+b+          Ca              " +
-                    "  b+b+b+b+            w0  b+b+d*" +
+                    "b+b+b+          Ca              " +
+                    "b+b+b+b+b+            w0  b+b+d*" +
                     "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
             case 4: return "test4##" +
                     "  w0                            " +
@@ -154,9 +148,9 @@ public class Assets {
                     "            b+b+b+b+d*b+b+b+    " +
                     "b+  w1                          " +
                     "  b+                            " +
-                    "  b+b+          Ca              " +
-                    "  b+b+b+b+            w0  b+b+d*" +
-                    "  b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+                    "b+b+b+          Ca              " +
+                    "b+b+b+b+b+            w0  b+b+d*" +
+                    "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
             case 5:
                 return " ";
             case 6:
