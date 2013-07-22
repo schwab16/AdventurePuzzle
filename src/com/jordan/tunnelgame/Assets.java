@@ -100,7 +100,7 @@ public class Assets {
     2) make it an instance variable here
     3) load it in the load method
     4) add an if statement in the backgroundByString method
-    5) add it to a level after the first hashtag
+    5) add it to a level after the first hashtaga
     */
 
     public static String getLevelString(int packID, int levelNum) {
