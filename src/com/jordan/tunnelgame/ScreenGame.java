@@ -50,7 +50,6 @@ public class ScreenGame extends Screen {
 
 
 	private void updateRunning(List<TouchEvent> touchEvents, float deltaTime) {
-
         for (TouchEvent event: touchEvents)
         {
             if (event.x > 1280 - C.pauseArea && event.y < C.pauseArea && event.type == TouchEvent.TOUCH_UP)
@@ -81,7 +80,7 @@ public class ScreenGame extends Screen {
     }
     private void drawReadyUI() {
         Graphics g = game.getGraphics();
-        g.drawImage(Assets.background, 0,0);
+        GameDrawer.draw(g, level);
 
         g.drawARGB(200, 0, 0, 0);
         g.drawString("Tap to Start", 240, 400, paint);
@@ -94,7 +93,7 @@ public class ScreenGame extends Screen {
 	}
     private void drawPausedUI() {
         Graphics g = game.getGraphics();
-        //drawRunningUI();
+        GameDrawer.draw(g,level);
         // Darken the entire screen so you can display the Paused screen.
         g.drawARGB(200, 0, 0, 0);
         g.drawString("Tap to Resume", 240, 400, paint);
@@ -102,20 +101,14 @@ public class ScreenGame extends Screen {
 
 
 	private void updateFail(List<TouchEvent> touchEvents) {
-        if (touchEvents.size() > 0 && touchEvents.get(0).type == TouchEvent.TOUCH_UP)
-        {
-            nullify();
-            level = levelPack.thisLevel();
-			state = GameState.Ready;
-        }
+        //if (touchEvents.size() > 0 && touchEvents.get(0).type == TouchEvent.TOUCH_UP)
+        //retry, mainmenu
     }
 	private void drawFailUI() {
 		Graphics g = game.getGraphics();
-        //drawRunningUI();
+        GameDrawer.draw(g,level);
         g.drawARGB(200, 0, 0, 0);
-        g.drawString("GAME OVER", 240, 325, paint);
-       // g.drawString("SCORE: " + (int)GameDisplay.guy.currentScore, 240, 400, paintc);
-		g.drawString("Tap to Retry", 240, 475, paint);
+        g.drawImage(Assets.failmenu,0,0);
 	}
 
 
@@ -138,11 +131,9 @@ public class ScreenGame extends Screen {
     }
     private void drawFinishUI() {
         Graphics g = game.getGraphics();
-        //drawRunningUI();
+        GameDrawer.draw(g,level);
         g.drawARGB(200, 0, 0, 0);
-        g.drawString("COMPELTE", 240, 325, paint);
-        //g.drawString("SCORE: " + (int)GameDisplay.guy.currentScore, 240, 400, paintc);
-        //g.drawString("Tap to Retry", 240, 475, paintc);
+        g.drawImage(Assets.finishmenu,0,0);
     }
 
 
@@ -177,11 +168,17 @@ public class ScreenGame extends Screen {
             drawFinishUI();
     }
 
-    private void nullify() {
+
+    private void retry() {
         time = 0;
         ticks = 0;
-        // Call garbage collector to clean up memory.
-        //System.gc();
+        level = levelPack.thisLevel();
+        state = GameState.Ready;
+    }
+
+    private void mainMenu() {
+        game.setScreen(new ScreenLevelSelect(game,levelPack.packID));
+
     }
 
 	@Override
