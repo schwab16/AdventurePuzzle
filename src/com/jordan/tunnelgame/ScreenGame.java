@@ -25,6 +25,7 @@ public class ScreenGame extends Screen {
     private LevelPack levelPack;
     private Level level;
     private float lastDeltaTime = 0.0f;
+    private final int darkness = 200;
 
 	public ScreenGame(Game game, int packID, int levelNum) {
 		super(game);
@@ -51,14 +52,16 @@ public class ScreenGame extends Screen {
 
 
 	private void updateRunning(List<TouchEvent> touchEvents, float deltaTime) {
+        boolean pauseable = true;
+        for (Orb o: level.orbs)
+            if (o.coord.x>1280-C.pauseArea-10 && o.coord.y<C.pauseArea + 10) pauseable = false;
         for (TouchEvent event: touchEvents)
-        {
-            if (event.x > 1280 - C.pauseArea && event.y < C.pauseArea && event.type == TouchEvent.TOUCH_UP)
+            if (pauseable && event.x > 1280 - C.pauseArea && event.y < C.pauseArea && event.type == TouchEvent.TOUCH_UP)
             {
                 pause();
+                for (Orb o: level.orbs) o.pointerID = -1;
                 return;
             }
-        }
 
         time++;
 
@@ -70,6 +73,7 @@ public class ScreenGame extends Screen {
     private void drawRunningUI() {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
+        g.drawImage(Assets.pauseicon, 1230,0);
         if (C.cheats)
             g.drawString(lastDeltaTime + " " + GameRunner.message, 400,30, paint);
     }
@@ -82,9 +86,8 @@ public class ScreenGame extends Screen {
     private void drawReadyUI() {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g, level);
-
-        g.drawARGB(200, 0, 0, 0);
-        g.drawString("Tap to Start", 240, 400, paint);
+        g.drawARGB(darkness, 0, 0, 0);
+        g.drawImage(Assets.readymenu,0,0);
     }
 
 
@@ -95,9 +98,8 @@ public class ScreenGame extends Screen {
     private void drawPausedUI() {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
-        // Darken the entire screen so you can display the Paused screen.
-        g.drawARGB(200, 0, 0, 0);
-        g.drawString("Tap to Resume", 240, 400, paint);
+        g.drawARGB(darkness, 0, 0, 0);
+        g.drawImage(Assets.pausemenu,0,0);
     }
 
 
@@ -147,7 +149,7 @@ public class ScreenGame extends Screen {
 	private void drawFailUI() {
 		Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
-        g.drawARGB(200, 0, 0, 0);
+        g.drawARGB(darkness, 0, 0, 0);
         g.drawImage(Assets.failmenu,0,0);
         g.drawImage(Assets.buttonretry.getImage(),290,failretryy);
         g.drawImage(Assets.buttonmainmenu.getImage(),290,failmmy);
@@ -218,7 +220,7 @@ public class ScreenGame extends Screen {
     private void drawFinishUI() {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
-        g.drawARGB(200, 0, 0, 0);
+        g.drawARGB(darkness, 0, 0, 0);
         g.drawImage(Assets.finishmenu,0,0);
         g.drawImage(Assets.buttonretry.getImage(),290,finretryy);
         g.drawImage(Assets.buttonmainmenu.getImage(),290,finmmy);

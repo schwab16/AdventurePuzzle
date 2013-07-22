@@ -7,7 +7,7 @@ import com.jordan.framework.Image;
 public class Assets {
 
     public static Image splash;
-    public static Image packselect, levelselect, failmenu, finishmenu;
+    public static Image packselect, levelselect, failmenu, finishmenu, readymenu, pauseicon, pausemenu;
     public static Image background, backgroundmoon, backgroundnight, backgroundsunset;
     public static Button buttonretry, buttonresume, buttonnextlevel, buttonmainmenu;
 
@@ -37,6 +37,9 @@ public class Assets {
         finishmenu = g.newImage("finishmenu.png", ImageFormat.RGB565);
         packselect = g.newImage("packselect.png", ImageFormat.RGB565);
         levelselect = g.newImage("levelselect.png", ImageFormat.RGB565);
+        readymenu = g.newImage("readymenu.png", ImageFormat.RGB565);
+        pauseicon = g.newImage("pauseicon.png", ImageFormat.RGB565);
+        pausemenu = g.newImage("pausemenu.png", ImageFormat.RGB565);
 
         iChaser = g.newImage("chaser.png", ImageFormat.RGB565);
         iOrb = g.newImage("orb.png", ImageFormat.RGB565);

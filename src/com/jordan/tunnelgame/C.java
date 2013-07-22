@@ -12,7 +12,7 @@ public class C {
     public static double blockInsideRatio = .5;
 
     //size of pause area
-    public static int pauseArea = 40;
+    public static int pauseArea = 50;
 
     //movement speed of chasers, buffer of orbs/chasers
     public static int buffer = 25;
