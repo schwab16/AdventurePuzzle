@@ -30,14 +30,13 @@ public class LevelPack {
 
     public Level nextLevel()
     {
-        if (currentLevel > 25) return null;
+        if (currentLevel == 25) return null;
         getLevel(currentLevel).load();
         return getLevel(currentLevel++);
     }
 
     public Level thisLevel()
     {
-        //if (currentLevel > 10) return null;
         currentLevel--;
         return nextLevel();
     }

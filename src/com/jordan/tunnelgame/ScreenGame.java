@@ -275,6 +275,7 @@ public class ScreenGame extends Screen {
         time = 0;
         ticks = 0;
         level = levelPack.nextLevel();
+        if (level == null) mainMenu();
         state = GameState.Ready;
     }
 
