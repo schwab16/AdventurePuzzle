@@ -8,7 +8,7 @@ public class Assets {
 
     public static Image splash;
     public static Image packselect, levelselect, failmenu, finishmenu;
-    public static Image background, backgroundmoon, backgroundnight;
+    public static Image background, backgroundmoon, backgroundnight, backgroundsunset;
     public static Button buttonretry, buttonresume, buttonnextlevel, buttonmainmenu;
 
     public static Image iChaser, iOrb, iTile;
@@ -26,6 +26,7 @@ public class Assets {
         background = g.newImage("background.png", ImageFormat.RGB565);
         backgroundmoon = g.newImage("backgroundmoon.png", ImageFormat.RGB565);
         backgroundnight = g.newImage("backgroundnight.png", ImageFormat.RGB565);
+        backgroundsunset = g.newImage("backgroundsunset.png", ImageFormat.RGB565);
 
         buttonretry = new Button(g.newImage("buttonretry.png", ImageFormat.RGB565),g.newImage("pushedbuttonretry.png", ImageFormat.RGB565));
         buttonmainmenu = new Button(g.newImage("buttonmainmenu.png", ImageFormat.RGB565),g.newImage("pushedbuttonmainmenu.png", ImageFormat.RGB565));
@@ -57,7 +58,7 @@ public class Assets {
         if (bg.equals("")) return Assets.background;
         else if (bg.equals("moon")) return Assets.backgroundmoon;
         else if (bg.equals("night")) return Assets.backgroundnight;
-
+        else if (bg.equals("sunset")) return Assets.backgroundsunset;
 
         else return Assets.background;
     }
@@ -129,7 +130,7 @@ public class Assets {
                     "b+b+b+          Ca              " +
                     "b+b+b+b+b+            w0  b+b+d*" +
                     "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
-            case 2: return "test2##" +
+            case 2: return "test2#sunset#" +
                     "  w0                            " +
                     "                w2      Ob      " +
                     "            Oa    f!            " +
@@ -137,10 +138,10 @@ public class Assets {
                     "            b+b+b+b+d*b+b+b+    " +
                     "b+  w1                          " +
                     "  b+                            " +
-                    "b+b+b+          Ca              " +
+                    "  b+b+          Ca              " +
                     "b+b+b+b+b+            w0  b+b+d*" +
                     "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
-            case 3: return "test3##" +
+            case 3: return "test3#night#" +
                     "  w0                            " +
                     "                w2      Ob      " +
                     "            Oa    f!            " +
@@ -148,8 +149,8 @@ public class Assets {
                     "            b+b+b+b+d*b+b+b+    " +
                     "b+  w1                          " +
                     "  b+                            " +
-                    "b+b+b+          Ca              " +
-                    "b+b+b+b+b+            w0  b+b+d*" +
+                    "  b+b+          Ca              " +
+                    "  b+b+b+b+            w0  b+b+d*" +
                     "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
             case 4: return "test4##" +
                     "  w0                            " +
@@ -159,9 +160,9 @@ public class Assets {
                     "            b+b+b+b+d*b+b+b+    " +
                     "b+  w1                          " +
                     "  b+                            " +
-                    "b+b+b+          Ca              " +
-                    "b+b+b+b+b+            w0  b+b+d*" +
-                    "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+                    "  b+b+          Ca              " +
+                    "  b+b+b+b+            w0  b+b+d*" +
+                    "  b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
             case 5:
                 return " ";
             case 6:

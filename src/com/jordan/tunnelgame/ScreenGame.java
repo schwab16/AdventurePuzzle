@@ -153,21 +153,65 @@ public class ScreenGame extends Screen {
 	}
 
 
+    public int finretryy = 475, finmmy = 650, finnly = 300;
     private void updateFinish(List<TouchEvent> touchEvents) {
-        if (touchEvents.size() > 0 && touchEvents.get(0).type == TouchEvent.TOUCH_UP)
-        {
-            /*level = levelPack.nextLevel();
-            if (level == null)
+        for (Input.TouchEvent event: touchEvents) {
+            switch(event.type)
             {
-                nullify();
-                game.setScreen(new ScreenLevelSelect(game,levelPack.packID));
+                case Input.TouchEvent.TOUCH_DOWN:
+                    if (!Assets.buttonretry.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finretryy), new Coord(990,finretryy+150)))
+                    {
+                        Assets.buttonretry.down = true;
+                        Assets.buttonretry.pointerID = event.pointer;
+                    }
+                    else if (!Assets.buttonmainmenu.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finmmy), new Coord(990,finmmy+150)))
+                    {
+                        Assets.buttonmainmenu.down = true;
+                        Assets.buttonmainmenu.pointerID = event.pointer;
+                    }
+                    else if (!Assets.buttonnextlevel.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finnly), new Coord(990,finnly+150)))
+                    {
+                        Assets.buttonnextlevel.down = true;
+                        Assets.buttonnextlevel.pointerID = event.pointer;
+                    }
+                    break;
+                case Input.TouchEvent.TOUCH_DRAGGED:
+                    if (event.pointer == Assets.buttonretry.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finretryy), new Coord(990,finretryy+150)))
+                    {
+                        Assets.buttonretry.reset();
+                    }
+                    else if (event.pointer == Assets.buttonmainmenu.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finmmy), new Coord(990,finmmy+150)))
+                    {
+                        Assets.buttonmainmenu.reset();
+                    }
+                    else if (event.pointer == Assets.buttonnextlevel.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finnly), new Coord(990,finnly+150)))
+                    {
+                        Assets.buttonnextlevel.reset();
+                    }
+                    break;
+                case Input.TouchEvent.TOUCH_UP:
+                    if (event.pointer == Assets.buttonretry.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finretryy), new Coord(990,finretryy+150)))
+                    {
+                        Assets.buttonretry.reset();
+                        Assets.buttonmainmenu.reset();
+                        Assets.buttonnextlevel.reset();
+                        retry();
+                    }
+                    else if (event.pointer == Assets.buttonmainmenu.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finmmy), new Coord(990,finmmy+150)))
+                    {
+                        Assets.buttonretry.reset();
+                        Assets.buttonmainmenu.reset();
+                        Assets.buttonnextlevel.reset();
+                        mainMenu();
+                    }
+                    else if (event.pointer == Assets.buttonnextlevel.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finnly), new Coord(990,finnly+150)))
+                    {
+                        Assets.buttonretry.reset();
+                        Assets.buttonmainmenu.reset();
+                        Assets.buttonnextlevel.reset();
+                        nextLevel();
+                    }
             }
-            else {
-                nullify();
-                state = GameState.Ready;
-            }
-            //nullify();
-            //game.setScreen(new ScreenGame(game));*/
         }
     }
     private void drawFinishUI() {
@@ -175,6 +219,9 @@ public class ScreenGame extends Screen {
         GameDrawer.draw(g,level);
         g.drawARGB(200, 0, 0, 0);
         g.drawImage(Assets.finishmenu,0,0);
+        g.drawImage(Assets.buttonretry.getImage(),290,finretryy);
+        g.drawImage(Assets.buttonmainmenu.getImage(),290,finmmy);
+        g.drawImage(Assets.buttonnextlevel.getImage(),290,finnly);
     }
 
 
@@ -219,6 +266,13 @@ public class ScreenGame extends Screen {
 
     private void mainMenu() {
         game.setScreen(new ScreenLevelSelect(game,levelPack.packID));
+    }
+
+    private void nextLevel(){
+        time = 0;
+        ticks = 0;
+        level = levelPack.nextLevel();
+        state = GameState.Ready;
     }
 
 	@Override
