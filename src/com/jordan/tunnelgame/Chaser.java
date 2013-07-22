@@ -24,17 +24,24 @@ public class Chaser {
         this.coord = start;
 
         for(int k = 0; k < 10; k++)
-        {
             readyToWarp[k] = true;
-        }
+
     }
 
     public Image getImage()
     {
         switch(color)
         {
-            case 'a': break;
-            default:
+            case 'a': return Assets.iChaser;
+            case 'b': return Assets.iChaser;
+            case 'c': return Assets.iChaser;
+            case 'd': return Assets.iChaser;
+            case 'e': return Assets.iChaser;
+            case 'f': return Assets.iChaser;
+            case 'g': return Assets.iChaser;
+            case 'h': return Assets.iChaser;
+            case 'i': return Assets.iChaser;
+            case 'j': return Assets.iChaser;
         }
         return Assets.iChaser;
     }

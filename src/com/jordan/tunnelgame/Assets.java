@@ -7,16 +7,16 @@ import com.jordan.framework.Image;
 public class Assets {
 
     public static Image splash;
-	public static Image packselect, levelselect, background;
-	public static Image iChaser, iOrb, iTile;
+    public static Image packselect, levelselect, background;
+    public static Image iChaser, iOrb, iTile;
     public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
 
-	//public static Sound click;
-	//public static Music theme;
-	
-	public static void loadSplash(Graphics g) {
+    //public static Sound click;
+    //public static Music theme;
+
+    public static void loadSplash(Graphics g) {
         splash = g.newImage("splash.png", ImageFormat.RGB565);
-	}
+    }
 
     public static void load(Graphics g) {
 
@@ -51,11 +51,11 @@ public class Assets {
             case 1:
                 return "test1#" +
                         " 0              " +
-                        "         2!     " +
-                        "      A         " +
-                        "          * a   " +
+                        "         2  B   " +
+                        "      A   !     " +
+                        "          * b   " +
                         "      -++/+__&  " +
-                        "+1              " +
+                        "+ 1             " +
                         " &              " +
                         "///     a       " +
                         "/_-&^      0 *-^" +

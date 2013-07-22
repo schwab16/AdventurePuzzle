@@ -37,7 +37,10 @@ public class GameRunner {
         for (Chaser c: chasers)
         {
             if (c.finished)
-                chasers.remove(c);
+            {
+                c.coord.x = -1000;
+                c.coord.y = -1000;
+            }
             else finishedYet = false;
         }
         return finishedYet;

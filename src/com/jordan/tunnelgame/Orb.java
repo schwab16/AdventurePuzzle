@@ -20,8 +20,16 @@ public class Orb {
     {
         switch(color)
         {
-            case 'a': break;
-            default:
+            case 'a': return Assets.iOrb;
+            case 'b': return Assets.iOrb;
+            case 'c': return Assets.iOrb;
+            case 'd': return Assets.iOrb;
+            case 'e': return Assets.iOrb;
+            case 'f': return Assets.iOrb;
+            case 'g': return Assets.iOrb;
+            case 'h': return Assets.iOrb;
+            case 'i': return Assets.iOrb;
+            case 'j': return Assets.iOrb;
         }
         return Assets.iOrb;
     }

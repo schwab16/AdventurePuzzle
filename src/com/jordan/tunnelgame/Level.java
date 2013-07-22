@@ -42,7 +42,7 @@ public class Level {
 
 
                     case '&':case '/':case '+': case '-':case '^':
-                        tiles[x][y] = new TileBasic(new Coord(x*pix,y*pix),charID); break;
+                    tiles[x][y] = new TileBasic(new Coord(x*pix,y*pix),charID); break;
                     case '*':
                         tiles[x][y] = new TileDeath(new Coord(x*pix,y*pix),charID); break;
                     case '_':
@@ -50,16 +50,17 @@ public class Level {
 
 
                     case '0':case '1':case '2':case '3':case '4':case '5':case '6':case '7':case '8':case '9':
-                        tiles[x][y] = new TileWarp(new Coord(x*pix,y*pix),'0',TileWarp.currentID++,charID);
-                        TileWarp.otherWarps.add((TileWarp)tiles[x][y]); break;
+                    tiles[x][y] = new TileWarp(new Coord(x*pix,y*pix),'0',TileWarp.currentID++,charID);
+                    TileWarp.otherWarps.add((TileWarp)tiles[x][y]); break;
 
 
+                    case 'a':case 'b':case 'c':case 'd':case 'e':case 'f':case 'g':case 'h':case 'i':case 'j':
+                    tiles[x][y] = new TileEmpty(new Coord(x*pix,y*pix),charID);
+                    chasers.add(new Chaser(new Coord(x*pix,y*pix),charID)); break;
 
-                    case 'a': tiles[x][y] = new TileEmpty(new Coord(x*pix,y*pix),charID);
-                    chasers.add(new Chaser(new Coord(x*pix,y*pix),'a')); break;
-
-                    case 'A': tiles[x][y] = new TileEmpty(new Coord(x*pix,y*pix),charID);
-                        orbs.add(new Orb(new Coord(x*pix+C.blocksSize/2,y*pix+C.blocksSize/2),'a',true)); break;
+                    case 'A':case 'B':case 'C':case 'D':case 'E':case 'F':case 'G':case 'H':case 'I':case 'J':
+                    tiles[x][y] = new TileEmpty(new Coord(x*pix,y*pix),charID);
+                    orbs.add(new Orb(new Coord(x*pix+C.blocksSize/2,y*pix+C.blocksSize/2),(char)(charID - 'A' + 'a'),true)); break;
                 }
             }
         }
