@@ -12,14 +12,19 @@ TODO LIST:
 -sound
 -music
 -3stars / time medals
+-saving stars, medals, levels, locked levels
 =======
 
 
 TODO List Ike
+-pause icon
+-ready menu
+-pause menu
+-next level menu
+-death menu
 -tiles: finish, dirt, lava, wood, clouds, spikes, bomb, glass, push button
 -character
 -backgrounds: dessert, ocean, forest, jungle, prairie, city, building
--splash screen
 -animations
 -level select screen
 -pack select screen
