@@ -9,6 +9,9 @@ public class Assets {
     public static Image splash;
     public static Image packselect, levelselect, failmenu, finishmenu;
     public static Image background, backgroundmoon, backgroundnight;
+    public static Image buttonretry, buttonresume, buttonnextlevel, buttonmainmenu;
+    public static Image buttonretry, buttonresume, buttonnextlevel, buttonmainmenu;
+
     public static Image iChaser, iOrb, iTile;
     public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
 
@@ -60,7 +63,7 @@ public class Assets {
         return Math.sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
     }
 
-    public boolean inBounds(Coord a, Coord b, Coord c) {
+    public static boolean inBounds(Coord a, Coord b, Coord c) {
         return a.x>b.x && a.x<c.x && a.y>b.y && a.y < c.y;
     }
 
