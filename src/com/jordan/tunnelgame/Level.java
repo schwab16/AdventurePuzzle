@@ -28,7 +28,7 @@ public class Level {
         sc.useDelimiter("#");
 
         name = sc.next();
-        background = Assets.backgroundByString(sc.next());
+        String bg = sc.next();
         String levelString = sc.next();
 
         TileWarp.otherWarps = new ArrayList<TileWarp>();
@@ -36,6 +36,7 @@ public class Level {
         chasers = new ArrayList<Chaser>();
         orbs = new ArrayList<Orb>();
         tiles = new Tile[C.xBlocks][C.yBlocks];
+        background = Assets.backgroundByString(bg);
 
         for (int y = 0; y < C.yBlocks; y++) {
             for (int x = 0; x < C.xBlocks; x++) {

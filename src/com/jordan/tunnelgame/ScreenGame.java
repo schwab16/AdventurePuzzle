@@ -103,12 +103,23 @@ public class ScreenGame extends Screen {
 	private void updateFail(List<TouchEvent> touchEvents) {
         //if (touchEvents.size() > 0 && touchEvents.get(0).type == TouchEvent.TOUCH_UP)
         //retry, mainmenu
+        for (TouchEvent t: touchEvents)
+        {
+            if (t.type == TouchEvent.TOUCH_DOWN)
+            {
+                if (Assets.inBounds(new Coord(t.x,t.y),new Coord(400,400),new Coord(800,500))) retry();
+                if (Assets.inBounds(new Coord(t.x,t.y),new Coord(400,600),new Coord(800,700))) mainMenu();
+            }
+
+        }
     }
 	private void drawFailUI() {
 		Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
         g.drawARGB(200, 0, 0, 0);
         g.drawImage(Assets.failmenu,0,0);
+        g.drawRect(290,400,700,150,Color.GREEN);
+        g.drawRect(290,600,700,150,Color.GREEN);
 	}
 
 
@@ -178,7 +189,6 @@ public class ScreenGame extends Screen {
 
     private void mainMenu() {
         game.setScreen(new ScreenLevelSelect(game,levelPack.packID));
-
     }
 
 	@Override
