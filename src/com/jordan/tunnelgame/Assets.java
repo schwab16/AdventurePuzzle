@@ -4,6 +4,13 @@ import com.jordan.framework.Graphics;
 import com.jordan.framework.Graphics.ImageFormat;
 import com.jordan.framework.Image;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Assets {
 
     public static Image splash;
@@ -73,6 +80,33 @@ public class Assets {
 
     public static boolean inBounds(Coord a, Coord b, Coord c) {
         return a.x>b.x && a.x<c.x && a.y>b.y && a.y < c.y;
+    }
+
+    public static File fileLocation;
+    public static void writeToMemory(String fileName, String text)
+    {//needed to instantiate file directory in sample game activity
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(fileLocation+File.separator+fileName)));
+            bufferedWriter.write(text);
+            bufferedWriter.close();
+        } catch (IOException e) {}
+    }
+    public static String readFromMemory(String fileName)
+    {
+        String res = "";
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(fileLocation+File.separator+fileName)));
+            String read;
+            StringBuilder builder = new StringBuilder("");
+            while((read = bufferedReader.readLine()) != null){
+                builder.append(read);
+            }
+            res = builder.toString();
+            bufferedReader.close();
+        } catch (IOException e) {
+            writeToMemory(fileName, "");
+        }
+        return res;
     }
 
      /*pack ids:

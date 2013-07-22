@@ -19,6 +19,7 @@ public class StartGame extends AndroidGame {
 
         //loadStrings();
 
+        Assets.fileLocation = getFilesDir();
 		return new ScreenSplashLoading(this);
 
 	}

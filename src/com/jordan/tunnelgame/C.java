@@ -21,9 +21,4 @@ public class C {
     public static double chaserMomentum = 1, chaserResistance = .75;
     public static double maxVelocity = 5;
 
-
-    //how far the chaser looks away for collisions
-    public static int adjacentArea = 1;
-
-
 }
