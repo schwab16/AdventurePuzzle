@@ -1,5 +1,7 @@
 package com.jordan.tunnelgame;
 
+import com.jordan.framework.Image;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,6 +10,7 @@ public class Level {
     public ArrayList<Chaser> chasers = new ArrayList<Chaser>();
     public ArrayList<Orb> orbs = new ArrayList<Orb>();
     public Tile[][] tiles = new Tile[C.xBlocks][C.yBlocks];
+    public Image background = Assets.background;
 
     public int packID;
     public int levelNum;
@@ -25,6 +28,7 @@ public class Level {
         sc.useDelimiter("#");
 
         name = sc.next();
+        background = Assets.backgroundByString(sc.next());
         String levelString = sc.next();
 
         TileWarp.otherWarps = new ArrayList<TileWarp>();

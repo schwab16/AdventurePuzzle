@@ -7,7 +7,8 @@ import com.jordan.framework.Image;
 public class Assets {
 
     public static Image splash;
-    public static Image packselect, levelselect, background;
+    public static Image packselect, levelselect, failmenu, finishmenu;
+    public static Image background;
     public static Image iChaser, iOrb, iTile;
     public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
 
@@ -21,6 +22,9 @@ public class Assets {
     public static void load(Graphics g) {
 
         background = g.newImage("background.png", ImageFormat.RGB565);
+
+        failmenu = g.newImage("failmenu.png", ImageFormat.RGB565);
+        finishmenu = g.newImage("finishmenu.png", ImageFormat.RGB565);
         packselect = g.newImage("packselect.png", ImageFormat.RGB565);
         levelselect = g.newImage("levelselect.png", ImageFormat.RGB565);
 
@@ -39,6 +43,14 @@ public class Assets {
 
     }
 
+    public static Image backgroundByString(String bg)
+    {
+        if (bg.equals("")) return Assets.background;
+
+
+        return Assets.background;
+    }
+
     public static double distance(Coord a, Coord b)
     {
         return Math.sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
@@ -46,6 +58,8 @@ public class Assets {
 
      /*pack ids:
     0: test
+
+    name#background#level
 
     TILE CHAR IDS
     '  ' : empty space
@@ -76,15 +90,22 @@ public class Assets {
     6) getImage needs to return the correct image
     7) add functionality (in the class, in GameRunner) (jordan only)
     8) add it to a level
+
+    HOW TO ADD A NEW BACKGROUND
+    1) put it in assets folder, name it backgroundwhatever.png
+    2) make it an instance variable here
+    3) load it in the load method
+    4) add an if statement in the backgroundByString method
+    5) add it to a level after the first hashtag
     */
 
     public static String getLevelString(int packID, int levelNum) {
 
         switch (packID * 100 + levelNum)
         {
-            case 1: return "test1#" +
+            case 1: return "test1##" +
                     "  w0                            " +
-                    "                w2    Ob        " +
+                    "                w2      Ob      " +
                     "            Oa    f!            " +
                     "                  b+      Cb    " +
                     "            b+b+b+b+d*b+b+b+    " +
@@ -93,9 +114,9 @@ public class Assets {
                     "b+b+b+          Ca              " +
                     "b+b+b+b+b+            w0  b+b+d*" +
                     "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
-            case 2: return "test2#" +
+            case 2: return "test2##" +
                     "  w0                            " +
-                    "                w2    Ob        " +
+                    "                w2      Ob      " +
                     "            Oa    f!            " +
                     "                  b+      Cb    " +
                     "            b+b+b+b+d*b+b+b+    " +
@@ -104,9 +125,9 @@ public class Assets {
                     "b+b+b+          Ca              " +
                     "b+b+b+b+b+            w0  b+b+d*" +
                     "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
-            case 3: return "test3#" +
+            case 3: return "test3##" +
                     "  w0                            " +
-                    "                w2    Ob        " +
+                    "                w2      Ob      " +
                     "            Oa    f!            " +
                     "                  b+      Cb    " +
                     "            b+b+b+b+d*b+b+b+    " +
@@ -115,9 +136,9 @@ public class Assets {
                     "b+b+b+          Ca              " +
                     "b+b+b+b+b+            w0  b+b+d*" +
                     "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
-            case 4: return "test4#" +
+            case 4: return "test4##" +
                     "  w0                            " +
-                    "                w2    Ob        " +
+                    "                w2      Ob      " +
                     "            Oa    f!            " +
                     "                  b+      Cb    " +
                     "            b+b+b+b+d*b+b+b+    " +
