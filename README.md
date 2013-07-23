@@ -4,7 +4,7 @@ Programming: Jordan Haack
 Graphics: Isaac Schwab
 
 TODO LIST:
--level editor
+-level editor (warp config)
 -level select function
 -pack select function
 -more game stuff
@@ -20,6 +20,7 @@ TODO List Ike
 -pause icon
 -ready menu
 -pause menu
+-level editor icons
 -next level menu
 -death menu
 -tiles: finish, dirt, lava, wood, clouds, spikes, bomb, glass, push button
