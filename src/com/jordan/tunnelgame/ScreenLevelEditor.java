@@ -71,7 +71,7 @@ public class ScreenLevelEditor extends Screen {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
         g.drawImage(Assets.editoricons,0,0);
-        g.drawImage(selectedImage,580,640);
+        g.drawImage(selectedImage,600,660);
     }
 
     private void updateWarps(List<Input.TouchEvent> touchEvents) {
@@ -153,7 +153,6 @@ public class ScreenLevelEditor extends Screen {
     private void paintTest() {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
-        g.drawImage(selectedImage,1240,760);
         g.drawImage(Assets.editorreturn,1230,0);
     }
 

@@ -228,7 +228,7 @@ public class Assets {
                     "          b+b+        b+        " +
                     "    b+  b+  b+      b+          " +
                     "        b+    b+  b+            " +
-                    "  f!            b+b+        Ca  " +
+                    "  f!                        Ca  " +
                     "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
             case 6:
                 return " ";
