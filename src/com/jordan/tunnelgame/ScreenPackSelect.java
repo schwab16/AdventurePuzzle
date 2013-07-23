@@ -13,15 +13,19 @@ public class ScreenPackSelect extends Screen {
     @Override
     public void update(float deltaTime) {
 
-        boolean pass = false;
+        boolean pass = false, editor = false;
         for (TouchEvent t : game.getInput().getTouchEvents())
         {
             if (t.type == TouchEvent.TOUCH_UP)
                 pass = true;
+            if (t.x > 1200 && t.y < 100)
+                editor = true;
         }
 
         int packID = 0;
         //LevelPack lp = null;
+        if (editor) game.setScreen(new ScreenLevelEditor(game));
+
         if (pass) game.setScreen(new ScreenLevelSelect(game, packID));
 
 

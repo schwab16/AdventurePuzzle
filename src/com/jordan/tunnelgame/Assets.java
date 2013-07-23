@@ -10,6 +10,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Assets {
 
@@ -24,16 +27,22 @@ public class Assets {
     //public static Sound click;
     //public static Music theme;
 
+    public static ArrayList<Image> tiles = new ArrayList<Image>();
+    public static ArrayList<String> charCodes = new ArrayList<String>();
+    public static ArrayList<String> backgrounds = new ArrayList<String>();
+    public static Image editoricons, editorreturn;
+    public static boolean loaded = false;
+
     public static void loadSplash(Graphics g) {
         splash = g.newImage("splash.png", ImageFormat.RGB565);
     }
 
-    public static void load(Graphics g) {
+    public static void load(Graphics g) { if (!loaded) { loaded = true;
 
-        background = g.newImage("background.png", ImageFormat.RGB565);
-        backgroundmoon = g.newImage("backgroundmoon.png", ImageFormat.RGB565);
-        backgroundnight = g.newImage("backgroundnight.png", ImageFormat.RGB565);
-        backgroundsunset = g.newImage("backgroundsunset.png", ImageFormat.RGB565);
+        background = g.newImage("background.png", ImageFormat.RGB565); backgrounds.add("");
+        backgroundmoon = g.newImage("backgroundmoon.png", ImageFormat.RGB565); backgrounds.add("moon");
+        backgroundnight = g.newImage("backgroundnight.png", ImageFormat.RGB565); backgrounds.add("night");
+        backgroundsunset = g.newImage("backgroundsunset.png", ImageFormat.RGB565); backgrounds.add("sunset");
 
         buttonretry = new Button(g.newImage("buttonretry.png", ImageFormat.RGB565),g.newImage("pushedbuttonretry.png", ImageFormat.RGB565));
         buttonmainmenu = new Button(g.newImage("buttonmainmenu.png", ImageFormat.RGB565),g.newImage("pushedbuttonmainmenu.png", ImageFormat.RGB565));
@@ -47,21 +56,25 @@ public class Assets {
         readymenu = g.newImage("readymenu.png", ImageFormat.RGB565);
         pauseicon = g.newImage("pauseicon.png", ImageFormat.RGB565);
         pausemenu = g.newImage("pausemenu.png", ImageFormat.RGB565);
+        editoricons = g.newImage("editoricons.png", ImageFormat.RGB565);
+        editorreturn = g.newImage("editorreturn.png", ImageFormat.RGB565);
 
-        iChaser = g.newImage("chaser.png", ImageFormat.RGB565);
-        iOrb = g.newImage("orb.png", ImageFormat.RGB565);
-        iTile = g.newImage("emptytile.png", ImageFormat.RGB565);
-        iBasicTile = g.newImage("basictile.png", ImageFormat.RGB565);
-        iRockTile = g.newImage("midtile.png", ImageFormat.RGB565);
-        iStoneTile = g.newImage("stonetile.png", ImageFormat.RGB565);
-        iFireTile = g.newImage("firetile.png", ImageFormat.RGB565);
-        iIceTile = g.newImage("icetile.png", ImageFormat.RGB565);
-        iMetalTile = g.newImage("metaltile.png", ImageFormat.RGB565);
-        iSnowTile = g.newImage("snowtile.png", ImageFormat.RGB565);
-        iWarpTile = g.newImage("warp.png", ImageFormat.RGB565);
-        iFinishTile = g.newImage("finish.png", ImageFormat.RGB565);
+        iChaser = g.newImage("chaser.png", ImageFormat.RGB565); tiles.add(iChaser); charCodes.add("Ca");
+        iOrb = g.newImage("orb.png", ImageFormat.RGB565); tiles.add(iOrb); charCodes.add( "Oa");
+        iTile = g.newImage("emptytile.png", ImageFormat.RGB565); tiles.add(iTile); charCodes.add( "  ");
+        iBasicTile = g.newImage("basictile.png", ImageFormat.RGB565); tiles.add(iBasicTile); charCodes.add( "b+");
+        iRockTile = g.newImage("midtile.png", ImageFormat.RGB565); tiles.add(iRockTile); charCodes.add( "b-");
+        iStoneTile = g.newImage("stonetile.png", ImageFormat.RGB565); tiles.add(iStoneTile); charCodes.add( "b/");
+        iFireTile = g.newImage("firetile.png", ImageFormat.RGB565); tiles.add(iFireTile); charCodes.add( "d*");
+        iIceTile = g.newImage("icetile.png", ImageFormat.RGB565); tiles.add(iIceTile); charCodes.add( "s_");
+        iMetalTile = g.newImage("metaltile.png", ImageFormat.RGB565); tiles.add(iMetalTile); charCodes.add( "b&");
+        iSnowTile = g.newImage("snowtile.png", ImageFormat.RGB565); tiles.add(iSnowTile); charCodes.add( "b^");
+        iWarpTile = g.newImage("warp.png", ImageFormat.RGB565); tiles.add(iWarpTile); charCodes.add( "w0");
+        iFinishTile = g.newImage("finish.png", ImageFormat.RGB565); tiles.add(iFinishTile); charCodes.add( "f!");
 
-    }
+
+
+    }}
 
     public static Image backgroundByString(String bg)
     {
@@ -156,6 +169,7 @@ public class Assets {
 
         switch (packID * 100 + levelNum)
         {
+            case -1: return ScreenLevelEditor.levelName + "#" + ScreenLevelEditor.backgroundString + "#" + ScreenLevelEditor.levelString;
             case 1: return "test1#moon#" +
                     "  w0                            " +
                     "                w2      Ob      " +
