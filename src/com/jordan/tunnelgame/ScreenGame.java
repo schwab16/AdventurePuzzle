@@ -25,7 +25,7 @@ public class ScreenGame extends Screen {
     private LevelPack levelPack;
     private Level level;
     private float lastDeltaTime = 0.0f;
-    private final int darkness = 200;
+    private final int darkness = 0;
 
 	public ScreenGame(Game game, int packID, int levelNum) {
 		super(game);
