@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import android.content.res.AssetFileDescriptor;
+import android.os.Environment;
 import android.util.Log;
 
 import com.jordan.framework.Screen;
@@ -20,6 +21,7 @@ public class StartGame extends AndroidGame {
         //loadStrings();
 
         Assets.fileLocation = getFilesDir();
+        //Assets.fileLocation = Environment.getExternalStorageDirectory();
 		return new ScreenSplashLoading(this);
 
 	}

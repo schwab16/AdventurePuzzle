@@ -1,5 +1,7 @@
 package com.jordan.tunnelgame;
 
+import android.util.Log;
+
 import com.jordan.framework.Graphics;
 import com.jordan.framework.Graphics.ImageFormat;
 import com.jordan.framework.Image;
@@ -98,17 +100,20 @@ public class Assets {
     public static File fileLocation;
     public static void writeToMemory(String fileName, String text)
     {//needed to instantiate file directory in sample game activity
+        Log.e("olderorbgame", fileName);
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(fileLocation+File.separator+fileName)));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(fileLocation,fileName)));
             bufferedWriter.write(text);
             bufferedWriter.close();
-        } catch (IOException e) {}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public static String readFromMemory(String fileName)
     {
         String res = "";
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(fileLocation+File.separator+fileName)));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(fileLocation,fileName)));
             String read;
             StringBuilder builder = new StringBuilder("");
             while((read = bufferedReader.readLine()) != null){
@@ -214,8 +219,17 @@ public class Assets {
                     "  b+b+          Ca              " +
                     "  b+b+b+b+            w0  b+b+d*" +
                     "  b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
-            case 5:
-                return " ";
+            case 5: return "le0#sunset#" +
+                    "b+                              " +
+                    "  b+b+                        b+" +
+                    "    b+      Oa              b+  " +
+                    "b+    b+  b+            b+b+    " +
+                    "      b+b+            b+b+b+    " +
+                    "          b+b+        b+        " +
+                    "    b+  b+  b+      b+          " +
+                    "        b+    b+  b+            " +
+                    "  f!            b+b+        Ca  " +
+                    "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
             case 6:
                 return " ";
             case 7:

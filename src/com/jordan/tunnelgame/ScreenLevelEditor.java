@@ -1,6 +1,7 @@
 package com.jordan.tunnelgame;
 
 import android.graphics.Color;
+import android.util.Log;
 
 import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
@@ -18,19 +19,11 @@ public class ScreenLevelEditor extends Screen {
     }
     EditorType state = EditorType.Select;
 
-    public static String levelName = "le0";
-    public static String backgroundString = "";
-    public static String levelString =
-            "                                " +
-            "                                " +
-            "            Oa                  " +
-            "                                " +
-            "                                " +
-            "                                " +
-            "                                " +
-            "                                " +
-            "  f!                        Ca  " +
-            "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+    //public final String fileName = "LevelFromEditor.txt";
+
+    public static String levelName;
+    public static String backgroundString;
+    public static String levelString;
     public Level level = new Level(0,-1);
     public Image selectedImage = Assets.iBasicTile;
     public int currentTile = 3;
@@ -38,6 +31,18 @@ public class ScreenLevelEditor extends Screen {
 
     public ScreenLevelEditor(Game game) {
         super(game);
+        levelName = "le0";
+        backgroundString = "";
+        levelString =   "                                " +
+                        "                                " +
+                        "            Oa                  " +
+                        "                                " +
+                        "                                " +
+                        "                                " +
+                        "                                " +
+                        "                                " +
+                        "  f!                        Ca  " +
+                        "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
         reload();
     }
 
@@ -45,14 +50,19 @@ public class ScreenLevelEditor extends Screen {
         for (Input.TouchEvent t : touchEvents)
         {
             if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x < 640) {
-                if (t.y > 0 && t.y < 160) state = EditorType.Placement;
-                if (t.y > 160 && t.y < 320) state = EditorType.Block;
-                if (t.y > 320 && t.y < 480) state = EditorType.Warps;
-                if (t.y > 480 && t.y < 640) state = EditorType.Test;
-                if (t.y > 640 && t.y < 800) {
+                if (t.y > 0 && t.y < 800/6) state = EditorType.Placement;
+                if (t.y > 800/6 && t.y < 2*800/6) state = EditorType.Block;
+                if (t.y > 2*800/6 && t.y < 3*800/6) state = EditorType.Warps;
+                if (t.y > 3*800/6 && t.y < 4*800/6) state = EditorType.Test;
+                if (t.y > 4*800/6 && t.y < 5*800/6) {
                     currentBackground = (currentBackground+1) % Assets.backgrounds.size();
                     backgroundString = Assets.backgrounds.get(currentBackground);
                     reload();
+                }
+                if (t.y > 5*800/6 && t.y < 6*800/6) {
+                    //Assets.writeToMemory(fileName, levelName + backgroundString + levelString);
+                    String j = ("\"" + levelName +"#"+ backgroundString +"#\" +\n\""+ levelString.substring(0,32) + "\" +\n\"" + levelString.substring(32,64) + "\" +\n\"" + levelString.substring(64,96) + "\" +\n\"" + levelString.substring(96,128) + "\" +\n\"" + levelString.substring(128,160) + "\" +\n\"" + levelString.substring(160,192) + "\" +\n\"" + levelString.substring(192,224) + "\" +\n\"" + levelString.substring(224,256) + "\" +\n\"" + levelString.substring(256,288) + "\" +\n\"" + levelString.substring(288,320) + "\";");
+                    Log.d("olderorbgame", j);
                 }
             }
         }
@@ -79,7 +89,10 @@ public class ScreenLevelEditor extends Screen {
     private void updatePlacement(List<Input.TouchEvent> touchEvents) {
         for (Input.TouchEvent t : touchEvents)
             if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > 1280 - 50 && t.y < 50)
+            {
                 state = EditorType.Select;
+                return;
+            }
         for (Input.TouchEvent t : touchEvents) {
             if (t.type == Input.TouchEvent.TOUCH_DOWN) {
                 int x = t.x/80;
@@ -192,7 +205,7 @@ public class ScreenLevelEditor extends Screen {
 
     @Override
     public void backButton() {
-
+        game.setScreen(new ScreenPackSelect(game));
     }
 
 }
