@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9b212e8-d19b-4fe8-8a11-4a18ddaf91b3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordan/tunnelgame/Assets.java" afterPath="$PROJECT_DIR$/src/com/jordan/tunnelgame/Assets.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java" afterPath="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordan/tunnelgame/StartGame.java" afterPath="$PROJECT_DIR$/src/com/jordan/tunnelgame/StartGame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RobotGameCopy1.iws" />
@@ -118,7 +116,7 @@
       <file leaf-file-name="ScreenLevelEditor.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="45" selection-start="3117" selection-end="3117" vertical-scroll-proportion="0.34182304" vertical-offset="833" max-vertical-offset="3689">
+            <state line="51" column="66" selection-start="1803" selection-end="1803" vertical-scroll-proportion="0.18230563" vertical-offset="731" max-vertical-offset="3689">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -714,7 +712,11 @@
       <created>1374543864803</created>
       <updated>1374543864803</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="level saving">
+      <created>1374548057405</created>
+      <updated>1374548057405</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -834,7 +836,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="level editor" />
+    <option name="LAST_COMMIT_MESSAGE" value="level saving" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -861,6 +863,7 @@
     <MESSAGE value="file framework" />
     <MESSAGE value="pause menu" />
     <MESSAGE value="level editor" />
+    <MESSAGE value="level saving" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -972,7 +975,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="45" selection-start="3117" selection-end="3117" vertical-scroll-proportion="0.34182304" vertical-offset="833" max-vertical-offset="3689">
+        <state line="51" column="66" selection-start="1803" selection-end="1803" vertical-scroll-proportion="0.18230563" vertical-offset="731" max-vertical-offset="3689">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

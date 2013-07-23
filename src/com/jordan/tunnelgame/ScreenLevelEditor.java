@@ -49,7 +49,7 @@ public class ScreenLevelEditor extends Screen {
     private void updateSelect(List<Input.TouchEvent> touchEvents) {
         for (Input.TouchEvent t : touchEvents)
         {
-            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x < 640) {
+            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x < 350) {
                 if (t.y > 0 && t.y < 800/6) state = EditorType.Placement;
                 if (t.y > 800/6 && t.y < 2*800/6) state = EditorType.Block;
                 if (t.y > 2*800/6 && t.y < 3*800/6) state = EditorType.Warps;
