@@ -12,7 +12,7 @@ public class LevelPack {
     {
         this.packID = packID;
 
-        for (int k = 1; k <= 10; k++)
+        for (int k = 1; k <= 25; k++)
         {
             levels.add(new Level(packID, k));
         }
@@ -30,7 +30,7 @@ public class LevelPack {
 
     public Level nextLevel()
     {
-        if (currentLevel == 25) return null;
+        if (currentLevel == 26) return null;
         getLevel(currentLevel).load();
         return getLevel(currentLevel++);
     }

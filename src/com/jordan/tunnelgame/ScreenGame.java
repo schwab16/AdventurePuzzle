@@ -56,7 +56,7 @@ public class ScreenGame extends Screen {
         for (Orb o: level.orbs)
             if (o.coord.x>1280-C.pauseArea-10 && o.coord.y<C.pauseArea + 10) pauseable = false;
         for (TouchEvent event: touchEvents)
-            if (pauseable && event.x > 1280 - C.pauseArea && event.y < C.pauseArea && event.type == TouchEvent.TOUCH_UP)
+            if (pauseable && event.x > 1280 - C.pauseArea && event.y < C.pauseArea && event.type == TouchEvent.TOUCH_DOWN)
             {
                 pause();
                 for (Orb o: level.orbs) o.pointerID = -1;
