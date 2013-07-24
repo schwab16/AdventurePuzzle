@@ -32,6 +32,7 @@ public class GameRunner {
         for (Chaser c: chasers)
         {
             if (c.dead) return true;
+            if (c.coord.y > 1300) return true;
         }
         return false;
     }
