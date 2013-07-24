@@ -19,7 +19,7 @@ import java.util.Map;
 public class Assets {
 
     public static Image splash;
-    public static Image packselect, levelselect, failmenu, finishmenu, readymenu, pauseicon, pausemenu;
+    public static Image packselect, levelselect, failmenu, finishmenu, readymenu, pauseicon, pausemenu ,toomanywarps, blockselect, selectedwarp;
     public static Image background, backgroundmoon, backgroundnight, backgroundsunset;
     public static Button buttonretry, buttonresume, buttonnextlevel, buttonmainmenu;
 
@@ -60,10 +60,15 @@ public class Assets {
         pausemenu = g.newImage("pausemenu.png", ImageFormat.RGB565);
         editoricons = g.newImage("editoricons.png", ImageFormat.RGB565);
         editorreturn = g.newImage("editorreturn.png", ImageFormat.RGB565);
+        toomanywarps = g.newImage("toomanywarps.png", ImageFormat.RGB565);
+        selectedwarp = g.newImage("selectedwarp.png", ImageFormat.RGB565);
+        blockselect = g.newImage("blockselect.png", ImageFormat.RGB565);
 
+        iTile = g.newImage("emptytile.png", ImageFormat.RGB565); tiles.add(iTile); charCodes.add( "  ");
         iChaser = g.newImage("chaser.png", ImageFormat.RGB565); tiles.add(iChaser); charCodes.add("Ca");
         iOrb = g.newImage("orb.png", ImageFormat.RGB565); tiles.add(iOrb); charCodes.add( "Oa");
-        iTile = g.newImage("emptytile.png", ImageFormat.RGB565); tiles.add(iTile); charCodes.add( "  ");
+        iWarpTile = g.newImage("warp.png", ImageFormat.RGB565); tiles.add(iWarpTile); charCodes.add( "w0");
+        iFinishTile = g.newImage("finish.png", ImageFormat.RGB565); tiles.add(iFinishTile); charCodes.add( "f!");
         iBasicTile = g.newImage("basictile.png", ImageFormat.RGB565); tiles.add(iBasicTile); charCodes.add( "b+");
         iRockTile = g.newImage("midtile.png", ImageFormat.RGB565); tiles.add(iRockTile); charCodes.add( "b-");
         iStoneTile = g.newImage("stonetile.png", ImageFormat.RGB565); tiles.add(iStoneTile); charCodes.add( "b/");
@@ -71,10 +76,6 @@ public class Assets {
         iIceTile = g.newImage("icetile.png", ImageFormat.RGB565); tiles.add(iIceTile); charCodes.add( "s_");
         iMetalTile = g.newImage("metaltile.png", ImageFormat.RGB565); tiles.add(iMetalTile); charCodes.add( "b&");
         iSnowTile = g.newImage("snowtile.png", ImageFormat.RGB565); tiles.add(iSnowTile); charCodes.add( "b^");
-        iWarpTile = g.newImage("warp.png", ImageFormat.RGB565); tiles.add(iWarpTile); charCodes.add( "w0");
-        iFinishTile = g.newImage("finish.png", ImageFormat.RGB565); tiles.add(iFinishTile); charCodes.add( "f!");
-
-
 
     }}
 
@@ -122,7 +123,7 @@ public class Assets {
             res = builder.toString();
             bufferedReader.close();
         } catch (IOException e) {
-            writeToMemory(fileName, "");
+
         }
         return res;
     }
@@ -146,7 +147,8 @@ public class Assets {
 
     's_' : ice tile
 
-    'w0' - 'w9' : warp tile (their id is as they appear, they target the # representing them )
+    'w0'123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ : warp tile
+            (their id is as they appear, they target the # representing them )
 
     CHASER/ORB IDS 'a-j' 'A-J'
     'Ca' - 'Cj' : default chaser

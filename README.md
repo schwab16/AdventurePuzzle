@@ -7,9 +7,13 @@ TODO LIST:
 -50 warp glitch
 -death on fall off
 -level editor (warp config)
+-save& quit popup
 -level select function
 -pack select function
 -more game stuff
+-level editor help page
+-level editor level select screen
+-main menu
 -animation
 -sound
 -music
@@ -32,6 +36,10 @@ TODO List Ike
 -level select screen
 -pack select screen
 -retry screen
+-overhaul buttons
+-toomanywarps.png
+-editorreturn.png
+-selectedwarp.png
 =======
 
 TODO List testing:

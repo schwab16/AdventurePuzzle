@@ -24,7 +24,7 @@ public class ScreenPackSelect extends Screen {
 
         int packID = 0;
         //LevelPack lp = null;
-        if (editor) game.setScreen(new ScreenLevelEditor(game));
+        if (editor) game.setScreen(new ScreenLevelEditor(game,0));
 
         if (pass) game.setScreen(new ScreenLevelSelect(game, packID));
 
