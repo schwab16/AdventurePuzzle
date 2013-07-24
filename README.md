@@ -4,9 +4,7 @@ Programming: Jordan Haack
 Graphics: Isaac Schwab
 
 TODO LIST:
--50 warp glitch
 -death on fall off
--level editor (warp config)
 -save& quit popup
 -level select function
 -pack select function
@@ -40,6 +38,7 @@ TODO List Ike
 -toomanywarps.png
 -editorreturn.png
 -selectedwarp.png
+-blockselect.png
 =======
 
 TODO List testing:
