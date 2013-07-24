@@ -14,7 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9b212e8-d19b-4fe8-8a11-4a18ddaf91b3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordan/framework/implementation/AndroidMusic.java" afterPath="$PROJECT_DIR$/src/com/jordan/framework/implementation/AndroidMusic.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java" afterPath="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RobotGameCopy1.iws" />
@@ -109,19 +109,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScreenLevelEditor.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ScreenLevelEditor.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="164" column="73" selection-start="7039" selection-end="7039" vertical-scroll-proportion="0.0" vertical-offset="2188" max-vertical-offset="4930">
+            <state line="101" column="23" selection-start="4222" selection-end="4222" vertical-scroll-proportion="0.29813665" vertical-offset="1321" max-vertical-offset="4947">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidMusic.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AndroidMusic.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jordan/framework/implementation/AndroidMusic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="8" selection-start="3299" selection-end="3299" vertical-scroll-proportion="0.73602486" vertical-offset="1685" max-vertical-offset="2329">
+            <state line="136" column="0" selection-start="3297" selection-end="3297" vertical-scroll-proportion="0.0" vertical-offset="1685" max-vertical-offset="2329">
               <folding />
             </state>
           </provider>
@@ -164,8 +164,8 @@
         <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/Assets.java" />
         <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/GameRunner.java" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java" />
         <option value="$PROJECT_DIR$/src/com/jordan/framework/implementation/AndroidMusic.java" />
+        <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java" />
       </list>
     </option>
   </component>
@@ -608,7 +608,11 @@
       <created>1374630018860</created>
       <updated>1374630018860</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="warp config! yeaahhh, level editor code done!">
+      <created>1374630052723</created>
+      <updated>1374630052723</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -851,16 +855,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jordan/framework/implementation/AndroidMusic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="73" selection-start="7039" selection-end="7039" vertical-scroll-proportion="0.0" vertical-offset="2188" max-vertical-offset="4930">
+        <state line="136" column="0" selection-start="3297" selection-end="3297" vertical-scroll-proportion="0.0" vertical-offset="1685" max-vertical-offset="2329">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jordan/framework/implementation/AndroidMusic.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="8" selection-start="3299" selection-end="3299" vertical-scroll-proportion="0.73602486" vertical-offset="1685" max-vertical-offset="2329">
+        <state line="101" column="23" selection-start="4222" selection-end="4222" vertical-scroll-proportion="0.29813665" vertical-offset="1321" max-vertical-offset="4947">
           <folding />
         </state>
       </provider>

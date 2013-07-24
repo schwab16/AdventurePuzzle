@@ -99,6 +99,7 @@ public class ScreenLevelEditor extends Screen {
             {
                 selected = false;
                 state = EditorType.Select;
+                return;
             }
         for (Input.TouchEvent t : touchEvents)
             if (t.type == Input.TouchEvent.TOUCH_DOWN) {
