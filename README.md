@@ -4,8 +4,7 @@ Programming: Jordan Haack
 Graphics: Isaac Schwab
 
 TODO LIST:
--death on fall off
--save& quit popup
+-save& quit popup (need yes no buttons)
 -level select function
 -pack select function
 -more game stuff
