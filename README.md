@@ -4,7 +4,6 @@ Programming: Jordan Haack
 Graphics: Isaac Schwab
 
 TODO LIST:
--memory improvements
 -save& quit popup (need yes no buttons)
 -pack select function
 -more game stuff

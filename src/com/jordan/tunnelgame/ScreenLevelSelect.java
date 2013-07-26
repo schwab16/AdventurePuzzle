@@ -46,14 +46,6 @@ public class ScreenLevelSelect extends Screen {
         Graphics g = game.getGraphics();
         Assets.menuByString("level");
         g.drawImage(Assets.menu,0,0);
-
-        int initX = 150, initY=200, sizeX = 150, sizeY=100, gapX = 57, gapY=15;
-        for (int x = 0; x < 5; x++) {
-            for (int y = 0; y < 5; y++)
-            {
-                //g.drawRect(initX + (sizeX + gapX)*x,initY + (sizeY + gapY)*y,sizeX,sizeY, Color.BLUE);
-            }
-        }
     }
 
     @Override
