@@ -143,7 +143,7 @@ public class ScreenLevelEditor extends Screen {
                 return;
             }
         for (Input.TouchEvent t : touchEvents) {
-            if (t.type == Input.TouchEvent.TOUCH_DOWN || t.type == Input.TouchEvent.TOUCH_DRAGGED) {
+            if (t.type == Input.TouchEvent.TOUCH_DOWN) {
                 if (TileWarp.otherWarps.size() == 42 && currentTile == 3)
                 {
                     state = EditorType.TooManyWarps;

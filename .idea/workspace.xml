@@ -14,6 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9b212e8-d19b-4fe8-8a11-4a18ddaf91b3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordan/tunnelgame/GameDrawer.java" afterPath="$PROJECT_DIR$/src/com/jordan/tunnelgame/GameDrawer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java" afterPath="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -94,7 +95,7 @@
       <file leaf-file-name="ScreenSplashLoading.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenSplashLoading.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="13" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="833">
+            <state line="7" column="13" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="816">
               <folding />
             </state>
           </provider>
@@ -103,7 +104,7 @@
       <file leaf-file-name="GameDrawer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/GameDrawer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="26" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="816">
+            <state line="36" column="9" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
               <folding />
             </state>
           </provider>
@@ -112,7 +113,7 @@
       <file leaf-file-name="ScreenLevelEditor.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="56" selection-start="6151" selection-end="6151" vertical-scroll-proportion="0.34228188" vertical-offset="2125" max-vertical-offset="5083">
+            <state line="145" column="53" selection-start="5902" selection-end="5902" vertical-scroll-proportion="0.48489934" vertical-offset="1972" max-vertical-offset="5083">
               <folding />
             </state>
           </provider>
@@ -194,12 +195,12 @@
         <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenPackSelect.java" />
         <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelSelect.java" />
         <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/Level.java" />
-        <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/GameDrawer.java" />
         <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/Assets.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLoading.java" />
         <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenGame.java" />
         <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java" />
+        <option value="$PROJECT_DIR$/src/com/jordan/tunnelgame/GameDrawer.java" />
       </list>
     </option>
   </component>
@@ -291,6 +292,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="jordan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="olderorbgame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="olderorbgame2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jordan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="implementation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -773,7 +804,11 @@
       <created>1374864609567</created>
       <updated>1374864609567</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="level editor memory improved">
+      <created>1374864798234</created>
+      <updated>1374864798234</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -933,11 +968,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/jordan/framework/implementation/AndroidGraphics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1480" selection-end="1480" vertical-scroll-proportion="1.2142857" vertical-offset="0" max-vertical-offset="2635" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jordan/framework/Graphics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="17" selection-start="81" selection-end="81" vertical-scroll-proportion="-0.032015067" vertical-offset="102" max-vertical-offset="646">
@@ -953,18 +983,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenPackSelect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="31" selection-start="1004" selection-end="1004" vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="1088">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/Level.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="59" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/GameDrawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="26" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
           <folding />
         </state>
       </provider>
@@ -989,13 +1007,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/Assets.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="12" selection-start="1529" selection-end="1529" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2261">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenSplashLoading.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
           <folding />
         </state>
       </provider>
@@ -1026,9 +1037,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="59" selection-start="323" selection-end="323" vertical-scroll-proportion="0.21417323" vertical-offset="0" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenSplashLoading.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="13" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jordan/framework/implementation/AndroidGraphics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="0" selection-start="1480" selection-end="1480" vertical-scroll-proportion="-0.44855306" vertical-offset="908" max-vertical-offset="2635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/GameDrawer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="9" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="56" selection-start="6151" selection-end="6151" vertical-scroll-proportion="0.34228188" vertical-offset="2125" max-vertical-offset="5083">
+        <state line="145" column="53" selection-start="5902" selection-end="5902" vertical-scroll-proportion="0.48489934" vertical-offset="1972" max-vertical-offset="5083">
           <folding />
         </state>
       </provider>

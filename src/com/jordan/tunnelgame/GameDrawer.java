@@ -9,7 +9,6 @@ public class GameDrawer {
 
     public static void draw(Graphics g, Level level)
     {
-        g.clearScreen(Color.BLACK);
         g.drawImage(Assets.background, 0,0);
 
         for (int x = 0; x < C.xBlocks; x++) {
@@ -36,7 +35,5 @@ public class GameDrawer {
             int y = (int)o.coord.y - i.getHeight()/2;
             g.drawImage(i, x, y);
         }
-
-
     }
 }
