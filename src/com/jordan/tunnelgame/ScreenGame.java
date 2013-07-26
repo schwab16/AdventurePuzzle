@@ -80,8 +80,9 @@ public class ScreenGame extends Screen {
 
 
     private void updateReady(List<TouchEvent> touchEvents) {
-        if (touchEvents.size() > 0 && touchEvents.get(0).type == TouchEvent.TOUCH_UP)
-            state = GameState.Running;
+        for (TouchEvent t: touchEvents)
+            if (t.type == TouchEvent.TOUCH_UP)
+                state = GameState.Running;
     }
     private void drawReadyUI() {
         Graphics g = game.getGraphics();

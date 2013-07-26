@@ -4,9 +4,8 @@ Programming: Jordan Haack
 Graphics: Isaac Schwab
 
 TODO LIST:
--out of memory error
+-memory improvements
 -save& quit popup (need yes no buttons)
--level select function
 -pack select function
 -more game stuff
 -level editor help page
@@ -15,6 +14,7 @@ TODO LIST:
 -animation
 -sound
 -music
+-level select improved
 -3stars / time medals
 -saving stars, medals, levels, locked levels
 =======

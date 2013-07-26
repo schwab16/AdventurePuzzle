@@ -18,7 +18,6 @@ import java.util.Map;
 
 public class Assets {
 
-    public static Image splash;
     public static Image pauseicon, selectedwarp,editorreturn;
     public static Image background , menu;
     public static Button buttonretry, buttonresume, buttonnextlevel, buttonmainmenu;
@@ -38,7 +37,7 @@ public class Assets {
 
     public static void loadSplash(Graphics h) {
         g = h;
-        splash = g.newImage("splash.png", ImageFormat.RGB565);
+        menu = g.newImage("splashmenu.png", ImageFormat.RGB565);
     }
 
     public static void load() { if (!loaded) { loaded = true;
