@@ -43,6 +43,8 @@ public class ScreenLevelEditor extends Screen {
 
     public ScreenLevelEditor(Game game, int num) {
         super(game);
+        state = EditorType.Select;
+        Assets.menuByString("editor");
         levelNum = num;
         if (!C.cheats) {
             String k = Assets.readFromMemory("custom" + levelNum + ".txt");
@@ -62,7 +64,7 @@ public class ScreenLevelEditor extends Screen {
         {
             if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x < 350) {
                 if (t.y > 0 && t.y < 800/6) state = EditorType.Placement;
-                if (t.y > 800/6 && t.y < 2*800/6) state = EditorType.Block;
+                if (t.y > 800/6 && t.y < 2*800/6) {state = EditorType.Block;Assets.menuByString("block");}
                 if (t.y > 2*800/6 && t.y < 3*800/6) state = EditorType.Warps;
                 if (t.y > 3*800/6 && t.y < 4*800/6) state = EditorType.Test;
                 if (t.y > 4*800/6 && t.y < 5*800/6) {
@@ -86,7 +88,6 @@ public class ScreenLevelEditor extends Screen {
     private void paintSelect() {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
-        Assets.menuByString("editor");
         g.drawImage(Assets.menu,0,0);
         g.drawImage(selectedImage,600,660);
     }
@@ -100,6 +101,7 @@ public class ScreenLevelEditor extends Screen {
             {
                 selected = false;
                 state = EditorType.Select;
+                Assets.menuByString("editor");
                 return;
             }
         for (Input.TouchEvent t : touchEvents)
@@ -137,6 +139,7 @@ public class ScreenLevelEditor extends Screen {
             if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > 1280 - 50 && t.y < 50)
             {
                 state = EditorType.Select;
+                Assets.menuByString("editor");
                 return;
             }
         for (Input.TouchEvent t : touchEvents) {
@@ -145,6 +148,7 @@ public class ScreenLevelEditor extends Screen {
                 if (TileWarp.otherWarps.size() == 43 && currentTile == 3)
                 {
                     state = EditorType.TooManyWarps;
+                    Assets.menuByString("toomanywarps");
                     return;
                 }
                 int delWarp = -1;
@@ -182,6 +186,7 @@ public class ScreenLevelEditor extends Screen {
         for (Input.TouchEvent t : touchEvents)
             if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > 1280 - 50 && t.y < 50) {
                 state = EditorType.Select;
+                Assets.menuByString("editor");
                 return;
             }
         for (Input.TouchEvent t : touchEvents) {
@@ -196,7 +201,6 @@ public class ScreenLevelEditor extends Screen {
     }
     private void paintBlock() {
         Graphics g = game.getGraphics();
-        Assets.menuByString("block");
         g.drawImage(Assets.menu,0,0);
         int x = 0, y= 0;
         for (Image i: Assets.tiles)
@@ -213,6 +217,7 @@ public class ScreenLevelEditor extends Screen {
         for (Input.TouchEvent t : touchEvents)
             if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > 1280 - 50 && t.y < 50) {
                 state = EditorType.Select;
+                Assets.menuByString("editor");
                 reload();
                 return;
             }
@@ -229,14 +234,16 @@ public class ScreenLevelEditor extends Screen {
     private void updateTooManyWarps(List<Input.TouchEvent> touchEvents) {
         for (Input.TouchEvent t : touchEvents)
             if (t.type == Input.TouchEvent.TOUCH_DOWN)
+            {
                 state = EditorType.Select;
+                Assets.menuByString("editor");
+            }
 
     }
     private void paintTooManyWarps() {
         Graphics g = game.getGraphics();
         paintPlacement();
         g.drawARGB(100,0,0,0);
-        Assets.menuByString("toomanywarps");
         g.drawImage(Assets.menu,0,0);
     }
 
@@ -294,6 +301,7 @@ public class ScreenLevelEditor extends Screen {
     public void backButton() {
         state = EditorType.Select;
         selected = false;
+        Assets.menuByString("editor");
         reload();
     }
 
