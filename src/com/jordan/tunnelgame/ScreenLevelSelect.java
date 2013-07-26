@@ -1,5 +1,7 @@
 package com.jordan.tunnelgame;
 
+import android.graphics.Color;
+
 import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
 import com.jordan.framework.Input.TouchEvent;
@@ -17,15 +19,24 @@ public class ScreenLevelSelect extends Screen {
     @Override
     public void update(float deltaTime) {
 
+        int initX = 150, initY=200, sizeX = 150, sizeY=100, gapX = 57, gapY=15;
         boolean pass = false;
+        int levelNum = 1;
         for (TouchEvent t : game.getInput().getTouchEvents())
         {
-            if (t.type == TouchEvent.TOUCH_UP)
-                pass = true;
+            if (t.type == TouchEvent.TOUCH_DOWN)
+            {
+                int x = t.x - initX;
+                int y = t.y - initY;
+                x /= sizeX + gapX;
+                y /= sizeY + gapY;
+                if (x >= 0 && x < 5 && y >=0 && y < 5)
+                {
+                    pass = true;
+                    levelNum = x + 5*y + 1;
+                }
+            }
         }
-
-        int levelNum = 1;
-
         if (pass) game.setScreen(new ScreenGame(game, packID, levelNum));
 
     }
@@ -34,6 +45,14 @@ public class ScreenLevelSelect extends Screen {
     public void paint(float deltaTime) {
         Graphics g = game.getGraphics();
         g.drawImage(Assets.levelselect,0,0);
+
+        int initX = 150, initY=200, sizeX = 150, sizeY=100, gapX = 57, gapY=15;
+        for (int x = 0; x < 5; x++) {
+            for (int y = 0; y < 5; y++)
+            {
+                //g.drawRect(initX + (sizeX + gapX)*x,initY + (sizeY + gapY)*y,sizeX,sizeY, Color.BLUE);
+            }
+        }
     }
 
     @Override
@@ -53,6 +72,7 @@ public class ScreenLevelSelect extends Screen {
 
     @Override
     public void backButton() {
+        game.setScreen(new ScreenPackSelect(game));
 
     }
 }

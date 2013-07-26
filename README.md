@@ -4,6 +4,7 @@ Programming: Jordan Haack
 Graphics: Isaac Schwab
 
 TODO LIST:
+-out of memory error
 -save& quit popup (need yes no buttons)
 -level select function
 -pack select function
