@@ -144,8 +144,7 @@ public class ScreenLevelEditor extends Screen {
             }
         for (Input.TouchEvent t : touchEvents) {
             if (t.type == Input.TouchEvent.TOUCH_DOWN || t.type == Input.TouchEvent.TOUCH_DRAGGED) {
-                reload();
-                if (TileWarp.otherWarps.size() == 43 && currentTile == 3)
+                if (TileWarp.otherWarps.size() == 42 && currentTile == 3)
                 {
                     state = EditorType.TooManyWarps;
                     Assets.menuByString("toomanywarps");
@@ -157,21 +156,19 @@ public class ScreenLevelEditor extends Screen {
                 int xy = 2 * x + 2 * 16 * y;
                 if (levelString.charAt(xy) == 'w') delWarp = ((TileWarp)level.tiles[x][y]).myID;
                 levelString = levelString.substring(0,xy) + Assets.charCodes.get(currentTile) + levelString.substring(xy+2);
-                reload();
                 if (currentTile == 3) {
                     for (int k = 0; k < 320; k+=2)
                         if (levelString.charAt(k) == 'w')
                             if (levelString.charAt(k+1) >= ((TileWarp)(level.tiles[x][y])).myID + '0' && xy != k)
                                 levelString = levelString.substring(0,k) + "w" + ((char)(levelString.charAt(k+1)+1)) + levelString.substring(k+2);
-                    reload();
                 }
                 if (currentTile == 0 && delWarp != -1) {
                     for (int k = 0; k < 320; k+=2)
                         if (levelString.charAt(k) == 'w')
                             if (levelString.charAt(k+1) >= delWarp + '0')
                                 levelString = levelString.substring(0,k) + "w" + ((char)(levelString.charAt(k+1)-1)) + levelString.substring(k+2);
-                    reload();
                 }
+                reload();
             }
         }
 
