@@ -26,7 +26,7 @@ TODO List Ike
 -level editor icons
 -next level menu
 -death menu
--tiles: finish, dirt, lava, wood, clouds, spikes, bomb, glass, push button
+-tiles: finish, dirt, lava, wood, clouds, spikes, bomb, glass, push button, spring block(pushes you)
 -character
 -backgrounds: dessert, ocean, forest, jungle, prairie, city, building
 -animations
