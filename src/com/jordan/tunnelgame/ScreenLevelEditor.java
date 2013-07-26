@@ -86,7 +86,8 @@ public class ScreenLevelEditor extends Screen {
     private void paintSelect() {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
-        g.drawImage(Assets.editoricons,0,0);
+        Assets.menuByString("editor");
+        g.drawImage(Assets.menu,0,0);
         g.drawImage(selectedImage,600,660);
     }
 
@@ -195,7 +196,8 @@ public class ScreenLevelEditor extends Screen {
     }
     private void paintBlock() {
         Graphics g = game.getGraphics();
-        g.drawImage(Assets.blockselect,0,0);
+        Assets.menuByString("block");
+        g.drawImage(Assets.menu,0,0);
         int x = 0, y= 0;
         for (Image i: Assets.tiles)
         {
@@ -234,7 +236,8 @@ public class ScreenLevelEditor extends Screen {
         Graphics g = game.getGraphics();
         paintPlacement();
         g.drawARGB(100,0,0,0);
-        g.drawImage(Assets.toomanywarps,0,0);
+        Assets.menuByString("toomanywarps");
+        g.drawImage(Assets.menu,0,0);
     }
 
 

@@ -19,8 +19,8 @@ import java.util.Map;
 public class Assets {
 
     public static Image splash;
-    public static Image packselect, levelselect, failmenu, finishmenu, readymenu, pauseicon, pausemenu ,toomanywarps, blockselect, selectedwarp;
-    public static Image background, backgroundmoon, backgroundnight, backgroundsunset;
+    public static Image pauseicon, selectedwarp,editorreturn;
+    public static Image background , menu;
     public static Button buttonretry, buttonresume, buttonnextlevel, buttonmainmenu;
 
     public static Image iChaser, iOrb, iTile;
@@ -32,38 +32,32 @@ public class Assets {
     public static ArrayList<Image> tiles = new ArrayList<Image>();
     public static ArrayList<String> charCodes = new ArrayList<String>();
     public static ArrayList<String> backgrounds = new ArrayList<String>();
-    public static Image editoricons, editorreturn;
     public static boolean loaded = false;
 
-    public static void loadSplash(Graphics g) {
+    public static Graphics g;
+
+    public static void loadSplash(Graphics h) {
+        g = h;
         splash = g.newImage("splash.png", ImageFormat.RGB565);
     }
 
-    public static void load(Graphics g) { if (!loaded) { loaded = true;
+    public static void load() { if (!loaded) { loaded = true;
 
-        background = g.newImage("background.png", ImageFormat.RGB565); backgrounds.add("");
-        backgroundmoon = g.newImage("backgroundmoon.png", ImageFormat.RGB565); backgrounds.add("moon");
-        backgroundnight = g.newImage("backgroundnight.png", ImageFormat.RGB565); backgrounds.add("night");
-        backgroundsunset = g.newImage("backgroundsunset.png", ImageFormat.RGB565); backgrounds.add("sunset");
+        backgrounds.add("");
+        backgrounds.add("moon");
+        backgrounds.add("night");
+        backgrounds.add("sunset");
 
+        //smallish
         buttonretry = new Button(g.newImage("buttonretry.png", ImageFormat.RGB565),g.newImage("pushedbuttonretry.png", ImageFormat.RGB565));
         buttonmainmenu = new Button(g.newImage("buttonmainmenu.png", ImageFormat.RGB565),g.newImage("pushedbuttonmainmenu.png", ImageFormat.RGB565));
         buttonnextlevel = new Button(g.newImage("buttonnextlevel.png", ImageFormat.RGB565),g.newImage("pushedbuttonnextlevel.png", ImageFormat.RGB565));
         buttonresume = new Button(g.newImage("buttonresume.png", ImageFormat.RGB565),g.newImage("pushedbuttonresume.png", ImageFormat.RGB565));
+        pauseicon = g.newImage("pauseicon.png", ImageFormat.RGB565);//small
+        selectedwarp = g.newImage("selectedwarp.png", ImageFormat.RGB565);//small
+        editorreturn = g.newImage("editorreturn.png", ImageFormat.RGB565);//small
 
-        failmenu = g.newImage("failmenu.png", ImageFormat.RGB565);
-        finishmenu = g.newImage("finishmenu.png", ImageFormat.RGB565);
-        packselect = g.newImage("packselect.png", ImageFormat.RGB565);
-        levelselect = g.newImage("levelselect.png", ImageFormat.RGB565);
-        readymenu = g.newImage("readymenu.png", ImageFormat.RGB565);
-        pauseicon = g.newImage("pauseicon.png", ImageFormat.RGB565);
-        pausemenu = g.newImage("pausemenu.png", ImageFormat.RGB565);
-        editoricons = g.newImage("editoricons.png", ImageFormat.RGB565);
-        editorreturn = g.newImage("editorreturn.png", ImageFormat.RGB565);
-        toomanywarps = g.newImage("toomanywarps.png", ImageFormat.RGB565);
-        selectedwarp = g.newImage("selectedwarp.png", ImageFormat.RGB565);
-        blockselect = g.newImage("blockselect.png", ImageFormat.RGB565);
-
+        //smallish
         iTile = g.newImage("emptytile.png", ImageFormat.RGB565); tiles.add(iTile); charCodes.add( "  ");
         iChaser = g.newImage("chaser.png", ImageFormat.RGB565); tiles.add(iChaser); charCodes.add("Ca");
         iOrb = g.newImage("orb.png", ImageFormat.RGB565); tiles.add(iOrb); charCodes.add( "Oa");
@@ -79,18 +73,32 @@ public class Assets {
 
     }}
 
-    public static Image backgroundByString(String bg)
+    public static void backgroundByString(String bg)
     {
-        if (bg.equals("")) return Assets.background;
-        else if (bg.equals("moon")) return Assets.backgroundmoon;
-        else if (bg.equals("night")) return Assets.backgroundnight;
-        else if (bg.equals("sunset")) return Assets.backgroundsunset;
-
-        else return Assets.background;
+        if (bg.equals("del")) {
+            background = null;
+        }
+        background =  g.newImage("background" + bg + ".png", ImageFormat.RGB565);
     }
 
-    public static double distance(Coord a, Coord b)
+    public static void menuByString(String mn)
     {
+        menu = g.newImage(mn + "menu.png", ImageFormat.RGB565);
+        /*failmenu = g.newImage("failmenu.png", ImageFormat.RGB565); //big
+        finishmenu = g.newImage("finishmenu.png", ImageFormat.RGB565);//big
+        packselect = g.newImage("packmenu.png", ImageFormat.RGB565);//big
+        levelselect = g.newImage("levelmenu.png", ImageFormat.RGB565);//big
+        readymenu = g.newImage("readymenu.png", ImageFormat.RGB565);//big
+        pausemenu = g.newImage("pausemenu.png", ImageFormat.RGB565);//big
+        editoricons = g.newImage("editormenu.png", ImageFormat.RGB565);//big
+        toomanywarps = g.newImage("toomanywarpsmenu.png", ImageFormat.RGB565);//bg
+        blockselect = g.newImage("blockmenu.png", ImageFormat.RGB565);//big*/
+    }
+
+
+
+
+    public static double distance(Coord a, Coord b) {
         return Math.sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
     }
 

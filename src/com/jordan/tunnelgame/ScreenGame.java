@@ -87,7 +87,8 @@ public class ScreenGame extends Screen {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g, level);
         g.drawARGB(darkness, 0, 0, 0);
-        g.drawImage(Assets.readymenu,0,0);
+        Assets.menuByString("ready");
+        g.drawImage(Assets.menu,0,0);
     }
 
     public int pauretryy = 475, paummy = 650, pauresy = 300;
@@ -155,7 +156,8 @@ public class ScreenGame extends Screen {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
         g.drawARGB(darkness, 0, 0, 0);
-        g.drawImage(Assets.pausemenu,0,0);
+        Assets.menuByString("pause");
+        g.drawImage(Assets.menu,0,0);
         g.drawImage(Assets.buttonretry.getImage(),290,pauretryy);
         g.drawImage(Assets.buttonmainmenu.getImage(),290,paummy);
         g.drawImage(Assets.buttonresume.getImage(),290,pauresy);
@@ -209,7 +211,8 @@ public class ScreenGame extends Screen {
 		Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
         g.drawARGB(darkness, 0, 0, 0);
-        g.drawImage(Assets.failmenu,0,0);
+        Assets.menuByString("fail");
+        g.drawImage(Assets.menu,0,0);
         g.drawImage(Assets.buttonretry.getImage(),290,failretryy);
         g.drawImage(Assets.buttonmainmenu.getImage(),290,failmmy);
 	}
@@ -280,7 +283,8 @@ public class ScreenGame extends Screen {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
         g.drawARGB(darkness, 0, 0, 0);
-        g.drawImage(Assets.finishmenu,0,0);
+        Assets.menuByString("finish");
+        g.drawImage(Assets.menu,0,0);
         g.drawImage(Assets.buttonretry.getImage(),290,finretryy);
         g.drawImage(Assets.buttonmainmenu.getImage(),290,finmmy);
         g.drawImage(Assets.buttonnextlevel.getImage(),290,finnly);

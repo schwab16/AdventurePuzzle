@@ -10,7 +10,7 @@ public class GameDrawer {
     public static void draw(Graphics g, Level level)
     {
         g.clearScreen(Color.BLACK);
-        g.drawImage(level.background, 0,0);
+        g.drawImage(Assets.background, 0,0);
 
         for (int x = 0; x < C.xBlocks; x++) {
             for (int y = 0; y < C.yBlocks; y++) {

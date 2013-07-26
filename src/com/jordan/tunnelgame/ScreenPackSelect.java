@@ -34,7 +34,8 @@ public class ScreenPackSelect extends Screen {
     @Override
     public void paint(float deltaTime) {
         Graphics g = game.getGraphics();
-        g.drawImage(Assets.packselect,0,0);
+        Assets.menuByString("pack");
+        g.drawImage(Assets.menu,0,0);
 
     }
 

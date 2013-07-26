@@ -44,7 +44,8 @@ public class ScreenLevelSelect extends Screen {
     @Override
     public void paint(float deltaTime) {
         Graphics g = game.getGraphics();
-        g.drawImage(Assets.levelselect,0,0);
+        Assets.menuByString("level");
+        g.drawImage(Assets.menu,0,0);
 
         int initX = 150, initY=200, sizeX = 150, sizeY=100, gapX = 57, gapY=15;
         for (int x = 0; x < 5; x++) {

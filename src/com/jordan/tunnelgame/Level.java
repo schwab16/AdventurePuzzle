@@ -10,7 +10,6 @@ public class Level {
     public ArrayList<Chaser> chasers = new ArrayList<Chaser>();
     public ArrayList<Orb> orbs = new ArrayList<Orb>();
     public Tile[][] tiles = new Tile[C.xBlocks][C.yBlocks];
-    public Image background = Assets.background;
 
     public int packID;
     public int levelNum;
@@ -36,7 +35,7 @@ public class Level {
         chasers = new ArrayList<Chaser>();
         orbs = new ArrayList<Orb>();
         tiles = new Tile[C.xBlocks][C.yBlocks];
-        background = Assets.backgroundByString(bg);
+        Assets.backgroundByString(bg);
 
         for (int y = 0; y < C.yBlocks; y++) {
             for (int x = 0; x < C.xBlocks; x++) {
