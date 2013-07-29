@@ -2,36 +2,29 @@ package com.jordan.tunnelgame;
 
 import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
-import com.jordan.framework.Input.TouchEvent;
 import com.jordan.framework.Screen;
 
-public class ScreenPackSelect extends Screen {
-    public ScreenPackSelect(Game game) {
+public class ScreenMainMenu extends Screen {
+    public ScreenMainMenu(Game game) {
         super(game);
     }
 
     @Override
     public void update(float deltaTime) {
-
-        boolean pass = false, editor = false;
-        for (TouchEvent t : game.getInput().getTouchEvents())
+        switch (Assets.mainButtons.update(game.getInput().getTouchEvents()))
         {
-            if (t.type == TouchEvent.TOUCH_UP)
-                pass = true;
+            case 0: game.setScreen(new ScreenPackSelect(game)); break;
+            case 1: game.setScreen(new ScreenLevelEditor(game,0)); break;
+            case 2: game.setScreen(new ScreenAbout(game)); break;
         }
-
-        int packID = 0;
-
-        if (pass) game.setScreen(new ScreenLevelSelect(game, packID));
-
-
     }
 
     @Override
     public void paint(float deltaTime) {
         Graphics g = game.getGraphics();
-        Assets.menuByString("pack");
+        Assets.menuByString("main");
         g.drawImage(Assets.menu,0,0);
+        Assets.mainButtons.paint(g);
     }
 
     @Override
@@ -51,6 +44,6 @@ public class ScreenPackSelect extends Screen {
 
     @Override
     public void backButton() {
-        game.setScreen(new ScreenMainMenu(game));
+
     }
 }

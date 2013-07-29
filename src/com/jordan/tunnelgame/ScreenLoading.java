@@ -13,7 +13,7 @@ public class ScreenLoading extends Screen {
 	public void update(float deltaTime) {
 		Graphics g = game.getGraphics();
         Assets.load();
-		game.setScreen(new ScreenPackSelect(game));
+		game.setScreen(new ScreenMainMenu(game));
 	}
 
 	@Override

@@ -2,36 +2,27 @@ package com.jordan.tunnelgame;
 
 import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
-import com.jordan.framework.Input.TouchEvent;
 import com.jordan.framework.Screen;
 
-public class ScreenPackSelect extends Screen {
-    public ScreenPackSelect(Game game) {
+public class ScreenAbout extends Screen {
+    public ScreenAbout(Game game) {
         super(game);
     }
 
     @Override
     public void update(float deltaTime) {
-
-        boolean pass = false, editor = false;
-        for (TouchEvent t : game.getInput().getTouchEvents())
+        switch (Assets.returnButtons.update(game.getInput().getTouchEvents()))
         {
-            if (t.type == TouchEvent.TOUCH_UP)
-                pass = true;
+            case 0: backButton();
         }
-
-        int packID = 0;
-
-        if (pass) game.setScreen(new ScreenLevelSelect(game, packID));
-
-
     }
 
     @Override
     public void paint(float deltaTime) {
         Graphics g = game.getGraphics();
-        Assets.menuByString("pack");
+        Assets.menuByString("about");
         g.drawImage(Assets.menu,0,0);
+        Assets.returnButtons.paint(g);
     }
 
     @Override

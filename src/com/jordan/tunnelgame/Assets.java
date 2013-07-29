@@ -18,8 +18,8 @@ public class Assets {
 
     public static Image pauseicon, selectedwarp, editorreturn;
     public static Image background , menu;
-    public static Button buttonretry, buttonresume, buttonnextlevel, buttonlevelselect;
-    public static ButtonSet pauseButtons, finishButtons, failButtons;
+    public static Button buttonreturn, buttonretry, buttonresume, buttonnextlevel, buttonlevelselect, buttonyes, buttonno, buttonplay, buttonleveleditor, buttonabout;
+    public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons;
 
     public static Image iChaser, iOrb, iTile;
     public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
@@ -37,7 +37,7 @@ public class Assets {
 
     public static void loadSplash(Graphics h) {
         g = h;
-        backgroundByString("splash");
+        menuByString("splash");
     }
 
     public static void load() { if (!loaded) { loaded = true;
@@ -53,12 +53,20 @@ public class Assets {
         buttonlevelselect = new Button(g.newImage("textlevelselect.png", ImageFormat.RGB565));
         buttonnextlevel = new Button(g.newImage("textnextlevel.png", ImageFormat.RGB565));
         buttonresume = new Button(g.newImage("textresume.png", ImageFormat.RGB565));
+        buttonplay = new Button(g.newImage("textplay.png", ImageFormat.RGB565));
+        buttonleveleditor = new Button(g.newImage("textleveleditor.png", ImageFormat.RGB565));
+        buttonabout = new Button(g.newImage("textabout.png", ImageFormat.RGB565));
+        buttonreturn = new Button(g.newImage("textreturn.png", ImageFormat.RGB565));
         ArrayList<Button> buttonsPause = new ArrayList<Button>(); buttonsPause.add(buttonresume); buttonsPause.add(buttonretry); buttonsPause.add(buttonlevelselect);
         ArrayList<Button> buttonsFail = new ArrayList<Button>(); buttonsFail.add(buttonretry); buttonsFail.add(buttonlevelselect);
         ArrayList<Button> buttonsFinish = new ArrayList<Button>(); buttonsFinish.add(buttonnextlevel); buttonsFinish.add(buttonretry); buttonsFinish.add(buttonlevelselect);
+        ArrayList<Button> buttonsMain = new ArrayList<Button>(); buttonsMain.add(buttonplay); buttonsMain.add(buttonleveleditor); buttonsMain.add(buttonabout);
+        ArrayList<Button> buttonsReturn = new ArrayList<Button>(); buttonsReturn.add(buttonreturn);
         pauseButtons = new ButtonSet(buttonsPause, new int[][]{{290,300},{290,475},{290,650}});
         failButtons = new ButtonSet(buttonsFail, new int[][]{{290,400},{290,600}});
         finishButtons = new ButtonSet(buttonsFinish, new int[][]{{290,300},{290,475},{290,650}});
+        mainButtons = new ButtonSet(buttonsMain, new int[][]{{290,300},{290,475},{290,650}});
+        returnButtons = new ButtonSet(buttonsReturn, new int[][]{{290,600}});
 
         //icons
         pauseicon = g.newImage("pauseicon.png", ImageFormat.RGB565);//small
@@ -67,10 +75,10 @@ public class Assets {
 
         //tiles
         iTile = g.newImage("emptytile.png", ImageFormat.RGB565); tiles.add(iTile); charCodes.add( "  ");
-        iChaser = g.newImage("chaser.png", ImageFormat.RGB565); tiles.add(iChaser); charCodes.add("Ca");
-        iOrb = g.newImage("orb.png", ImageFormat.RGB565); tiles.add(iOrb); charCodes.add( "Oa");
         iWarpTile = g.newImage("warp.png", ImageFormat.RGB565); tiles.add(iWarpTile); charCodes.add( "w0");
         iFinishTile = g.newImage("finish.png", ImageFormat.RGB565); tiles.add(iFinishTile); charCodes.add( "f!");
+        iChaser = g.newImage("chaser.png", ImageFormat.RGB565); tiles.add(iChaser); charCodes.add("Ca");
+        iOrb = g.newImage("orb.png", ImageFormat.RGB565); tiles.add(iOrb); charCodes.add( "Oa");
         iBasicTile = g.newImage("basictile.png", ImageFormat.RGB565); tiles.add(iBasicTile); charCodes.add( "b+");
         iRockTile = g.newImage("midtile.png", ImageFormat.RGB565); tiles.add(iRockTile); charCodes.add( "b-");
         iStoneTile = g.newImage("stonetile.png", ImageFormat.RGB565); tiles.add(iStoneTile); charCodes.add( "b/");

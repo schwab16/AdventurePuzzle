@@ -79,7 +79,7 @@ public class ScreenLevelEditor extends Screen {
                     }
                     else {
                         Assets.writeToMemory("custom" + levelNum + ".txt", j);
-                        game.setScreen(new ScreenPackSelect(game));
+                        game.setScreen(new ScreenMainMenu(game));
                     }
                 }
             }
@@ -144,7 +144,7 @@ public class ScreenLevelEditor extends Screen {
             }
         for (Input.TouchEvent t : touchEvents) {
             if (t.type == Input.TouchEvent.TOUCH_DOWN) {
-                if (TileWarp.otherWarps.size() == 42 && currentTile == 3)
+                if (TileWarp.otherWarps.size() == 42 && currentTile == 1)
                 {
                     state = EditorType.TooManyWarps;
                     Assets.menuByString("toomanywarps");
@@ -156,7 +156,7 @@ public class ScreenLevelEditor extends Screen {
                 int xy = 2 * x + 2 * 16 * y;
                 if (levelString.charAt(xy) == 'w') delWarp = ((TileWarp)level.tiles[x][y]).myID;
                 levelString = levelString.substring(0,xy) + Assets.charCodes.get(currentTile) + levelString.substring(xy+2);
-                if (currentTile == 3) {
+                if (currentTile == 1) {
                     for (int k = 0; k < 320; k+=2)
                         if (levelString.charAt(k) == 'w')
                             if (levelString.charAt(k+1) >= ((TileWarp)(level.tiles[x][y])).myID + '0' && xy != k)
@@ -296,10 +296,13 @@ public class ScreenLevelEditor extends Screen {
 
     @Override
     public void backButton() {
-        state = EditorType.Select;
-        selected = false;
-        Assets.menuByString("editor");
-        reload();
+        if (state == EditorType.Select) game.setScreen(new ScreenMainMenu(game));
+        else {
+            state = EditorType.Select;
+            selected = false;
+            Assets.menuByString("editor");
+            reload();
+        }
     }
 
 }
