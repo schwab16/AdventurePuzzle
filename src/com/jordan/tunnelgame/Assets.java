@@ -13,14 +13,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Assets {
 
-    public static Image pauseicon, selectedwarp,editorreturn;
+    public static Image pauseicon, selectedwarp, editorreturn;
     public static Image background , menu;
-    public static Button buttonretry, buttonresume, buttonnextlevel, buttonmainmenu;
+    public static Button buttonretry, buttonresume, buttonnextlevel, buttonlevelselect;
+    public static ButtonSet pauseButtons, finishButtons, failButtons;
 
     public static Image iChaser, iOrb, iTile;
     public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
@@ -31,13 +30,14 @@ public class Assets {
     public static ArrayList<Image> tiles = new ArrayList<Image>();
     public static ArrayList<String> charCodes = new ArrayList<String>();
     public static ArrayList<String> backgrounds = new ArrayList<String>();
+    public static String currentBG = "del";
     public static boolean loaded = false;
 
     public static Graphics g;
 
     public static void loadSplash(Graphics h) {
         g = h;
-        menu = g.newImage("splashmenu.png", ImageFormat.RGB565);
+        backgroundByString("splash");
     }
 
     public static void load() { if (!loaded) { loaded = true;
@@ -47,16 +47,25 @@ public class Assets {
         backgrounds.add("night");
         backgrounds.add("sunset");
 
-        //smallish
-        buttonretry = new Button(g.newImage("buttonretry.png", ImageFormat.RGB565),g.newImage("pushedbuttonretry.png", ImageFormat.RGB565));
-        buttonmainmenu = new Button(g.newImage("buttonmainmenu.png", ImageFormat.RGB565),g.newImage("pushedbuttonmainmenu.png", ImageFormat.RGB565));
-        buttonnextlevel = new Button(g.newImage("buttonnextlevel.png", ImageFormat.RGB565),g.newImage("pushedbuttonnextlevel.png", ImageFormat.RGB565));
-        buttonresume = new Button(g.newImage("buttonresume.png", ImageFormat.RGB565),g.newImage("pushedbuttonresume.png", ImageFormat.RGB565));
+        //buttons
+        Button.setButtons(g.newImage("button.png", ImageFormat.RGB565),g.newImage("buttonpushed.png", ImageFormat.RGB565));
+        buttonretry = new Button(g.newImage("textretry.png", ImageFormat.RGB565));
+        buttonlevelselect = new Button(g.newImage("textlevelselect.png", ImageFormat.RGB565));
+        buttonnextlevel = new Button(g.newImage("textnextlevel.png", ImageFormat.RGB565));
+        buttonresume = new Button(g.newImage("textresume.png", ImageFormat.RGB565));
+        ArrayList<Button> buttonsPause = new ArrayList<Button>(); buttonsPause.add(buttonresume); buttonsPause.add(buttonretry); buttonsPause.add(buttonlevelselect);
+        ArrayList<Button> buttonsFail = new ArrayList<Button>(); buttonsFail.add(buttonretry); buttonsFail.add(buttonlevelselect);
+        ArrayList<Button> buttonsFinish = new ArrayList<Button>(); buttonsFinish.add(buttonnextlevel); buttonsFinish.add(buttonretry); buttonsFinish.add(buttonlevelselect);
+        pauseButtons = new ButtonSet(buttonsPause, new int[][]{{290,300},{290,475},{290,650}});
+        failButtons = new ButtonSet(buttonsFail, new int[][]{{290,400},{290,600}});
+        finishButtons = new ButtonSet(buttonsFinish, new int[][]{{290,300},{290,475},{290,650}});
+
+        //icons
         pauseicon = g.newImage("pauseicon.png", ImageFormat.RGB565);//small
         selectedwarp = g.newImage("selectedwarp.png", ImageFormat.RGB565);//small
         editorreturn = g.newImage("editorreturn.png", ImageFormat.RGB565);//small
 
-        //smallish
+        //tiles
         iTile = g.newImage("emptytile.png", ImageFormat.RGB565); tiles.add(iTile); charCodes.add( "  ");
         iChaser = g.newImage("chaser.png", ImageFormat.RGB565); tiles.add(iChaser); charCodes.add("Ca");
         iOrb = g.newImage("orb.png", ImageFormat.RGB565); tiles.add(iOrb); charCodes.add( "Oa");
@@ -74,8 +83,11 @@ public class Assets {
 
     public static void backgroundByString(String bg)
     {
+        if (bg.equals(currentBG)) return;
+        currentBG = bg;
         if (bg.equals("del")) {
             background = null;
+            return;
         }
         background =  g.newImage("background" + bg + ".png", ImageFormat.RGB565);
     }
@@ -83,19 +95,7 @@ public class Assets {
     public static void menuByString(String mn)
     {
         menu = g.newImage(mn + "menu.png", ImageFormat.RGB565);
-        /*failmenu = g.newImage("failmenu.png", ImageFormat.RGB565); //big
-        finishmenu = g.newImage("finishmenu.png", ImageFormat.RGB565);//big
-        packselect = g.newImage("packmenu.png", ImageFormat.RGB565);//big
-        levelselect = g.newImage("levelmenu.png", ImageFormat.RGB565);//big
-        readymenu = g.newImage("readymenu.png", ImageFormat.RGB565);//big
-        pausemenu = g.newImage("pausemenu.png", ImageFormat.RGB565);//big
-        editoricons = g.newImage("editormenu.png", ImageFormat.RGB565);//big
-        toomanywarps = g.newImage("toomanywarpsmenu.png", ImageFormat.RGB565);//bg
-        blockselect = g.newImage("blockmenu.png", ImageFormat.RGB565);//big*/
     }
-
-
-
 
     public static double distance(Coord a, Coord b) {
         return Math.sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));

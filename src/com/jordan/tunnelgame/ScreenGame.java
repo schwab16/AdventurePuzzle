@@ -7,8 +7,6 @@ import android.graphics.Paint;
 
 import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
-import com.jordan.framework.Image;
-import com.jordan.framework.Input;
 import com.jordan.framework.Input.TouchEvent;
 import com.jordan.framework.Screen;
 
@@ -92,120 +90,27 @@ public class ScreenGame extends Screen {
         g.drawImage(Assets.menu,0,0);
     }
 
-    public int pauretryy = 475, paummy = 650, pauresy = 300;
 	private void updatePaused(List<TouchEvent> touchEvents) {
-        for (Input.TouchEvent event: touchEvents) {
-            switch(event.type)
-            {
-                case Input.TouchEvent.TOUCH_DOWN:
-                    if (!Assets.buttonretry.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,pauretryy), new Coord(990,pauretryy+150)))
-                    {
-                        Assets.buttonretry.down = true;
-                        Assets.buttonretry.pointerID = event.pointer;
-                    }
-                    else if (!Assets.buttonmainmenu.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,paummy), new Coord(990,paummy+150)))
-                    {
-                        Assets.buttonmainmenu.down = true;
-                        Assets.buttonmainmenu.pointerID = event.pointer;
-                    }
-                    else if (!Assets.buttonresume.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,pauresy), new Coord(990,pauresy+150)))
-                    {
-                        Assets.buttonresume.down = true;
-                        Assets.buttonresume.pointerID = event.pointer;
-                    }
-                    break;
-                case Input.TouchEvent.TOUCH_DRAGGED:
-                    if (event.pointer == Assets.buttonretry.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,pauretryy), new Coord(990,pauretryy+150)))
-                    {
-                        Assets.buttonretry.reset();
-                    }
-                    else if (event.pointer == Assets.buttonmainmenu.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,paummy), new Coord(990,paummy+150)))
-                    {
-                        Assets.buttonmainmenu.reset();
-                    }
-                    else if (event.pointer == Assets.buttonresume.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,pauresy), new Coord(990,pauresy+150)))
-                    {
-                        Assets.buttonresume.reset();
-                    }
-                    break;
-                case Input.TouchEvent.TOUCH_UP:
-                    if (event.pointer == Assets.buttonretry.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,pauretryy), new Coord(990,pauretryy+150)))
-                    {
-                        Assets.buttonretry.reset();
-                        Assets.buttonmainmenu.reset();
-                        Assets.buttonresume.reset();
-                        retry();
-                    }
-                    else if (event.pointer == Assets.buttonmainmenu.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,paummy), new Coord(990,paummy+150)))
-                    {
-                        Assets.buttonretry.reset();
-                        Assets.buttonmainmenu.reset();
-                        Assets.buttonresume.reset();
-                        mainMenu();
-                    }
-                    else if (event.pointer == Assets.buttonresume.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,pauresy), new Coord(990,pauresy+150)))
-                    {
-                        Assets.buttonretry.reset();
-                        Assets.buttonmainmenu.reset();
-                        Assets.buttonresume.reset();
-                        resume();
-                    }
-            }
+        switch (Assets.pauseButtons.update(touchEvents)) {
+            case 0: resume(); break;
+            case 1: retry(); break;
+            case 2: levelSelect(); break;
         }
 	}
     private void drawPausedUI() {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level);
+        GameDrawer.draw(g, level);
         g.drawARGB(darkness, 0, 0, 0);
         Assets.menuByString("pause");
         g.drawImage(Assets.menu,0,0);
-        g.drawImage(Assets.buttonretry.getImage(),290,pauretryy);
-        g.drawImage(Assets.buttonmainmenu.getImage(),290,paummy);
-        g.drawImage(Assets.buttonresume.getImage(),290,pauresy);
+        Assets.pauseButtons.paint(g);
     }
 
 
-    public int failretryy = 400, failmmy =600;
 	private void updateFail(List<TouchEvent> touchEvents) {
-        for (Input.TouchEvent event: touchEvents) {
-            switch(event.type)
-            {
-                case Input.TouchEvent.TOUCH_DOWN:
-                    if (!Assets.buttonretry.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,failretryy), new Coord(990,failretryy+150)))
-                    {
-                        Assets.buttonretry.down = true;
-                        Assets.buttonretry.pointerID = event.pointer;
-                    }
-                    else if (!Assets.buttonmainmenu.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,failmmy), new Coord(990,failmmy+150)))
-                    {
-                        Assets.buttonmainmenu.down = true;
-                        Assets.buttonmainmenu.pointerID = event.pointer;
-                    }
-                    break;
-                case Input.TouchEvent.TOUCH_DRAGGED:
-                    if (event.pointer == Assets.buttonretry.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,failretryy), new Coord(990,failretryy+150)))
-                    {
-                        Assets.buttonretry.reset();
-                    }
-                    else if (event.pointer == Assets.buttonmainmenu.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,failmmy), new Coord(990,failmmy+150)))
-                    {
-                        Assets.buttonmainmenu.reset();
-                    }
-                    break;
-                case Input.TouchEvent.TOUCH_UP:
-                    if (event.pointer == Assets.buttonretry.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,failretryy), new Coord(990,failretryy+150)))
-                    {
-                        Assets.buttonretry.reset();
-                        Assets.buttonmainmenu.reset();
-                        retry();
-                    }
-                    else if (event.pointer == Assets.buttonmainmenu.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,failmmy), new Coord(990,failmmy+150)))
-                    {
-                        Assets.buttonretry.reset();
-                        Assets.buttonmainmenu.reset();
-                        mainMenu();
-                    }
-            }
+        switch (Assets.failButtons.update(touchEvents)) {
+            case 0: retry(); break;
+            case 1: levelSelect(); break;
         }
     }
 	private void drawFailUI() {
@@ -214,70 +119,15 @@ public class ScreenGame extends Screen {
         g.drawARGB(darkness, 0, 0, 0);
         Assets.menuByString("fail");
         g.drawImage(Assets.menu,0,0);
-        g.drawImage(Assets.buttonretry.getImage(),290,failretryy);
-        g.drawImage(Assets.buttonmainmenu.getImage(),290,failmmy);
+        Assets.failButtons.paint(g);
 	}
 
 
-    public int finretryy = 475, finmmy = 650, finnly = 300;
     private void updateFinish(List<TouchEvent> touchEvents) {
-        for (Input.TouchEvent event: touchEvents) {
-            switch(event.type)
-            {
-                case Input.TouchEvent.TOUCH_DOWN:
-                    if (!Assets.buttonretry.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finretryy), new Coord(990,finretryy+150)))
-                    {
-                        Assets.buttonretry.down = true;
-                        Assets.buttonretry.pointerID = event.pointer;
-                    }
-                    else if (!Assets.buttonmainmenu.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finmmy), new Coord(990,finmmy+150)))
-                    {
-                        Assets.buttonmainmenu.down = true;
-                        Assets.buttonmainmenu.pointerID = event.pointer;
-                    }
-                    else if (!Assets.buttonnextlevel.down && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finnly), new Coord(990,finnly+150)))
-                    {
-                        Assets.buttonnextlevel.down = true;
-                        Assets.buttonnextlevel.pointerID = event.pointer;
-                    }
-                    break;
-                case Input.TouchEvent.TOUCH_DRAGGED:
-                    if (event.pointer == Assets.buttonretry.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finretryy), new Coord(990,finretryy+150)))
-                    {
-                        Assets.buttonretry.reset();
-                    }
-                    else if (event.pointer == Assets.buttonmainmenu.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finmmy), new Coord(990,finmmy+150)))
-                    {
-                        Assets.buttonmainmenu.reset();
-                    }
-                    else if (event.pointer == Assets.buttonnextlevel.pointerID && !Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finnly), new Coord(990,finnly+150)))
-                    {
-                        Assets.buttonnextlevel.reset();
-                    }
-                    break;
-                case Input.TouchEvent.TOUCH_UP:
-                    if (event.pointer == Assets.buttonretry.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finretryy), new Coord(990,finretryy+150)))
-                    {
-                        Assets.buttonretry.reset();
-                        Assets.buttonmainmenu.reset();
-                        Assets.buttonnextlevel.reset();
-                        retry();
-                    }
-                    else if (event.pointer == Assets.buttonmainmenu.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finmmy), new Coord(990,finmmy+150)))
-                    {
-                        Assets.buttonretry.reset();
-                        Assets.buttonmainmenu.reset();
-                        Assets.buttonnextlevel.reset();
-                        mainMenu();
-                    }
-                    else if (event.pointer == Assets.buttonnextlevel.pointerID && Assets.inBounds(new Coord(event.x,event.y),new Coord(290,finnly), new Coord(990,finnly+150)))
-                    {
-                        Assets.buttonretry.reset();
-                        Assets.buttonmainmenu.reset();
-                        Assets.buttonnextlevel.reset();
-                        nextLevel();
-                    }
-            }
+        switch (Assets.finishButtons.update(touchEvents)) {
+            case 0: nextLevel(); break;
+            case 1: retry(); break;
+            case 2: levelSelect(); break;
         }
     }
     private void drawFinishUI() {
@@ -286,9 +136,7 @@ public class ScreenGame extends Screen {
         g.drawARGB(darkness, 0, 0, 0);
         Assets.menuByString("finish");
         g.drawImage(Assets.menu,0,0);
-        g.drawImage(Assets.buttonretry.getImage(),290,finretryy);
-        g.drawImage(Assets.buttonmainmenu.getImage(),290,finmmy);
-        g.drawImage(Assets.buttonnextlevel.getImage(),290,finnly);
+        Assets.finishButtons.paint(g);
     }
 
 
@@ -331,7 +179,7 @@ public class ScreenGame extends Screen {
         state = GameState.Ready;
     }
 
-    private void mainMenu() {
+    private void levelSelect() {
         game.setScreen(new ScreenLevelSelect(game,levelPack.packID));
     }
 
@@ -339,7 +187,7 @@ public class ScreenGame extends Screen {
         time = 0;
         ticks = 0;
         level = levelPack.nextLevel();
-        if (level == null) mainMenu();
+        if (level == null) levelSelect();
         state = GameState.Ready;
     }
 

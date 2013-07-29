@@ -4,13 +4,18 @@ Programming: Jordan Haack
 Graphics: Isaac Schwab
 
 TODO LIST:
+-button sets
+-main menu (play/level/about)
+-about screen (credits)
+-level editor level select screen (&help button)
+-level editor help page
+-jumping (&decide how)
+-improve collisions
+-guys should face both ways
 -save& quit popup (need yes no buttons)
 -pack select function
--more game stuff
--level editor help page
--level editor level select screen
--main menu
--animation
+-more game stuff (new blocks)
+-animation (start with gem, easy)
 -sound
 -music
 -level select improved

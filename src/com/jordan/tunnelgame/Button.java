@@ -5,12 +5,24 @@ import com.jordan.framework.Image;
 public class Button {
     public int pointerID = -1;
     public boolean down = false;
-    public Image image,downimage;
+    public static Image image,downImage;
+    public Image text;
+    public static int width, height;
+    public int w,h;
 
-    public Button(Image image, Image downimage)
+    public Button(Image text)
     {
-        this.image = image;
-        this.downimage = downimage;
+        this.text = text;
+        w = text.getWidth();
+        h = text.getHeight();
+    }
+
+    public static void setButtons(Image timage, Image tdownImage)
+    {
+        image = timage;
+        downImage = tdownImage;
+        width = image.getWidth();
+        height = image.getHeight();
     }
 
     public void reset()
@@ -21,7 +33,7 @@ public class Button {
 
     public Image getImage()
     {
-        if (down) return downimage;
+        if (down) return downImage;
         else return image;
     }
 
