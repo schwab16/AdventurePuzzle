@@ -4,8 +4,6 @@ Programming: Jordan Haack
 Graphics: Isaac Schwab
 
 TODO LIST:
--main menu (play/level/about)
--about screen (credits)
 -level editor level select screen (&help button)
 -level editor help page
 -jumping (&decide how)

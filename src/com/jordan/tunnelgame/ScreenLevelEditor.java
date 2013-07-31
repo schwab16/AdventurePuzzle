@@ -156,6 +156,7 @@ public class ScreenLevelEditor extends Screen {
                 int xy = 2 * x + 2 * 16 * y;
                 if (levelString.charAt(xy) == 'w') delWarp = ((TileWarp)level.tiles[x][y]).myID;
                 levelString = levelString.substring(0,xy) + Assets.charCodes.get(currentTile) + levelString.substring(xy+2);
+                reload();
                 if (currentTile == 1) {
                     for (int k = 0; k < 320; k+=2)
                         if (levelString.charAt(k) == 'w')
