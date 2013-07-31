@@ -14,7 +14,7 @@ public class ScreenMainMenu extends Screen {
         switch (Assets.mainButtons.update(game.getInput().getTouchEvents()))
         {
             case 0: game.setScreen(new ScreenPackSelect(game)); break;
-            case 1: game.setScreen(new ScreenLevelEditor(game,0)); break;
+            case 1: game.setScreen(new ScreenEditorSelect(game)); break;
             case 2: game.setScreen(new ScreenAbout(game)); break;
         }
     }

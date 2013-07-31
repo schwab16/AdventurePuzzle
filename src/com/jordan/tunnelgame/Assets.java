@@ -18,8 +18,8 @@ public class Assets {
 
     public static Image pauseicon, selectedwarp, editorreturn;
     public static Image background , menu;
-    public static Button buttonreturn, buttonretry, buttonresume, buttonnextlevel, buttonlevelselect, buttonyes, buttonno, buttonplay, buttonleveleditor, buttonabout;
-    public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons;
+    public static Button buttonreturn, buttonretry, buttonresume, buttonnextlevel, buttonlevelselect, buttonplay, buttonleveleditor, buttonabout, buttonsave, buttonquit, buttonhelp;
+    public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons, saveButtons;
 
     public static Image iChaser, iOrb, iTile;
     public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
@@ -57,16 +57,21 @@ public class Assets {
         buttonleveleditor = new Button(g.newImage("textleveleditor.png", ImageFormat.RGB565));
         buttonabout = new Button(g.newImage("textabout.png", ImageFormat.RGB565));
         buttonreturn = new Button(g.newImage("textreturn.png", ImageFormat.RGB565));
+        buttonsave = new Button(g.newImage("textsave.png", ImageFormat.RGB565));
+        buttonquit = new Button(g.newImage("textquit.png", ImageFormat.RGB565));
+        buttonhelp = new Button(g.newImage("texthelp.png", ImageFormat.RGB565));
         ArrayList<Button> buttonsPause = new ArrayList<Button>(); buttonsPause.add(buttonresume); buttonsPause.add(buttonretry); buttonsPause.add(buttonlevelselect);
         ArrayList<Button> buttonsFail = new ArrayList<Button>(); buttonsFail.add(buttonretry); buttonsFail.add(buttonlevelselect);
         ArrayList<Button> buttonsFinish = new ArrayList<Button>(); buttonsFinish.add(buttonnextlevel); buttonsFinish.add(buttonretry); buttonsFinish.add(buttonlevelselect);
         ArrayList<Button> buttonsMain = new ArrayList<Button>(); buttonsMain.add(buttonplay); buttonsMain.add(buttonleveleditor); buttonsMain.add(buttonabout);
         ArrayList<Button> buttonsReturn = new ArrayList<Button>(); buttonsReturn.add(buttonreturn);
+        ArrayList<Button> buttonsSave = new ArrayList<Button>(); buttonsSave.add(buttonsave); buttonsSave.add(buttonquit); buttonsSave.add(buttonreturn);
         pauseButtons = new ButtonSet(buttonsPause, new int[][]{{290,300},{290,475},{290,650}});
         failButtons = new ButtonSet(buttonsFail, new int[][]{{290,400},{290,600}});
         finishButtons = new ButtonSet(buttonsFinish, new int[][]{{290,300},{290,475},{290,650}});
         mainButtons = new ButtonSet(buttonsMain, new int[][]{{290,300},{290,475},{290,650}});
         returnButtons = new ButtonSet(buttonsReturn, new int[][]{{290,600}});
+        saveButtons = new ButtonSet(buttonsSave, new int[][]{{290,300},{290,475},{290,650}});
 
         //icons
         pauseicon = g.newImage("pauseicon.png", ImageFormat.RGB565);//small
@@ -116,7 +121,7 @@ public class Assets {
     public static File fileLocation;
     public static void writeToMemory(String fileName, String text)
     {//needed to instantiate file directory in sample game activity
-        Log.e("olderorbgame", fileName);
+        Log.d("olderorbgame", fileName);
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(fileLocation,fileName)));
             bufferedWriter.write(text);

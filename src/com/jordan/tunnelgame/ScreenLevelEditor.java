@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class ScreenLevelEditor extends Screen {
     public enum EditorType {
-        Block, Placement, Warps, Select, Test, TooManyWarps
+        Block, Placement, Warps, Select, Test, TooManyWarps, Save
     }
     EditorType state = EditorType.Select;
 
@@ -46,16 +46,29 @@ public class ScreenLevelEditor extends Screen {
         state = EditorType.Select;
         Assets.menuByString("editor");
         levelNum = num;
-        if (!C.cheats) {
-            String k = Assets.readFromMemory("custom" + levelNum + ".txt");
-            if (!k.equals("")) {
-                Scanner sc = new Scanner(k);
-                sc.useDelimiter("#");
-                levelName = sc.next();
-                backgroundString = sc.next();
-                levelString = sc.next();
-            }
+
+        levelName = "le"; backgroundString = "";
+        levelString =   "                                " +
+                        "                                " +
+                        "            Oa                  " +
+                        "                                " +
+                        "                                " +
+                        "                                " +
+                        "                                " +
+                        "                                " +
+                        "  f!                        Ca  " +
+                        "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+
+        String k = Assets.readFromMemory("lvl" + levelNum + ".txt");
+        if (!k.equals("")) {
+            Log.d("olderorbgame", k);
+            Scanner sc = new Scanner(k);
+            sc.useDelimiter("#");
+            levelName = sc.next();
+            backgroundString = sc.next();
+            levelString = sc.next();
         }
+
         reload();
     }
 
@@ -64,7 +77,7 @@ public class ScreenLevelEditor extends Screen {
         {
             if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x < 350) {
                 if (t.y > 0 && t.y < 800/6) state = EditorType.Placement;
-                if (t.y > 800/6 && t.y < 2*800/6) {state = EditorType.Block;Assets.menuByString("block");}
+                if (t.y > 800/6 && t.y < 2*800/6) {state = EditorType.Block; Assets.menuByString("block");}
                 if (t.y > 2*800/6 && t.y < 3*800/6) state = EditorType.Warps;
                 if (t.y > 3*800/6 && t.y < 4*800/6) state = EditorType.Test;
                 if (t.y > 4*800/6 && t.y < 5*800/6) {
@@ -72,16 +85,7 @@ public class ScreenLevelEditor extends Screen {
                     backgroundString = Assets.backgrounds.get(currentBackground);
                     reload();
                 }
-                if (t.y > 5*800/6 && t.y < 6*800/6) {
-                    String j = ("\"" + levelName +"#"+ backgroundString +"#\" +\n\""+ levelString.substring(0,32) + "\" +\n\"" + levelString.substring(32,64) + "\" +\n\"" + levelString.substring(64,96) + "\" +\n\"" + levelString.substring(96,128) + "\" +\n\"" + levelString.substring(128,160) + "\" +\n\"" + levelString.substring(160,192) + "\" +\n\"" + levelString.substring(192,224) + "\" +\n\"" + levelString.substring(224,256) + "\" +\n\"" + levelString.substring(256,288) + "\" +\n\"" + levelString.substring(288,320) + "\";");
-                    if (C.cheats) {
-                        Log.d("olderorbgame", j);
-                    }
-                    else {
-                        Assets.writeToMemory("custom" + levelNum + ".txt", j);
-                        game.setScreen(new ScreenMainMenu(game));
-                    }
-                }
+                if (t.y > 5*800/6 && t.y < 6*800/6) state = EditorType.Save;
             }
         }
     }
@@ -246,6 +250,33 @@ public class ScreenLevelEditor extends Screen {
     }
 
 
+    private void updateSave(List<Input.TouchEvent> touchEvents) {
+        switch (Assets.saveButtons.update(touchEvents))
+        {
+            case 0:
+                String j = ("\"" + levelName +"#"+ backgroundString +"#\" +\n\""+ levelString.substring(0,32) + "\" +\n\"" + levelString.substring(32,64) + "\" +\n\"" + levelString.substring(64,96) + "\" +\n\"" + levelString.substring(96,128) + "\" +\n\"" + levelString.substring(128,160) + "\" +\n\"" + levelString.substring(160,192) + "\" +\n\"" + levelString.substring(192,224) + "\" +\n\"" + levelString.substring(224,256) + "\" +\n\"" + levelString.substring(256,288) + "\" +\n\"" + levelString.substring(288,320) + "\";");
+                if (C.cheats) {
+                    Log.d("olderorbgame", j);
+                }
+                Assets.writeToMemory("lvl" + levelNum + ".txt", levelName + "#" + backgroundString + "#" + levelString);
+                game.setScreen(new ScreenEditorSelect(game));
+                break;
+            case 1:
+                game.setScreen(new ScreenEditorSelect(game));
+                break;
+            case 2:
+                state = EditorType.Select;
+                break;
+        }
+    }
+    private void paintSave() {
+        Graphics g = game.getGraphics();
+        paintSelect();
+        g.drawARGB(150,0,0,0);
+        Assets.saveButtons.paint(g);
+    }
+
+
     public void reload()
     {
         level.load();
@@ -261,7 +292,8 @@ public class ScreenLevelEditor extends Screen {
             case TooManyWarps: updateTooManyWarps(touchEvents); break;
             case Warps: updateWarps(touchEvents); break;
             case Select: updateSelect(touchEvents); break;
-            case Test: updateTest(touchEvents, deltaTime);
+            case Test: updateTest(touchEvents, deltaTime); break;
+            case Save: updateSave(touchEvents);
         }
     }
 
@@ -274,11 +306,10 @@ public class ScreenLevelEditor extends Screen {
             case Placement: paintPlacement(); break;
             case Warps: paintWarps(); break;
             case Select: paintSelect(); break;
-            case Test: paintTest();
+            case Test: paintTest(); break;
+            case Save: paintSave();
         }
     }
-
-
 
     @Override
     public void pause() {
@@ -297,7 +328,7 @@ public class ScreenLevelEditor extends Screen {
 
     @Override
     public void backButton() {
-        if (state == EditorType.Select) game.setScreen(new ScreenMainMenu(game));
+        if (state == EditorType.Select) game.setScreen(new ScreenEditorSelect(game));
         else {
             state = EditorType.Select;
             selected = false;
