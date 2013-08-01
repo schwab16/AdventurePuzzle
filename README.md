@@ -4,12 +4,9 @@ Programming: Jordan Haack
 Graphics: Isaac Schwab
 
 TODO LIST:
--level editor level select screen (&help button)
--level editor help page
 -jumping (&decide how)
 -improve collisions
 -guys should face both ways
--save& quit popup (need yes no buttons)
 -pack select function
 -more game stuff (new blocks)
 -animation (start with gem, easy)
@@ -23,10 +20,7 @@ TODO LIST:
 
 TODO List Ike
 -pause icon
--ready menu
--pause menu
 -level editor icons
--next level menu
 -death menu
 -tiles: finish, dirt, lava, wood, clouds, spikes, bomb, glass, push button, spring block(pushes you)
 -character
@@ -36,10 +30,14 @@ TODO List Ike
 -pack select screen
 -retry screen
 -overhaul buttons
--toomanywarps.png
+-toomanywarpsmenu
 -editorreturn.png
 -selectedwarp.png
--blockselect.png
+-blockmenu
+-aboutmenu
+-helpmenu
+-editormenu
+-text
 =======
 
 TODO List testing:

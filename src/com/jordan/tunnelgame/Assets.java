@@ -16,10 +16,10 @@ import java.util.ArrayList;
 
 public class Assets {
 
-    public static Image pauseicon, selectedwarp, editorreturn;
+    public static Image pauseicon, selectedwarp, returnicon;
     public static Image background , menu;
     public static Button buttonreturn, buttonretry, buttonresume, buttonnextlevel, buttonlevelselect, buttonplay, buttonleveleditor, buttonabout, buttonsave, buttonquit, buttonhelp;
-    public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons, saveButtons;
+    public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons, saveButtons, helpButtons;
 
     public static Image iChaser, iOrb, iTile;
     public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
@@ -66,17 +66,19 @@ public class Assets {
         ArrayList<Button> buttonsMain = new ArrayList<Button>(); buttonsMain.add(buttonplay); buttonsMain.add(buttonleveleditor); buttonsMain.add(buttonabout);
         ArrayList<Button> buttonsReturn = new ArrayList<Button>(); buttonsReturn.add(buttonreturn);
         ArrayList<Button> buttonsSave = new ArrayList<Button>(); buttonsSave.add(buttonsave); buttonsSave.add(buttonquit); buttonsSave.add(buttonreturn);
+        ArrayList<Button> buttonsHelp = new ArrayList<Button>(); buttonsHelp.add(buttonhelp);
         pauseButtons = new ButtonSet(buttonsPause, new int[][]{{290,300},{290,475},{290,650}});
         failButtons = new ButtonSet(buttonsFail, new int[][]{{290,400},{290,600}});
         finishButtons = new ButtonSet(buttonsFinish, new int[][]{{290,300},{290,475},{290,650}});
         mainButtons = new ButtonSet(buttonsMain, new int[][]{{290,300},{290,475},{290,650}});
         returnButtons = new ButtonSet(buttonsReturn, new int[][]{{290,600}});
         saveButtons = new ButtonSet(buttonsSave, new int[][]{{290,300},{290,475},{290,650}});
+        helpButtons = new ButtonSet(buttonsHelp, new int[][]{{-400,0}});
 
         //icons
         pauseicon = g.newImage("pauseicon.png", ImageFormat.RGB565);//small
         selectedwarp = g.newImage("selectedwarp.png", ImageFormat.RGB565);//small
-        editorreturn = g.newImage("editorreturn.png", ImageFormat.RGB565);//small
+        returnicon = g.newImage("returnicon.png", ImageFormat.RGB565);//small
 
         //tiles
         iTile = g.newImage("emptytile.png", ImageFormat.RGB565); tiles.add(iTile); charCodes.add( "  ");

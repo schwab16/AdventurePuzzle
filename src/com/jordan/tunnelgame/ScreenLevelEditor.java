@@ -1,6 +1,5 @@
 package com.jordan.tunnelgame;
 
-import android.graphics.Color;
 import android.util.Log;
 
 import com.jordan.framework.Game;
@@ -9,10 +8,8 @@ import com.jordan.framework.Image;
 import com.jordan.framework.Input;
 import com.jordan.framework.Screen;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
 public class ScreenLevelEditor extends Screen {
     public enum EditorType {
@@ -134,7 +131,7 @@ public class ScreenLevelEditor extends Screen {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
         if (selected) g.drawImage(Assets.selectedwarp,((warpCharLocation/2) % 16)*80,((warpCharLocation/2) / 16)*80);
-        g.drawImage(Assets.editorreturn,1230,0);
+        g.drawImage(Assets.returnicon,1230,0);
     }
 
 
@@ -181,7 +178,7 @@ public class ScreenLevelEditor extends Screen {
     private void paintPlacement() {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
-        g.drawImage(Assets.editorreturn,1230,0);
+        g.drawImage(Assets.returnicon,1230,0);
     }
 
     private void updateBlock(List<Input.TouchEvent> touchEvents) {
@@ -211,7 +208,7 @@ public class ScreenLevelEditor extends Screen {
             x+=80;
             if (x == 1200) {x=0; y +=80;}
         }
-        g.drawImage(Assets.editorreturn,1230,0);
+        g.drawImage(Assets.returnicon,1230,0);
 
     }
 
@@ -229,7 +226,7 @@ public class ScreenLevelEditor extends Screen {
     private void paintTest() {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level);
-        g.drawImage(Assets.editorreturn,1230,0);
+        g.drawImage(Assets.returnicon,1230,0);
     }
 
 

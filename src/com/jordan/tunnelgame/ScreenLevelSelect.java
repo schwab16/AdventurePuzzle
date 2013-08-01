@@ -4,8 +4,11 @@ import android.graphics.Color;
 
 import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
+import com.jordan.framework.Input;
 import com.jordan.framework.Input.TouchEvent;
 import com.jordan.framework.Screen;
+
+import java.util.List;
 
 public class ScreenLevelSelect extends Screen {
 
@@ -19,25 +22,23 @@ public class ScreenLevelSelect extends Screen {
     @Override
     public void update(float deltaTime) {
 
+        List<TouchEvent> touchEventList = game.getInput().getTouchEvents();
         int initX = 150, initY=200, sizeX = 150, sizeY=100, gapX = 57, gapY=15;
-        boolean pass = false;
-        int levelNum = 1;
-        for (TouchEvent t : game.getInput().getTouchEvents())
+        for (int k = 0; k < touchEventList.size(); k++)
         {
-            if (t.type == TouchEvent.TOUCH_DOWN)
+            TouchEvent t = touchEventList.get(k);
+            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > 1280 - 50 && t.y < 50) {
+                backButton();
+                return;
+            }
+            if (t.type == Input.TouchEvent.TOUCH_DOWN)
             {
-                int x = t.x - initX;
-                int y = t.y - initY;
-                x /= sizeX + gapX;
-                y /= sizeY + gapY;
-                if (x >= 0 && x < 5 && y >=0 && y < 5)
-                {
-                    pass = true;
-                    levelNum = x + 5*y + 1;
-                }
+                double x = (double)(t.x - initX)/(sizeX + gapX);
+                double y = (double)(t.y - initY)/(sizeY + gapY);
+                if (x >= 0 && x < 5 && y >=0 && y < 5 && x-(int)x <= (double)sizeX/(gapX + sizeX) && y-(int)y <= (double)sizeY/(gapY + sizeY))
+                    game.setScreen(new ScreenGame(game, packID, (int)x + 5*(int)y + 1));
             }
         }
-        if (pass) game.setScreen(new ScreenGame(game, packID, levelNum));
 
     }
 
@@ -46,6 +47,7 @@ public class ScreenLevelSelect extends Screen {
         Graphics g = game.getGraphics();
         Assets.menuByString("level");
         g.drawImage(Assets.menu,0,0);
+        g.drawImage(Assets.returnicon,1280-50,0);
     }
 
     @Override

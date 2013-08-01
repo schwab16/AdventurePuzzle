@@ -2,6 +2,7 @@ package com.jordan.tunnelgame;
 
 import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
+import com.jordan.framework.Input;
 import com.jordan.framework.Input.TouchEvent;
 import com.jordan.framework.Screen;
 
@@ -16,6 +17,10 @@ public class ScreenPackSelect extends Screen {
         boolean pass = false, editor = false;
         for (TouchEvent t : game.getInput().getTouchEvents())
         {
+            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > 1280 - 50 && t.y < 50) {
+                backButton();
+                return;
+            }
             if (t.type == TouchEvent.TOUCH_UP)
                 pass = true;
         }
@@ -32,6 +37,7 @@ public class ScreenPackSelect extends Screen {
         Graphics g = game.getGraphics();
         Assets.menuByString("pack");
         g.drawImage(Assets.menu,0,0);
+        g.drawImage(Assets.returnicon,1280-50,0);
     }
 
     @Override
