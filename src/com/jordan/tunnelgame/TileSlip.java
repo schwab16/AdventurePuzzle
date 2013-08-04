@@ -36,7 +36,7 @@ public class TileSlip extends Tile {
     }
 
     @Override
-    public Image getImage(Level level) {
+    public Image getImage(float deltaTime) {
         return Assets.iIceTile;
     }
 

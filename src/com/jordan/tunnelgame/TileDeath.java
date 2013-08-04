@@ -36,7 +36,7 @@ public class TileDeath extends Tile {
     }
 
     @Override
-    public Image getImage(Level level) {
+    public Image getImage(float deltaTime) {
         switch(id)
         {
             case '*': return Assets.iFireTile;

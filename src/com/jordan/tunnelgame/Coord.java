@@ -15,6 +15,15 @@ public class Coord {
         y = 0;
     }
 
+    public Coord(String s)
+    {
+        int k = 2;
+        while (s.charAt(k) != ',')
+            k++;
+        x = Double.parseDouble(s.substring(1,k));
+        y = Double.parseDouble(s.substring(k+1,s.length()-1));
+    }
+
     public String toString()
     {
         return "(" + x + ", " + y + ")";

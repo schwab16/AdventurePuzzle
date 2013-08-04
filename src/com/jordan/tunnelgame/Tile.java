@@ -18,7 +18,7 @@ public abstract class Tile {
     public abstract void collision(Chaser chaser, CollisionType type);
     public abstract void update();
     public abstract void onTouch();
-    public abstract Image getImage(Level level);
+    public abstract Image getImage(float deltaTime);
 
     public void basicTopCollision(Chaser chaser)
     {

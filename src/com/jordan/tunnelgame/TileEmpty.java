@@ -18,7 +18,7 @@ public class TileEmpty extends Tile {
     public void onTouch() {}
 
     @Override
-    public Image getImage(Level level) {
+    public Image getImage(float deltaTime) {
         return Assets.iTile;
     }
 

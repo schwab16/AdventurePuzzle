@@ -20,6 +20,9 @@ public class GameRunner {
         chasersFallDown(level.chasers, deltaTime);
         chasersMove(level.chasers, deltaTime);
         chasersCollide(level.chasers, level.tiles);
+
+        //chasersStar(level.chasers, level.stars)
+
         if (chasersFinish(level.chasers))
             return ScreenGame.GameState.Finish;
         else if (chasersDie(level.chasers))

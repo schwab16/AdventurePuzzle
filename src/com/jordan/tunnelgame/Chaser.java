@@ -28,7 +28,7 @@ public class Chaser {
 
     }
 
-    public Image getImage()
+    public Image getImage(float deltaTime)
     {
         switch(color)
         {

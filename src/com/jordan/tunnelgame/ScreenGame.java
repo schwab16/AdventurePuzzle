@@ -68,9 +68,9 @@ public class ScreenGame extends Screen {
         //anim.update(10);
         lastDeltaTime = deltaTime;
 	}
-    private void drawRunningUI() {
+    private void drawRunningUI(float deltaTime) {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level);
+        GameDrawer.draw(g,level,deltaTime);
         g.drawImage(Assets.pauseicon, 1230,0);
         if (C.cheats)
             g.drawString(lastDeltaTime + " " + GameRunner.message, 400,30, paint);
@@ -82,9 +82,9 @@ public class ScreenGame extends Screen {
             if (t.type == TouchEvent.TOUCH_UP)
                 state = GameState.Running;
     }
-    private void drawReadyUI() {
+    private void drawReadyUI(float deltaTime) {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g, level);
+        GameDrawer.draw(g, level,deltaTime);
         g.drawARGB(darkness, 0, 0, 0);
         Assets.menuByString("ready");
         g.drawImage(Assets.menu,0,0);
@@ -97,9 +97,9 @@ public class ScreenGame extends Screen {
             case 2: levelSelect(); break;
         }
 	}
-    private void drawPausedUI() {
+    private void drawPausedUI(float deltaTime) {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g, level);
+        GameDrawer.draw(g, level,deltaTime);
         g.drawARGB(darkness, 0, 0, 0);
         Assets.menuByString("pause");
         g.drawImage(Assets.menu,0,0);
@@ -113,9 +113,9 @@ public class ScreenGame extends Screen {
             case 1: levelSelect(); break;
         }
     }
-	private void drawFailUI() {
+	private void drawFailUI(float deltaTime) {
 		Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level);
+        GameDrawer.draw(g,level,deltaTime);
         g.drawARGB(darkness, 0, 0, 0);
         Assets.menuByString("fail");
         g.drawImage(Assets.menu,0,0);
@@ -130,9 +130,9 @@ public class ScreenGame extends Screen {
             case 2: levelSelect(); break;
         }
     }
-    private void drawFinishUI() {
+    private void drawFinishUI(float deltaTime) {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level);
+        GameDrawer.draw(g,level,deltaTime);
         g.drawARGB(darkness, 0, 0, 0);
         Assets.menuByString("finish");
         g.drawImage(Assets.menu,0,0);
@@ -160,15 +160,15 @@ public class ScreenGame extends Screen {
     @Override
     public void paint(float deltaTime) {
         if (state == GameState.Ready)
-            drawReadyUI();
+            drawReadyUI(deltaTime);
         if (state == GameState.Running)
-            drawRunningUI();
+            drawRunningUI(deltaTime);
         if (state == GameState.Paused)
-            drawPausedUI();
+            drawPausedUI(deltaTime);
         if (state == GameState.Fail)
-            drawFailUI();
+            drawFailUI(deltaTime);
         if (state == GameState.Finish)
-            drawFinishUI();
+            drawFinishUI(deltaTime);
     }
 
 

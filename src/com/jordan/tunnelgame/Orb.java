@@ -16,7 +16,7 @@ public class Orb {
         trackable = inPlay;
     }
 
-    public Image getImage()
+    public Image getImage(float deltaTime)
     {
         switch(color)
         {

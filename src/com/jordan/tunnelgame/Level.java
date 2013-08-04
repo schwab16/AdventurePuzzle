@@ -9,6 +9,7 @@ public class Level {
 
     public ArrayList<Chaser> chasers = new ArrayList<Chaser>();
     public ArrayList<Orb> orbs = new ArrayList<Orb>();
+    public ArrayList<Star> stars = new ArrayList<Star>();
     public Tile[][] tiles = new Tile[C.xBlocks][C.yBlocks];
 
     public int packID;
@@ -28,6 +29,7 @@ public class Level {
 
         name = sc.next();
         String bg = sc.next();
+        String starString = sc.next();
         String levelString = sc.next();
 
         TileWarp.otherWarps = new ArrayList<TileWarp>();
@@ -36,6 +38,12 @@ public class Level {
         orbs = new ArrayList<Orb>();
         tiles = new Tile[C.xBlocks][C.yBlocks];
         Assets.backgroundByString(bg);
+
+        Scanner starSC = new Scanner(starString);
+        starSC.useDelimiter("[$]+");
+        stars.add(new Star(new Coord(starSC.next())));
+        stars.add(new Star(new Coord(starSC.next())));
+        stars.add(new Star(new Coord(starSC.next())));
 
         for (int y = 0; y < C.yBlocks; y++) {
             for (int x = 0; x < C.xBlocks; x++) {

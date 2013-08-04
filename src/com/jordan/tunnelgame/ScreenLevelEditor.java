@@ -21,6 +21,7 @@ public class ScreenLevelEditor extends Screen {
 
     public static String levelName = "le";
     public static String backgroundString = "";
+    public static String starString = "(200,50)$(400,50)$(1000,50)";
     public static String levelString =
             "                                " +
             "                                " +
@@ -44,7 +45,9 @@ public class ScreenLevelEditor extends Screen {
         Assets.menuByString("editor");
         levelNum = num;
 
-        levelName = "le"; backgroundString = "";
+        levelName = "le";
+        backgroundString = "";
+        starString = "(200,50)$(400,50)$(1000,50)";
         levelString =   "                                " +
                         "                                " +
                         "            Oa                  " +
@@ -56,13 +59,14 @@ public class ScreenLevelEditor extends Screen {
                         "  f!                        Ca  " +
                         "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
 
-        String k = Assets.readFromMemory("lvl" + levelNum + ".txt");
+        String k = Assets.readFromMemory("lvla" + levelNum + ".txt");
         if (!k.equals("")) {
             Log.d("olderorbgame", k);
             Scanner sc = new Scanner(k);
             sc.useDelimiter("#");
             levelName = sc.next();
             backgroundString = sc.next();
+            starString = sc.next();
             levelString = sc.next();
         }
 
@@ -88,7 +92,7 @@ public class ScreenLevelEditor extends Screen {
     }
     private void paintSelect() {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level);
+        GameDrawer.draw(g,level,0);
         g.drawImage(Assets.menu,0,0);
         g.drawImage(selectedImage,600,660);
     }
@@ -129,7 +133,7 @@ public class ScreenLevelEditor extends Screen {
     }
     private void paintWarps() {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level);
+        GameDrawer.draw(g,level,0);
         if (selected) g.drawImage(Assets.selectedwarp,((warpCharLocation/2) % 16)*80,((warpCharLocation/2) / 16)*80);
         g.drawImage(Assets.returnicon,1230,0);
     }
@@ -177,7 +181,7 @@ public class ScreenLevelEditor extends Screen {
     }
     private void paintPlacement() {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level);
+        GameDrawer.draw(g,level,0);
         g.drawImage(Assets.returnicon,1230,0);
     }
 
@@ -223,9 +227,9 @@ public class ScreenLevelEditor extends Screen {
         ScreenGame.GameState s = GameRunner.update(touchEvents, deltaTime, level);
         if (s != ScreenGame.GameState.Running) reload();
     }
-    private void paintTest() {
+    private void paintTest(float deltaTime) {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level);
+        GameDrawer.draw(g,level,deltaTime);
         g.drawImage(Assets.returnicon,1230,0);
     }
 
@@ -251,11 +255,11 @@ public class ScreenLevelEditor extends Screen {
         switch (Assets.saveButtons.update(touchEvents))
         {
             case 0:
-                String j = ("\"" + levelName +"#"+ backgroundString +"#\" +\n\""+ levelString.substring(0,32) + "\" +\n\"" + levelString.substring(32,64) + "\" +\n\"" + levelString.substring(64,96) + "\" +\n\"" + levelString.substring(96,128) + "\" +\n\"" + levelString.substring(128,160) + "\" +\n\"" + levelString.substring(160,192) + "\" +\n\"" + levelString.substring(192,224) + "\" +\n\"" + levelString.substring(224,256) + "\" +\n\"" + levelString.substring(256,288) + "\" +\n\"" + levelString.substring(288,320) + "\";");
+                String j = ("\"" + levelName +"#"+ backgroundString + "#" + starString +"#\" +\n\""+ levelString.substring(0,32) + "\" +\n\"" + levelString.substring(32,64) + "\" +\n\"" + levelString.substring(64,96) + "\" +\n\"" + levelString.substring(96,128) + "\" +\n\"" + levelString.substring(128,160) + "\" +\n\"" + levelString.substring(160,192) + "\" +\n\"" + levelString.substring(192,224) + "\" +\n\"" + levelString.substring(224,256) + "\" +\n\"" + levelString.substring(256,288) + "\" +\n\"" + levelString.substring(288,320) + "\";");
                 if (C.cheats) {
                     Log.d("olderorbgame", j);
                 }
-                Assets.writeToMemory("lvl" + levelNum + ".txt", levelName + "#" + backgroundString + "#" + levelString);
+                Assets.writeToMemory("lvl" + levelNum + ".txt", levelName + "#" + backgroundString + "#" + starString + "#" + levelString);
                 game.setScreen(new ScreenEditorSelect(game));
                 break;
             case 1:
@@ -303,7 +307,7 @@ public class ScreenLevelEditor extends Screen {
             case Placement: paintPlacement(); break;
             case Warps: paintWarps(); break;
             case Select: paintSelect(); break;
-            case Test: paintTest(); break;
+            case Test: paintTest(deltaTime); break;
             case Save: paintSave();
         }
     }
