@@ -17,7 +17,7 @@ public class ScreenPackSelect extends Screen {
         boolean pass = false, editor = false;
         for (TouchEvent t : game.getInput().getTouchEvents())
         {
-            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > 1280 - 50 && t.y < 50) {
+            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > C.width-C.pauseArea && t.y < C.pauseArea) {
                 backButton();
                 return;
             }
@@ -37,7 +37,7 @@ public class ScreenPackSelect extends Screen {
         Graphics g = game.getGraphics();
         Assets.menuByString("pack");
         g.drawImage(Assets.menu,0,0);
-        g.drawImage(Assets.returnicon,1280-50,0);
+        g.drawImage(Assets.returnicon,C.width-C.pauseArea,0);
     }
 
     @Override

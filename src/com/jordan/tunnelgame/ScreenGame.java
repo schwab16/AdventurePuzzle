@@ -16,14 +16,13 @@ public class ScreenGame extends Screen {
 	}
 	GameState state = GameState.Ready;
 
-    private int time;
+    private double time;
     private int ticks;
     private int pauseTicks;
 	Paint paint;
     private LevelPack levelPack;
     private Level level;
     private float lastDeltaTime = 0.0f;
-    private final int darkness = 100;
 
 	public ScreenGame(Game game, int packID, int levelNum) {
 		super(game);
@@ -34,18 +33,11 @@ public class ScreenGame extends Screen {
         time = 0;
         ticks = 0;
 
-        //how to animate
-		/*hanim = new Animation();
-		hanim.addFrame(heliboy, 100);
-		hanim.addFrame(heliboy2, 100);
-		hanim.addFrame(heliboy3, 100);*/
-		// Defining a paint object
 		paint = new Paint();
 		paint.setTextSize(30);
 		paint.setTextAlign(Paint.Align.CENTER);
 		paint.setAntiAlias(true);
 		paint.setColor(Color.BLUE);
-
 	}
 
 
@@ -54,26 +46,25 @@ public class ScreenGame extends Screen {
         for (Orb o: level.orbs)
             if (o.coord.x>1280-C.pauseArea-10 && o.coord.y<C.pauseArea + 10) pauseable = false;
         for (TouchEvent event: touchEvents)
-            if (pauseable && event.x > 1280 - C.pauseArea && event.y < C.pauseArea && event.type == TouchEvent.TOUCH_DOWN)
+            if (pauseable && event.x > C.width - C.pauseArea && event.y < C.pauseArea && event.type == TouchEvent.TOUCH_DOWN)
             {
                 pause();
                 for (Orb o: level.orbs) o.pointerID = -1;
                 return;
             }
 
-        time++;
+        time += deltaTime;
 
         state = GameRunner.update(touchEvents,deltaTime,level);
 
-        //anim.update(10);
         lastDeltaTime = deltaTime;
 	}
     private void drawRunningUI(float deltaTime) {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level,deltaTime);
-        g.drawImage(Assets.pauseicon, 1230,0);
+        g.drawImage(Assets.pauseicon, C.width - C.pauseArea,0);
         if (C.cheats)
-            g.drawString(lastDeltaTime + " " + GameRunner.message, 400,30, paint);
+            g.drawString("dt: " + lastDeltaTime +" tic:"+ticks+ " time:" + (int)time/100.0, 400,30, paint);
     }
 
 
@@ -85,7 +76,7 @@ public class ScreenGame extends Screen {
     private void drawReadyUI(float deltaTime) {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g, level,deltaTime);
-        g.drawARGB(darkness, 0, 0, 0);
+        g.drawARGB(C.darkness, 0, 0, 0);
         Assets.menuByString("ready");
         g.drawImage(Assets.menu,0,0);
     }
@@ -100,7 +91,7 @@ public class ScreenGame extends Screen {
     private void drawPausedUI(float deltaTime) {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g, level,deltaTime);
-        g.drawARGB(darkness, 0, 0, 0);
+        g.drawARGB(C.darkness, 0, 0, 0);
         Assets.menuByString("pause");
         g.drawImage(Assets.menu,0,0);
         Assets.pauseButtons.paint(g);
@@ -116,7 +107,7 @@ public class ScreenGame extends Screen {
 	private void drawFailUI(float deltaTime) {
 		Graphics g = game.getGraphics();
         GameDrawer.draw(g,level,deltaTime);
-        g.drawARGB(darkness, 0, 0, 0);
+        g.drawARGB(C.darkness, 0, 0, 0);
         Assets.menuByString("fail");
         g.drawImage(Assets.menu,0,0);
         Assets.failButtons.paint(g);
@@ -133,7 +124,7 @@ public class ScreenGame extends Screen {
     private void drawFinishUI(float deltaTime) {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level,deltaTime);
-        g.drawARGB(darkness, 0, 0, 0);
+        g.drawARGB(C.darkness, 0, 0, 0);
         Assets.menuByString("finish");
         g.drawImage(Assets.menu,0,0);
         Assets.finishButtons.paint(g);

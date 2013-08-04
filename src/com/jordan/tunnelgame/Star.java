@@ -14,10 +14,8 @@ public class Star {
 
     public void checkCollision(Chaser chaser)
     {
-        if (Math.abs(coord.x - chaser.coord.x) < C.blockInsideRatio*C.blocksSize && Math.abs(coord.y - chaser.coord.y) < C.blockInsideRatio*C.blocksSize)
-        {
+        if (Math.abs(coord.x - chaser.coord.x - C.blocksSize/2) < C.starRatio*C.blocksSize && Math.abs(coord.y - chaser.coord.y - C.blocksSize/2) < C.starRatio*C.blocksSize)
             caughtYet = true;
-        }
     }
 
     public Image getImage(float deltaTime)

@@ -34,6 +34,7 @@ public class Assets {
     public static boolean loaded = false;
 
     public static Graphics g;
+    public static File fileLocation;
 
     public static void loadSplash(Graphics h) {
         g = h;
@@ -67,13 +68,13 @@ public class Assets {
         ArrayList<Button> buttonsReturn = new ArrayList<Button>(); buttonsReturn.add(buttonreturn);
         ArrayList<Button> buttonsSave = new ArrayList<Button>(); buttonsSave.add(buttonsave); buttonsSave.add(buttonquit); buttonsSave.add(buttonreturn);
         ArrayList<Button> buttonsHelp = new ArrayList<Button>(); buttonsHelp.add(buttonhelp);
-        pauseButtons = new ButtonSet(buttonsPause, new int[][]{{290,300},{290,475},{290,650}});
-        failButtons = new ButtonSet(buttonsFail, new int[][]{{290,400},{290,600}});
-        finishButtons = new ButtonSet(buttonsFinish, new int[][]{{290,300},{290,475},{290,650}});
-        mainButtons = new ButtonSet(buttonsMain, new int[][]{{290,300},{290,475},{290,650}});
-        returnButtons = new ButtonSet(buttonsReturn, new int[][]{{290,600}});
-        saveButtons = new ButtonSet(buttonsSave, new int[][]{{290,300},{290,475},{290,650}});
-        helpButtons = new ButtonSet(buttonsHelp, new int[][]{{-400,0}});
+        pauseButtons = new ButtonSet(buttonsPause, C.buttonNormal3);
+        failButtons = new ButtonSet(buttonsFail, C.buttonNormal2);
+        finishButtons = new ButtonSet(buttonsFinish, C.buttonNormal3);
+        mainButtons = new ButtonSet(buttonsMain, C.buttonNormal3);
+        returnButtons = new ButtonSet(buttonsReturn, C.buttonNormal1);
+        saveButtons = new ButtonSet(buttonsSave, C.buttonNormal3);
+        helpButtons = new ButtonSet(buttonsHelp, C.buttonHelp);
 
         //icons
         pauseicon = g.newImage("pauseicon.png", ImageFormat.RGB565);//small
@@ -108,8 +109,7 @@ public class Assets {
         background =  g.newImage("background" + bg + ".png", ImageFormat.RGB565);
     }
 
-    public static void menuByString(String mn)
-    {
+    public static void menuByString(String mn) {
         menu = g.newImage(mn + "menu.png", ImageFormat.RGB565);
     }
 
@@ -121,9 +121,8 @@ public class Assets {
         return a.x>b.x && a.x<c.x && a.y>b.y && a.y < c.y;
     }
 
-    public static File fileLocation;
     public static void writeToMemory(String fileName, String text)
-    {//needed to instantiate file directory in sample game activity
+    {
         Log.d("olderorbgame", fileName);
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(fileLocation,fileName)));
@@ -133,6 +132,7 @@ public class Assets {
             e.printStackTrace();
         }
     }
+
     public static String readFromMemory(String fileName)
     {
         String res = "";

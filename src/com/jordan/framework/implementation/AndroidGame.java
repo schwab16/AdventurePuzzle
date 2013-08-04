@@ -17,6 +17,7 @@ import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
 import com.jordan.framework.Input;
 import com.jordan.framework.Screen;
+import com.jordan.tunnelgame.C;
 
 public abstract class AndroidGame extends Activity implements Game {
     AndroidFastRenderView renderView;
@@ -36,8 +37,8 @@ public abstract class AndroidGame extends Activity implements Game {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         boolean isPortrait = getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;
-        int frameBufferWidth = isPortrait ? 800: 1280;
-        int frameBufferHeight = isPortrait ? 1280: 800;
+        int frameBufferWidth = isPortrait ? C.height: C.width;
+        int frameBufferHeight = isPortrait ? C.width: C.height;
         Bitmap frameBuffer = Bitmap.createBitmap(frameBufferWidth,
                 frameBufferHeight, Config.RGB_565);
         

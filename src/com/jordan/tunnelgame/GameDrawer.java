@@ -30,6 +30,7 @@ public class GameDrawer {
 
         for (Star s: level.stars)
         {
+            if (s.caughtYet) continue;
             Image i = s.getImage(deltaTime);
             int x = (int)s.coord.x - i.getWidth()/2;
             int y = (int)s.coord.y - i.getHeight()/2;

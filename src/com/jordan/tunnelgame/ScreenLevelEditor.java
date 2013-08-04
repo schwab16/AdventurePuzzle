@@ -17,9 +17,7 @@ public class ScreenLevelEditor extends Screen {
     }
     EditorType state = EditorType.Select;
 
-    //public final String fileName = "LevelFromEditor.txt";
-
-    public static String levelName = "le";
+    public static String levelName = C.defaultLevelName;
     public static String backgroundString = "";
     public static String starString = "(200,50)$(400,50)$(1000,50)";
     public static String levelString =
@@ -44,8 +42,9 @@ public class ScreenLevelEditor extends Screen {
         state = EditorType.Select;
         Assets.menuByString("editor");
         levelNum = num;
+        currentTile = 5;
 
-        levelName = "le";
+        levelName = C.defaultLevelName;
         backgroundString = "";
         starString = "(200,50)$(400,50)$(1000,50)";
         levelString =   "                                " +
@@ -59,7 +58,7 @@ public class ScreenLevelEditor extends Screen {
                         "  f!                        Ca  " +
                         "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
 
-        String k = Assets.readFromMemory("lvla" + levelNum + ".txt");
+        String k = Assets.readFromMemory(C.fileName + levelNum + ".txt");
         if (!k.equals("")) {
             Log.d("olderorbgame", k);
             Scanner sc = new Scanner(k);
@@ -76,17 +75,21 @@ public class ScreenLevelEditor extends Screen {
     private void updateSelect(List<Input.TouchEvent> touchEvents) {
         for (Input.TouchEvent t : touchEvents)
         {
-            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x < 350) {
-                if (t.y > 0 && t.y < 800/6) state = EditorType.Placement;
-                if (t.y > 800/6 && t.y < 2*800/6) {state = EditorType.Block; Assets.menuByString("block");}
-                if (t.y > 2*800/6 && t.y < 3*800/6) state = EditorType.Warps;
-                if (t.y > 3*800/6 && t.y < 4*800/6) state = EditorType.Test;
-                if (t.y > 4*800/6 && t.y < 5*800/6) {
+            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x < C.editorSelectWidth) {
+                int numOptions = 6;
+                if (t.y > 0 && t.y < C.height/numOptions) state = EditorType.Placement;
+                if (t.y > C.height/numOptions && t.y < 2*C.height/numOptions) {
+                    state = EditorType.Block;
+                    Assets.menuByString("block");
+                }
+                if (t.y > 2*C.height/numOptions && t.y < 3*C.height/numOptions) state = EditorType.Warps;
+                if (t.y > 3*C.height/numOptions && t.y < 4*C.height/numOptions) state = EditorType.Test;
+                if (t.y > 4*C.height/numOptions && t.y < 5*C.height/numOptions) {
                     currentBackground = (currentBackground+1) % Assets.backgrounds.size();
                     backgroundString = Assets.backgrounds.get(currentBackground);
                     reload();
                 }
-                if (t.y > 5*800/6 && t.y < 6*800/6) state = EditorType.Save;
+                if (t.y > 5*C.height/numOptions && t.y < 6*C.height/numOptions) state = EditorType.Save;
             }
         }
     }
@@ -94,7 +97,7 @@ public class ScreenLevelEditor extends Screen {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level,0);
         g.drawImage(Assets.menu,0,0);
-        g.drawImage(selectedImage,600,660);
+        g.drawImage(selectedImage,C.editorCurrentBlockX,C.editorCurrentBlockY);
     }
 
 
@@ -102,7 +105,7 @@ public class ScreenLevelEditor extends Screen {
     public int warpCharLocation;
     private void updateWarps(List<Input.TouchEvent> touchEvents) {
         for (Input.TouchEvent t : touchEvents)
-            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > 1280 - 50 && t.y < 50)
+            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > C.width - C.pauseArea && t.y < C.pauseArea)
             {
                 selected = false;
                 state = EditorType.Select;
@@ -111,9 +114,9 @@ public class ScreenLevelEditor extends Screen {
             }
         for (Input.TouchEvent t : touchEvents)
             if (t.type == Input.TouchEvent.TOUCH_DOWN) {
-                int x = t.x/80;
-                int y = t.y/80;
-                int xy = 2 * x + 2 * 16 * y;
+                int x = t.x/C.blocksSize;
+                int y = t.y/C.blocksSize;
+                int xy = 2 * x + 2 * C.xBlocks * y;
                 if (!(level.tiles[x][y] instanceof TileWarp))
                     return;
 
@@ -134,14 +137,14 @@ public class ScreenLevelEditor extends Screen {
     private void paintWarps() {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level,0);
-        if (selected) g.drawImage(Assets.selectedwarp,((warpCharLocation/2) % 16)*80,((warpCharLocation/2) / 16)*80);
-        g.drawImage(Assets.returnicon,1230,0);
+        if (selected) g.drawImage(Assets.selectedwarp,((warpCharLocation/2) % C.xBlocks)*C.blocksSize,((warpCharLocation/2) / C.xBlocks)*C.blocksSize);
+        g.drawImage(Assets.returnicon,C.width - C.pauseArea,0);
     }
 
 
     private void updatePlacement(List<Input.TouchEvent> touchEvents) {
         for (Input.TouchEvent t : touchEvents)
-            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > 1280 - 50 && t.y < 50)
+            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > C.width - C.pauseArea && t.y < C.pauseArea)
             {
                 state = EditorType.Select;
                 Assets.menuByString("editor");
@@ -156,9 +159,9 @@ public class ScreenLevelEditor extends Screen {
                     return;
                 }
                 int delWarp = -1;
-                int x = t.x/80;
-                int y = t.y/80;
-                int xy = 2 * x + 2 * 16 * y;
+                int x = t.x/C.blocksSize;
+                int y = t.y/C.blocksSize;
+                int xy = 2 * x + 2 * C.xBlocks * y;
                 if (levelString.charAt(xy) == 'w') delWarp = ((TileWarp)level.tiles[x][y]).myID;
                 levelString = levelString.substring(0,xy) + Assets.charCodes.get(currentTile) + levelString.substring(xy+2);
                 reload();
@@ -182,21 +185,21 @@ public class ScreenLevelEditor extends Screen {
     private void paintPlacement() {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level,0);
-        g.drawImage(Assets.returnicon,1230,0);
+        g.drawImage(Assets.returnicon,C.width-C.pauseArea,0);
     }
 
     private void updateBlock(List<Input.TouchEvent> touchEvents) {
         for (Input.TouchEvent t : touchEvents)
-            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > 1280 - 50 && t.y < 50) {
+            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > C.width-C.pauseArea && t.y < C.pauseArea) {
                 state = EditorType.Select;
                 Assets.menuByString("editor");
                 return;
             }
         for (Input.TouchEvent t : touchEvents) {
-            if (t.type == Input.TouchEvent.TOUCH_DOWN) {
+            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x < C.width - C.blocksSize) {
                 try {
-                    selectedImage = Assets.tiles.get((t.y/80)*15 + (t.x/80));
-                    currentTile = (t.y/80)*15 + (t.x/80);
+                    selectedImage = Assets.tiles.get((t.y/C.blocksSize)*(C.xBlocks - 1) + (t.x/C.blocksSize));
+                    currentTile = (t.y/C.blocksSize)*(C.xBlocks-1) + (t.x/C.blocksSize);
                     state = EditorType.Placement;
                 } catch (Exception e) {}
             }
@@ -209,8 +212,11 @@ public class ScreenLevelEditor extends Screen {
         for (Image i: Assets.tiles)
         {
             g.drawImage(i,x,y);
-            x+=80;
-            if (x == 1200) {x=0; y +=80;}
+            x+=C.blocksSize;
+            if (x == C.width - C.blocksSize) {
+                x = 0;
+                y += C.blocksSize;
+            }
         }
         g.drawImage(Assets.returnicon,1230,0);
 
@@ -218,7 +224,7 @@ public class ScreenLevelEditor extends Screen {
 
     private void updateTest(List<Input.TouchEvent> touchEvents, float deltaTime) {
         for (Input.TouchEvent t : touchEvents)
-            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > 1280 - 50 && t.y < 50) {
+            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > C.width - C.pauseArea && t.y < C.pauseArea) {
                 state = EditorType.Select;
                 Assets.menuByString("editor");
                 reload();
@@ -230,7 +236,7 @@ public class ScreenLevelEditor extends Screen {
     private void paintTest(float deltaTime) {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level,deltaTime);
-        g.drawImage(Assets.returnicon,1230,0);
+        g.drawImage(Assets.returnicon,C.width-C.pauseArea,0);
     }
 
 
@@ -246,7 +252,7 @@ public class ScreenLevelEditor extends Screen {
     private void paintTooManyWarps() {
         Graphics g = game.getGraphics();
         paintPlacement();
-        g.drawARGB(100,0,0,0);
+        g.drawARGB(C.darkness,0,0,0);
         g.drawImage(Assets.menu,0,0);
     }
 
@@ -259,7 +265,7 @@ public class ScreenLevelEditor extends Screen {
                 if (C.cheats) {
                     Log.d("olderorbgame", j);
                 }
-                Assets.writeToMemory("lvl" + levelNum + ".txt", levelName + "#" + backgroundString + "#" + starString + "#" + levelString);
+                Assets.writeToMemory(C.fileName + levelNum + ".txt", levelName + "#" + backgroundString + "#" + starString + "#" + levelString);
                 game.setScreen(new ScreenEditorSelect(game));
                 break;
             case 1:
@@ -273,7 +279,7 @@ public class ScreenLevelEditor extends Screen {
     private void paintSave() {
         Graphics g = game.getGraphics();
         paintSelect();
-        g.drawARGB(150,0,0,0);
+        g.drawARGB(C.darkness,0,0,0);
         Assets.saveButtons.paint(g);
     }
 

@@ -20,19 +20,18 @@ public class ScreenEditorSelect extends Screen {
             case 0: game.setScreen(new ScreenHelp(game)); return;
         }
 
-        int initX = 150, initY=200, sizeX = 150, sizeY=100, gapX = 57, gapY=15;
         for (int k = 0; k < touchEventList.size(); k++)
         {
             Input.TouchEvent t = touchEventList.get(k);
-            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > 1280 - 50 && t.y < 50) {
+            if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > C.width-C.pauseArea && t.y < C.pauseArea) {
                 backButton();
                 return;
             }
             if (t.type == Input.TouchEvent.TOUCH_DOWN)
             {
-                double x = (double)(t.x - initX)/(sizeX + gapX);
-                double y = (double)(t.y - initY)/(sizeY + gapY);
-                if (x >= 0 && x < 5 && y >=0 && y < 5 && x-(int)x <= (double)sizeX/(gapX + sizeX) && y-(int)y <= (double)sizeY/(gapY + sizeY))
+                double x = (double)(t.x - C.initX)/(C.sizeX + C.gapX);
+                double y = (double)(t.y - C.initY)/(C.sizeY + C.gapY);
+                if (x >= 0 && x < 5 && y >=0 && y < 5 && x-(int)x <= (double)C.sizeX/(C.gapX + C.sizeX) && y-(int)y <= (double)C.sizeY/(C.gapY + C.sizeY))
                     game.setScreen(new ScreenLevelEditor(game,(int)x + 5*(int)y + 1));
             }
         }
@@ -44,7 +43,7 @@ public class ScreenEditorSelect extends Screen {
         Assets.menuByString("editorselect");
         g.drawImage(Assets.menu,0,0);
         Assets.helpButtons.paint(g);
-        g.drawImage(Assets.returnicon,1280-50,0);
+        g.drawImage(Assets.returnicon,C.width-C.pauseArea,0);
     }
 
     @Override

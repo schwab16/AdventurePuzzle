@@ -8,20 +8,15 @@ import com.jordan.framework.Input.TouchEvent;
 
 public class GameRunner {
 
-    public static String message = "";
-
     public static ScreenGame.GameState update(List<TouchEvent> touchEvents, float deltaTime, Level level)
     {
-        //message = "";
-
         if (touchEvents.size() > 0)
             orbsByTouch(touchEvents,level.orbs);
         chasersFollowOrbs(level.chasers, level.orbs, deltaTime);
         chasersFallDown(level.chasers, deltaTime);
         chasersMove(level.chasers, deltaTime);
         chasersCollide(level.chasers, level.tiles);
-
-        //chasersStar(level.chasers, level.stars)
+        chasersStar(level.chasers, level.stars);
 
         if (chasersFinish(level.chasers))
             return ScreenGame.GameState.Finish;
@@ -31,27 +26,33 @@ public class GameRunner {
             return ScreenGame.GameState.Running;
     }
 
+    private static void chasersStar(ArrayList<Chaser> chasers, ArrayList<Star> stars) {
+        for (Star s: stars)
+            if (!s.caughtYet)
+                for (Chaser c: chasers)
+                    s.checkCollision(c);
+    }
+
     private static boolean chasersDie(ArrayList<Chaser> chasers) {
         for (Chaser c: chasers)
         {
             if (c.dead) return true;
-            if (c.coord.y > 1300) return true;
+            if (c.coord.y > C.height + C.blocksSize && !c.finished) return true;
         }
         return false;
     }
 
     private static boolean chasersFinish(ArrayList<Chaser> chasers) {
-        boolean finishedYet = true;
         for (Chaser c: chasers)
         {
             if (c.finished)
             {
-                c.coord.x = -1000;
-                c.coord.y = -1000;
+                c.coord.x = -C.width;
+                c.coord.y = 0;
             }
-            else finishedYet = false;
+            else return false;
         }
-        return finishedYet;
+        return true;
     }
 
     private static void chasersMove(ArrayList<Chaser> chasers, float deltaTime) {
@@ -77,8 +78,10 @@ public class GameRunner {
     }
 
     private static void chasersFallDown(ArrayList<Chaser> chasers, float deltaTime) {
-        for (Chaser c: chasers)
+        for (Chaser c: chasers) {
             c.upwardVelocity += c.gravity * deltaTime;
+            if (c.upwardVelocity < C.maxFall) c.upwardVelocity = C.maxFall;
+        }
     }
 
     private static void chasersFollowOrbs(ArrayList<Chaser> chasers, ArrayList<Orb> orbs, float deltaTime) {
