@@ -11,6 +11,7 @@ public class Level {
     public ArrayList<Orb> orbs = new ArrayList<Orb>();
     public ArrayList<Star> stars = new ArrayList<Star>();
     public Tile[][] tiles = new Tile[C.xBlocks][C.yBlocks];
+    public float gold, silver, bronze;
 
     public int packID;
     public int levelNum;
@@ -30,6 +31,7 @@ public class Level {
         name = sc.next();
         String bg = sc.next();
         String starString = sc.next();
+        String medalString = sc.next();
         String levelString = sc.next();
 
         TileWarp.otherWarps = new ArrayList<TileWarp>();
@@ -45,6 +47,12 @@ public class Level {
         stars.add(new Star(new Coord(starSC.next()),0));
         stars.add(new Star(new Coord(starSC.next()),1));
         stars.add(new Star(new Coord(starSC.next()),2));
+
+        Scanner medalSC = new Scanner(medalString);
+        medalSC.useDelimiter("[$]+");
+        gold = Float.parseFloat(medalSC.next());
+        silver = Float.parseFloat(medalSC.next());
+        bronze = Float.parseFloat(medalSC.next());
 
         for (int y = 0; y < C.yBlocks; y++) {
             for (int x = 0; x < C.xBlocks; x++) {

@@ -20,6 +20,7 @@ public class ScreenLevelEditor extends Screen {
     public static String levelName = C.defaultLevelName;
     public static String backgroundString = "";
     public static String starString = "(200,50)$(400,50)$(1000,50)";
+    public static String medalString = "7.77$15.01$25.40";
     public static String levelString =
             "                                " +
             "                                " +
@@ -47,6 +48,7 @@ public class ScreenLevelEditor extends Screen {
         levelName = C.defaultLevelName;
         backgroundString = "";
         starString = "(200,50)$(400,50)$(1000,50)";
+        medalString = "7.77$15.01$25.40";
         levelString =   "                                " +
                         "                                " +
                         "            Oa                  " +
@@ -66,6 +68,7 @@ public class ScreenLevelEditor extends Screen {
             levelName = sc.next();
             backgroundString = sc.next();
             starString = sc.next();
+            medalString = sc.next();
             levelString = sc.next();
         }
 
@@ -261,15 +264,15 @@ public class ScreenLevelEditor extends Screen {
         switch (Assets.saveButtons.update(touchEvents))
         {
             case 0:
-                String j = ("\"" + levelName +"#"+ backgroundString + "#" + starString +"#\" +\n\""+ levelString.substring(0,32) + "\" +\n\"" + levelString.substring(32,64) + "\" +\n\"" + levelString.substring(64,96) + "\" +\n\"" + levelString.substring(96,128) + "\" +\n\"" + levelString.substring(128,160) + "\" +\n\"" + levelString.substring(160,192) + "\" +\n\"" + levelString.substring(192,224) + "\" +\n\"" + levelString.substring(224,256) + "\" +\n\"" + levelString.substring(256,288) + "\" +\n\"" + levelString.substring(288,320) + "\";");
+                String j = ("\"" + levelName +"#"+ backgroundString + "#" + starString + "#" + medalString + "#\" +\n\""+ levelString.substring(0,32) + "\" +\n\"" + levelString.substring(32,64) + "\" +\n\"" + levelString.substring(64,96) + "\" +\n\"" + levelString.substring(96,128) + "\" +\n\"" + levelString.substring(128,160) + "\" +\n\"" + levelString.substring(160,192) + "\" +\n\"" + levelString.substring(192,224) + "\" +\n\"" + levelString.substring(224,256) + "\" +\n\"" + levelString.substring(256,288) + "\" +\n\"" + levelString.substring(288,320) + "\";");
                 if (C.cheats) {
                     Log.d("olderorbgame", j);
                 }
-                Assets.writeToMemory(C.fileName + levelNum + ".txt", levelName + "#" + backgroundString + "#" + starString + "#" + levelString);
+                Assets.writeToMemory(C.fileName + levelNum + ".txt", levelName + "#" + backgroundString + "#" + starString + "#" + medalString + "#" + levelString);
                 game.setScreen(new ScreenEditorSelect(game));
                 break;
             case 1:
-                String jj = ("\"" + levelName +"#"+ backgroundString + "#" + starString +"#\" +\n\""+ levelString.substring(0,32) + "\" +\n\"" + levelString.substring(32,64) + "\" +\n\"" + levelString.substring(64,96) + "\" +\n\"" + levelString.substring(96,128) + "\" +\n\"" + levelString.substring(128,160) + "\" +\n\"" + levelString.substring(160,192) + "\" +\n\"" + levelString.substring(192,224) + "\" +\n\"" + levelString.substring(224,256) + "\" +\n\"" + levelString.substring(256,288) + "\" +\n\"" + levelString.substring(288,320) + "\";");
+                String jj = ("\"" + levelName +"#"+ backgroundString + "#" + starString + "#" + medalString + "#\" +\n\""+ levelString.substring(0,32) + "\" +\n\"" + levelString.substring(32,64) + "\" +\n\"" + levelString.substring(64,96) + "\" +\n\"" + levelString.substring(96,128) + "\" +\n\"" + levelString.substring(128,160) + "\" +\n\"" + levelString.substring(160,192) + "\" +\n\"" + levelString.substring(192,224) + "\" +\n\"" + levelString.substring(224,256) + "\" +\n\"" + levelString.substring(256,288) + "\" +\n\"" + levelString.substring(288,320) + "\";");
                 if (C.cheats) {
                     Log.d("olderorbgame", jj);
                 }
@@ -404,7 +407,10 @@ public class ScreenLevelEditor extends Screen {
 
     @Override
     public void pause() {
-
+        state = EditorType.Select;
+        selected = false;
+        Assets.menuByString("editor");
+        level.load();
     }
 
     @Override

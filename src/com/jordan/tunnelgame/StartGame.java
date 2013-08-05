@@ -29,12 +29,14 @@ public class StartGame extends AndroidGame {
 	@Override
 	public void onResume() {
 		super.onResume();
+        getCurrentScreen().resume();
 		//Assets.theme.play();
 	}
 
 	@Override
 	public void onPause() {
 		super.onPause();
+        getCurrentScreen().pause();
 		//Assets.theme.pause();
 	}
 	
