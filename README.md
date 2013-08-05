@@ -4,8 +4,6 @@ Programming: Jordan Haack
 Graphics: Isaac Schwab
 
 TODO LIST Jordan:
--stars move in level editor
--star collision
 -star show on finish
 -jumping (&decide how)
 -improve collisions (on final chaser)
