@@ -104,7 +104,7 @@ public class GameRunner {
     }
 
     private static void orbsByTouch(List<TouchEvent> touchEvents, ArrayList<Orb> orbs) {
-        for (Input.TouchEvent event: touchEvents) {
+        for (Input.TouchEvent event: touchEvents)
             switch(event.type)
             {
                 case Input.TouchEvent.TOUCH_DOWN:
@@ -119,7 +119,7 @@ public class GameRunner {
                             closest = o;
                         }
                     }
-                    if (closest != null)
+                    if (closest != null && closest.trackable)
                     {
                         closest.pointerID = event.pointer;
                         closest.coord = new Coord(event.x, event.y);
@@ -128,25 +128,16 @@ public class GameRunner {
                     break;
                 case Input.TouchEvent.TOUCH_DRAGGED:
                     for (Orb o: orbs)
-                    {
                         if (event.pointer == o.pointerID)
-                        {
                             o.coord = new Coord(event.x, event.y);
-                        }
-                    }
                     break;
                 case Input.TouchEvent.TOUCH_UP:
                     for (Orb o: orbs)
-                    {
                         if (event.pointer == o.pointerID)
                         {
                             o.coord = new Coord(event.x, event.y);
                             o.pointerID = -1;
                         }
-                    }
             }
-        }
     }
-
-
 }

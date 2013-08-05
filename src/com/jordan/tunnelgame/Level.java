@@ -36,14 +36,15 @@ public class Level {
         TileWarp.currentID = 0;
         chasers = new ArrayList<Chaser>();
         orbs = new ArrayList<Orb>();
+        stars = new ArrayList<Star>();
         tiles = new Tile[C.xBlocks][C.yBlocks];
         Assets.backgroundByString(bg);
 
         Scanner starSC = new Scanner(starString);
         starSC.useDelimiter("[$]+");
-        stars.add(new Star(new Coord(starSC.next())));
-        stars.add(new Star(new Coord(starSC.next())));
-        stars.add(new Star(new Coord(starSC.next())));
+        stars.add(new Star(new Coord(starSC.next()),0));
+        stars.add(new Star(new Coord(starSC.next()),1));
+        stars.add(new Star(new Coord(starSC.next()),2));
 
         for (int y = 0; y < C.yBlocks; y++) {
             for (int x = 0; x < C.xBlocks; x++) {
@@ -67,7 +68,7 @@ public class Level {
                 }
                 else if (typeID == 'O') {
                     tiles[x][y] = new TileEmpty(new Coord(x*pix,y*pix),charID);
-                    orbs.add(new Orb(new Coord(x*pix+C.blocksSize/2,y*pix+C.blocksSize/2),charID,true));
+                    orbs.add(new Orb(new Coord(x*pix+C.blocksSize/2,y*pix+C.blocksSize/2),charID));
                 }
 
             }

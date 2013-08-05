@@ -32,6 +32,7 @@ public class C {
     //special level editor select constants
     public static int editorSelectWidth = 350, editorCurrentBlockX = 600, editorCurrentBlockY = 660;
     public static String fileName = "lvlb", defaultLevelName = "le";
+    public static int specialLoadConstant = -1;
 
     //darkness when used
     public static int darkness = 100;

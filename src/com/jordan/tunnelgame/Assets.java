@@ -123,7 +123,6 @@ public class Assets {
 
     public static void writeToMemory(String fileName, String text)
     {
-        Log.d("olderorbgame", fileName);
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(fileLocation,fileName)));
             bufferedWriter.write(text);

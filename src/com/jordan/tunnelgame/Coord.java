@@ -28,4 +28,9 @@ public class Coord {
     {
         return "(" + x + ", " + y + ")";
     }
+
+    public String toString(boolean doInt)
+    {
+        return "(" + (int)x + ", " + (int)y + ")";
+    }
 }

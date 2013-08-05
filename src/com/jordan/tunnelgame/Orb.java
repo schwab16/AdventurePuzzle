@@ -6,14 +6,13 @@ public class Orb {
 
     public Coord coord;
     public final char color;
-    public boolean trackable = false;
+    public boolean trackable = true;
     public int pointerID = -1;
 
-    public Orb(Coord start, char color, boolean inPlay)
+    public Orb(Coord start, char color)
     {
         this.color = color;
         this.coord = start;
-        trackable = inPlay;
     }
 
     public Image getImage(float deltaTime)

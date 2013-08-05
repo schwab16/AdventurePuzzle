@@ -6,10 +6,13 @@ public class Star {
 
     public Coord coord;
     public boolean caughtYet = false;
+    public int num;
+    public int pointerID = -1;
 
-    public Star(Coord coord)
+    public Star(Coord coord, int num)
     {
         this.coord = coord;
+        this.num = num;
     }
 
     public void checkCollision(Chaser chaser)
