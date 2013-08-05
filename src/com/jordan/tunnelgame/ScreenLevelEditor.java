@@ -290,7 +290,8 @@ public class ScreenLevelEditor extends Screen {
         Assets.saveButtons.paint(g);
     }
 
-
+    int[][] medalLocs = {{300,50},{300,150},{300,250},{600,50},{600,150},{600,250},{300,450},{300,550},{300,650},{600,450},{600,550},{600,650},{300,850},{300,950},{300,1050},{600,850},{600,950},{600,1050}};
+    int medalWidth = 50;
     private void updateMedal(List<Input.TouchEvent> touchEvents) {
         for (Input.TouchEvent t : touchEvents)
             if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > C.width - C.pauseArea && t.y < C.pauseArea) {
@@ -299,10 +300,18 @@ public class ScreenLevelEditor extends Screen {
                 level.load();
                 return;
             }
+        for (Input.TouchEvent t : touchEvents)
+        {
+            if (t.type == Input.TouchEvent.TOUCH_DOWN)
+            {
+
+            }
+        }
     }
     private void paintMedal() {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level,0);
+        Assets.menuByString("medal");
+        g.drawImage(Assets.menu,0,0);
         g.drawImage(Assets.returnicon,C.width-C.pauseArea,0);
     }
 
