@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 
 import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
@@ -16,9 +17,9 @@ public class ScreenGame extends Screen {
 	}
 	GameState state = GameState.Ready;
 
-    private double time;
-    private int ticks;
-    private int pauseTicks;
+    private double time = 0;
+    private int ticks = 0;
+    private int medal = -1, star = -1;
 	Paint paint;
     private LevelPack levelPack;
     private Level level;
@@ -29,10 +30,6 @@ public class ScreenGame extends Screen {
         levelPack = new LevelPack(packID);
         levelPack.startOn(levelNum);
         level = levelPack.nextLevel();
-
-        time = 0;
-        ticks = 0;
-
 		paint = new Paint();
 		paint.setTextSize(30);
 		paint.setTextAlign(Paint.Align.CENTER);
@@ -57,6 +54,12 @@ public class ScreenGame extends Screen {
 
         state = GameRunner.update(touchEvents,deltaTime,level);
 
+        if (state == GameState.Finish)
+        {
+            star = level.getStars();
+            medal = level.getMedal((int)time/100.0);
+        }
+
         lastDeltaTime = deltaTime;
 	}
     private void drawRunningUI(float deltaTime) {
@@ -80,6 +83,7 @@ public class ScreenGame extends Screen {
         Assets.menuByString("ready");
         g.drawImage(Assets.menu,0,0);
     }
+
 
 	private void updatePaused(List<TouchEvent> touchEvents) {
         switch (Assets.pauseButtons.update(touchEvents)) {
@@ -126,8 +130,10 @@ public class ScreenGame extends Screen {
         GameDrawer.draw(g,level,deltaTime);
         g.drawARGB(C.darkness, 0, 0, 0);
         Assets.menuByString("finish");
-        g.drawImage(Assets.menu,0,0);
+        g.drawImage(Assets.menu, 0, 0);
         Assets.finishButtons.paint(g);
+        g.drawImage(Assets.finishstar,200,200,200*star,0,200,200);
+        g.drawImage(Assets.finishmedal,900,200,200*medal,0,200,200);
     }
 
 
@@ -166,6 +172,8 @@ public class ScreenGame extends Screen {
     private void retry() {
         time = 0;
         ticks = 0;
+        star = -1;
+        medal = -1;
         level = levelPack.thisLevel();
         state = GameState.Ready;
     }
@@ -177,6 +185,8 @@ public class ScreenGame extends Screen {
     private void nextLevel(){
         time = 0;
         ticks = 0;
+        star = -1;
+        medal = -1;
         level = levelPack.nextLevel();
         if (level == null) levelSelect();
         state = GameState.Ready;
@@ -185,9 +195,7 @@ public class ScreenGame extends Screen {
 	@Override
 	public void pause() {
 		if (state == GameState.Running)
-        {
 			state = GameState.Paused;
-        }
 	}
 
 	@Override

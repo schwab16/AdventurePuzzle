@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class Assets {
 
-    public static Image pauseicon, selectedwarp, returnicon, star;
+    public static Image pauseicon, selectedwarp, returnicon, star, finishstar, finishmedal;
     public static Image background , menu;
     public static Button buttonreturn, buttonretry, buttonresume, buttonnextlevel, buttonlevelselect, buttonplay, buttonleveleditor, buttonabout, buttonsave, buttonquit, buttonhelp;
     public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons, saveButtons, helpButtons;
@@ -81,6 +81,8 @@ public class Assets {
         selectedwarp = g.newImage("selectedwarp.png", ImageFormat.RGB565);//small
         returnicon = g.newImage("returnicon.png", ImageFormat.RGB565);//small
         star = g.newImage("star.png", ImageFormat.RGB565);
+        finishstar = g.newImage("finishstar.png", ImageFormat.RGB565);
+        finishmedal = g.newImage("finishmedal.png", ImageFormat.RGB565);
 
         //tiles
         iTile = g.newImage("emptytile.png", ImageFormat.RGB565); tiles.add(iTile); charCodes.add( "  ");

@@ -23,6 +23,23 @@ public class Level {
         this.levelNum = levelNum;
     }
 
+    public int getStars()
+    {
+        int k = 0;
+        for (Star s: stars)
+            if (s.caughtYet)
+                k++;
+        return k;
+    }
+
+    public int getMedal(double time)
+    {
+        if (time <= gold) return 3;
+        if (time <= silver) return 2;
+        if (time <= bronze) return 1;
+        return 0;
+    }
+
     public void load()
     {
         Scanner sc = new Scanner(Assets.getLevelString(packID, levelNum));
