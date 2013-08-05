@@ -3,43 +3,43 @@ AdventurePuzzle
 Programming: Jordan Haack
 Graphics: Isaac Schwab
 
-TODO LIST Jordan:
--stars move in level editor
--star collision
--star show on finish
+TODO LIST:
+-level editor level select screen (&help button)
+-level editor help page
 -jumping (&decide how)
--improve collisions (on final chaser)
+-improve collisions
 -guys should face both ways
+-save& quit popup (need yes no buttons)
 -pack select function
 -more game stuff (new blocks)
 -animation (start with gem, easy)
 -sound
 -music
 -level select improved
--time medals
--show & save: stars, medals, locked levels
+-3stars / time medals
+-saving stars, medals, levels, locked levels
 =======
 
-TODO LIST Ike:
--star
+
+TODO List Ike
+-pause icon
+-ready menu
+-pause menu
+-level editor icons
+-next level menu
+-death menu
 -tiles: finish, dirt, lava, wood, clouds, spikes, bomb, glass, push button, spring block(pushes you)
 -character
 -backgrounds: dessert, ocean, forest, jungle, prairie, city, building
--level select screen
+-animations
 -pack select screen
--retry screen
 -overhaul buttons
--toomanywarpsmenu
+-toomanywarps.png
 -editorreturn.png
 -selectedwarp.png
--blockmenu
--aboutmenu
--helpmenu
--editormenu
--text
+-blockselect.png
 =======
 
-TODO LIST Testing:
--game name
+TODO List testing:
 -finalize movement speed, acceleration
 -make levels
