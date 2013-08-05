@@ -40,5 +40,6 @@ public class C {
     public static int darkness = 100;
 
     //button locations
-    public static int[][] buttonNormal3 = {{290,300},{290,475},{290,650}}, buttonNormal2 = {{290,400},{290,600}}, buttonNormal1 = {{290,600}}, buttonHelp = {{-400,0}};
+    public static int center = 1280/2 - 402/2;
+    public static int[][] buttonNormal3 = {{center,300},{center,475},{center,650}}, buttonNormal2 = {{center,400},{center,600}}, buttonNormal1 = {{center,600}}, buttonHelp = {{-400,0}};
 }
