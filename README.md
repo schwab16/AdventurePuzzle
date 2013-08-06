@@ -6,16 +6,18 @@ Graphics: Isaac Schwab
 
 TODO LIST Jordan:
 =======
-1-pack locking
-2-star&medals located, time showed (finish and screen)
-3-jumping (&decide how)
-4-improve collisions (on final chaser)
-5-all 6 packs
+2-star&medals located, time shown on finish
+-jumping (&decide how)
+-improve collisions (on final chaser)
+3-show time in gamescreen (with hundreds)
+4-custom font for ingame score
+5-counts total medals and stars
 -more game stuff (new blocks)
 -animation (start with gem, easy)
 -guys should face both ways
 -sound
 -music
+-buying from ingame
 
 
 TODO LIST Ike:
@@ -33,7 +35,6 @@ TODO LIST Ike:
 -buy full screen
 -pack screens
 4-medal menu
-
 
 
 TODO LIST Testing:

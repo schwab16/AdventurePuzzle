@@ -37,12 +37,12 @@ public class ScreenPackSelect extends Screen {
             }
             else if (t.type == TouchEvent.TOUCH_DOWN && t.x > C.packX1 && t.x < C.packX2 && t.y > C.packY1 && t.y < C.packY2) {
                 packID--;
-                if (packID < -1) packID = C.numPacks;
+                if (packID < -1) packID = C.numPacks - 1;
                 Assets.packByString(packID);
             }
             else if (t.type == TouchEvent.TOUCH_DOWN && t.x < C.width - C.packX1 && t.x > C.width - C.packX2 && t.y > C.packY1 && t.y < C.packY2) {
                 packID++;
-                if (packID > C.numPacks) packID = -1;
+                if (packID >= C.numPacks) packID = -1;
                 Assets.packByString(packID);
             }
         }

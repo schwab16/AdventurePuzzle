@@ -42,7 +42,7 @@ public class C {
     public static String packFileName = "packa";
 
     //num of current implemented packs
-    public static int numPacks = 2;
+    public static int numPacks = 6;
 
     //darkness when used
     public static int darkness = 100;
