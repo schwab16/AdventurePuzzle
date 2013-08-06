@@ -20,7 +20,7 @@ TODO LIST Jordan:
 
 TODO LIST Ike:
 =======
-4-star
+4-stars
 2-finish tile
 -tiles: dirt, lava, wood, clouds, spikes, bomb, glass, push button, spring block(pushes you)
 -backgrounds: desert, ocean, forest, jungle, prairie, city, building
