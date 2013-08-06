@@ -25,7 +25,6 @@ TODO LIST Ike:
 -tiles: dirt, lava, wood, clouds, spikes, bomb, glass, push button, spring block(pushes you)
 -backgrounds: desert, ocean, forest, jungle, prairie, city, building
 -pack select screen
-5-block menu.png
 -about menu
 -help menu
 3-editor menu
@@ -34,7 +33,7 @@ TODO LIST Ike:
 -buy full screen
 -pack screens
 4-medal menu
-1-empty tile.png
+
 
 
 TODO LIST Testing:
