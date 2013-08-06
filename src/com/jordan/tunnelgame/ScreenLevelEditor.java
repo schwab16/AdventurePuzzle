@@ -358,7 +358,7 @@ public class ScreenLevelEditor extends Screen {
         g.drawImage(Assets.returnicon,C.width-C.pauseArea,0);
         for(int k = 0; k < 18; k++)
         {
-            g.drawRect(C.medalLocs[k][1] - C.medalWidth/2,C.medalLocs[k][0] - C.medalWidth/2,C.medalWidth,C.medalWidth, Color.GREEN);
+            g.drawRect(C.medalLocs[k][1] - C.medalWidth/2,C.medalLocs[k][0] - C.medalWidth/2,C.medalWidth,C.medalWidth, Color.BLACK);
         }
         Scanner sc = new Scanner(medalString);
         sc.useDelimiter("[$]+");
@@ -369,7 +369,7 @@ public class ScreenLevelEditor extends Screen {
         paint.setTextSize(C.paintSize);
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setAntiAlias(true);
-        paint.setColor(Color.WHITE);
+        paint.setColor(Color.BLACK);
         g.drawString(gold,C.medalLocs[18][1],C.medalLocs[18][0] + C.medalWidth/3, paint);
         g.drawString(silver,C.medalLocs[19][1],C.medalLocs[19][0] + C.medalWidth/3, paint);
         g.drawString(bronze,C.medalLocs[20][1],C.medalLocs[20][0] + C.medalWidth/3, paint);
