@@ -1,7 +1,5 @@
 package com.jordan.framework.implementation;
 
-import java.io.IOException;
-
 import android.app.Activity;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
@@ -11,6 +9,8 @@ import android.media.SoundPool;
 import com.jordan.framework.Audio;
 import com.jordan.framework.Music;
 import com.jordan.framework.Sound;
+
+import java.io.IOException;
 
 public class AndroidAudio implements Audio {
     AssetManager assets;

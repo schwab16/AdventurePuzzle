@@ -1,15 +1,14 @@
 package com.jordan.tunnelgame;
 
-import java.util.List;
-
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.util.Log;
 
 import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
 import com.jordan.framework.Input.TouchEvent;
 import com.jordan.framework.Screen;
+
+import java.util.List;
 
 public class ScreenGame extends Screen {
 	enum GameState {

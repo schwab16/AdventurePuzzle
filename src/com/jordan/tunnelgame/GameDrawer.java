@@ -1,7 +1,5 @@
 package com.jordan.tunnelgame;
 
-import android.graphics.Color;
-
 import com.jordan.framework.Graphics;
 import com.jordan.framework.Image;
 

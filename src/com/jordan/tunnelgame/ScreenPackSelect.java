@@ -21,11 +21,15 @@ public class ScreenPackSelect extends Screen {
         List<TouchEvent> touchEventList = game.getInput().getTouchEvents();
         for (int k = 0; k < touchEventList.size(); k++) {
             TouchEvent t = touchEventList.get(k);
+            boolean b = false;
+            try {
+                b = Assets.readFromMemory(C.packFileName + (packID-1)).charAt(78) == 'u';
+            } catch (Exception e) {}
             if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > C.width-C.pauseArea && t.y < C.pauseArea) {
                 backButton();
                 return;
             }
-            else if (t.type == TouchEvent.TOUCH_DOWN && t.x > C.width/2 - Assets.pack.getWidth()/2 && t.x < C.width/2 + Assets.pack.getWidth()/2 && t.y > C.height/2 - Assets.pack.getHeight()/2 && t.y < C.height/2 + Assets.pack.getHeight()/2) {
+            else if (t.type == TouchEvent.TOUCH_DOWN && t.x > C.width/2 - Assets.pack.getWidth()/2 && t.x < C.width/2 + Assets.pack.getWidth()/2 && t.y > C.height/2 - Assets.pack.getHeight()/2 && t.y < C.height/2 + Assets.pack.getHeight()/2 && (packID == 0 || packID == -1 || b || C.cheats)) {
                 Assets.packByString(-3);
                 if (C.full || packID == 0)
                     game.setScreen(new ScreenLevelSelect(game, packID));
@@ -51,6 +55,11 @@ public class ScreenPackSelect extends Screen {
         g.drawImage(Assets.menu,0,0);
         g.drawImage(Assets.returnicon,C.width-C.pauseArea,0);
         g.drawImage(Assets.pack,C.width/2 - Assets.pack.getWidth()/2, C.height/2 - Assets.pack.getHeight()/2);
+        int j = packID - 1;
+        try {
+            if (Assets.readFromMemory(C.packFileName + j).charAt(78) != 'u' && packID != 0 && packID != -1)
+                g.drawImage(Assets.locked, C.width/2 - Assets.locked.getWidth()/2, C.height/2 - Assets.locked.getHeight()/2);
+        } catch (Exception e) {}
     }
 
     @Override

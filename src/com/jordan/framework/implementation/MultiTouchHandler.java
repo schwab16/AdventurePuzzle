@@ -1,14 +1,14 @@
 package com.jordan.framework.implementation;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.jordan.framework.Pool;
 import com.jordan.framework.Input.TouchEvent;
+import com.jordan.framework.Pool;
 import com.jordan.framework.Pool.PoolObjectFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MultiTouchHandler implements TouchHandler {
 	private static final int MAX_TOUCHPOINTS = 10;

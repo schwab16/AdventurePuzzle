@@ -2,8 +2,6 @@ package com.jordan.tunnelgame;
 
 import com.jordan.framework.Image;
 
-import java.util.ArrayList;
-
 public class Chaser {
 
     public Coord coord;

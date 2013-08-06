@@ -1,12 +1,5 @@
 package com.jordan.framework.implementation;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
@@ -14,6 +7,13 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 
 import com.jordan.framework.FileIO;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class AndroidFileIO implements FileIO {
 	Context context;

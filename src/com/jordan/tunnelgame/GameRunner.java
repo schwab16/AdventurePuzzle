@@ -1,10 +1,10 @@
 package com.jordan.tunnelgame;
 
 import com.jordan.framework.Input;
+import com.jordan.framework.Input.TouchEvent;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.jordan.framework.Input.TouchEvent;
 
 public class GameRunner {
 

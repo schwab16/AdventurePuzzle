@@ -1,7 +1,5 @@
 package com.jordan.tunnelgame;
 
-import com.jordan.framework.Image;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 

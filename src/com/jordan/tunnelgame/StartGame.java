@@ -1,15 +1,5 @@
 package com.jordan.tunnelgame;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
-import android.content.res.AssetFileDescriptor;
-import android.os.Environment;
-import android.util.Log;
-
 import com.jordan.framework.Screen;
 import com.jordan.framework.implementation.AndroidGame;
 

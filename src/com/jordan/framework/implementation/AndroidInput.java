@@ -1,12 +1,12 @@
 package com.jordan.framework.implementation;
 
-import java.util.List;
-
 import android.content.Context;
 import android.os.Build.VERSION;
 import android.view.View;
 
 import com.jordan.framework.Input;
+
+import java.util.List;
 
 public class AndroidInput implements Input {    
     TouchHandler touchHandler;

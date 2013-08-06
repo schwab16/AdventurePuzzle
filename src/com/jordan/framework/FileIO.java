@@ -1,10 +1,10 @@
 package com.jordan.framework;
 
+import android.content.SharedPreferences;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
-import android.content.SharedPreferences;
 
 public interface FileIO {
     public InputStream readFile(String file) throws IOException;

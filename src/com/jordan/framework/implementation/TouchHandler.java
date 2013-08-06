@@ -1,10 +1,10 @@
 package com.jordan.framework.implementation;
 
-import java.util.List;
-
 import android.view.View.OnTouchListener;
 
 import com.jordan.framework.Input.TouchEvent;
+
+import java.util.List;
 
 public interface TouchHandler extends OnTouchListener {
     public boolean isTouchDown(int pointer);

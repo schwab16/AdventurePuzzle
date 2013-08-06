@@ -2,8 +2,8 @@ package com.jordan.framework.implementation;
 
 import android.graphics.Bitmap;
 
-import com.jordan.framework.Image;
 import com.jordan.framework.Graphics.ImageFormat;
+import com.jordan.framework.Image;
 
 public class AndroidImage implements Image {
     Bitmap bitmap;
