@@ -57,9 +57,11 @@ public class ScreenPackSelect extends Screen {
         g.drawImage(Assets.pack,C.width/2 - Assets.pack.getWidth()/2, C.height/2 - Assets.pack.getHeight()/2);
         int j = packID - 1;
         try {
-            if (Assets.readFromMemory(C.packFileName + j).charAt(78) != 'u' && packID != 0 && packID != -1)
+            if (packID != 0 && packID != -1 && Assets.readFromMemory(C.packFileName + j).charAt(78) != 'u')
                 g.drawImage(Assets.locked, C.width/2 - Assets.locked.getWidth()/2, C.height/2 - Assets.locked.getHeight()/2);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            g.drawImage(Assets.locked, C.width/2 - Assets.locked.getWidth()/2, C.height/2 - Assets.locked.getHeight()/2);
+        }
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.jordan.tunnelgame;
 
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.Log;
 
 import com.jordan.framework.Game;
@@ -20,18 +22,18 @@ public class ScreenLevelEditor extends Screen {
     public static String levelName = C.defaultLevelName;
     public static String backgroundString = "";
     public static String starString = "(200,50)$(400,50)$(1000,50)";
-    public static String medalString = "7.77$15.01$25.40";
+    public static String medalString = "7.0$15.0$25.0";
     public static String levelString =
             "                                " +
-            "                                " +
-            "            Oa                  " +
-            "                                " +
-            "                                " +
-            "                                " +
-            "                                " +
-            "                                " +
-            "  f!                        Ca  " +
-            "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+                    "                                " +
+                    "            Oa                  " +
+                    "                                " +
+                    "                                " +
+                    "                                " +
+                    "                                " +
+                    "                                " +
+                    "  f!                        Ca  " +
+                    "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
     public static int levelNum;
     public Level level = new Level(0,C.specialLoadConstant);
     public Image selectedImage = Assets.iBasicTile;
@@ -48,17 +50,17 @@ public class ScreenLevelEditor extends Screen {
         levelName = C.defaultLevelName;
         backgroundString = "";
         starString = "(200,50)$(400,50)$(1000,50)";
-        medalString = "7.77$15.01$25.40";
+        medalString = "7.0$15.0$25.0";
         levelString =   "                                " +
-                        "                                " +
-                        "            Oa                  " +
-                        "                                " +
-                        "                                " +
-                        "                                " +
-                        "                                " +
-                        "                                " +
-                        "  f!                        Ca  " +
-                        "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+                "                                " +
+                "            Oa                  " +
+                "                                " +
+                "                                " +
+                "                                " +
+                "                                " +
+                "                                " +
+                "  f!                        Ca  " +
+                "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
 
         String k = Assets.readFromMemory(C.fileName + levelNum + ".txt");
         if (!k.equals("")) {
@@ -299,11 +301,78 @@ public class ScreenLevelEditor extends Screen {
                 level.load();
                 return;
             }
+        Scanner sc = new Scanner(medalString);
+        sc.useDelimiter("[$]+");
+        Float gold = Float.parseFloat(sc.next());
+        Float silver = Float.parseFloat(sc.next());
+        Float bronze = Float.parseFloat(sc.next());
+        for (Input.TouchEvent t : touchEvents)
+            if (t.type == Input.TouchEvent.TOUCH_DOWN)
+                for(int k = 0; k < 18; k++)
+                    if (t.x > C.medalLocs[k][1] - C.medalWidth/2 && t.x < C.medalLocs[k][1] + C.medalWidth/2 && t.y > C.medalLocs[k][0] - C.medalWidth/2 && t.y < C.medalLocs[k][0] + C.medalWidth/2) {
+                        if (k/6 == 0) {
+                            switch (k%6) {
+                                case 0: gold += 10; break;
+                                case 1: gold += 1; break;
+                                case 2: gold += 0.1f; break;
+                                case 5: gold -= 0.1f; break;
+                                case 4: gold -= 1; break;
+                                case 3: gold -= 10; break;
+                            }
+                        }
+                        else if (k/6 == 1) {
+                            switch (k%6) {
+                                case 0: silver += 10; break;
+                                case 1: silver += 1; break;
+                                case 2: silver += 0.1f; break;
+                                case 5: silver -= 0.1f; break;
+                                case 4: silver -= 1; break;
+                                case 3: silver -= 10; break;
+                            }
+                        }
+                        else if (k/6 == 2) {
+                            switch (k%6) {
+                                case 0: bronze += 10; break;
+                                case 1: bronze += 1; break;
+                                case 2: bronze += 0.1f; break;
+                                case 5: bronze -= 0.1f; break;
+                                case 4: bronze -= 1; break;
+                                case 3: bronze -= 10; break;
+                            }
+                        }
+                    }
+        if (gold <= 1) gold = 1.0f;
+        if (bronze > 100) bronze = 99.9f;
+        if (gold > silver) silver = gold + 0.1f;
+        if (silver > bronze) bronze = silver + 0.1f;
+        gold = Math.round(100*gold) / 100.0f;
+        silver = Math.round(100*silver) / 100.0f;
+        bronze = Math.round(100*bronze) / 100.0f;
+        medalString = gold + "$" + silver + "$" + bronze;
+        level.load();
     }
     private void paintMedal() {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level,0);
+        Assets.menuByString("medal");
+        g.drawImage(Assets.menu,0,0);
         g.drawImage(Assets.returnicon,C.width-C.pauseArea,0);
+        for(int k = 0; k < 18; k++)
+        {
+            g.drawRect(C.medalLocs[k][1] - C.medalWidth/2,C.medalLocs[k][0] - C.medalWidth/2,C.medalWidth,C.medalWidth, Color.GREEN);
+        }
+        Scanner sc = new Scanner(medalString);
+        sc.useDelimiter("[$]+");
+        String gold = sc.next();
+        String silver = sc.next();
+        String bronze = sc.next();
+        Paint paint = new Paint();
+        paint.setTextSize(C.paintSize);
+        paint.setTextAlign(Paint.Align.CENTER);
+        paint.setAntiAlias(true);
+        paint.setColor(Color.WHITE);
+        g.drawString(gold,C.medalLocs[18][1],C.medalLocs[18][0] + C.medalWidth/3, paint);
+        g.drawString(silver,C.medalLocs[19][1],C.medalLocs[19][0] + C.medalWidth/3, paint);
+        g.drawString(bronze,C.medalLocs[20][1],C.medalLocs[20][0] + C.medalWidth/3, paint);
     }
 
 
@@ -426,6 +495,7 @@ public class ScreenLevelEditor extends Screen {
     @Override
     public void backButton() {
         if (state == EditorType.Select) game.setScreen(new ScreenEditorSelect(game));
+        else if (state == EditorType.Medal) return;
         else {
             state = EditorType.Select;
             selected = false;

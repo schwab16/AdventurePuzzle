@@ -33,7 +33,7 @@ public class ScreenLevelSelect extends Screen {
                 double x = (double)(t.x - C.initX)/(C.sizeX + C.gapX);
                 double y = (double)(t.y - C.initY)/(C.sizeY + C.gapY);
                 int j = (int)x + 5*(int)y + 1;
-                if ((packID != -1 || !Assets.readFromMemory(C.fileName + j + ".txt").equals("")) && (C.cheats || saved.charAt(3*( j )) == 'u') && x >= 0 && x < 5 && y >=0 && y < 5 && x-(int)x <= (double)C.sizeX/(C.gapX + C.sizeX) && y-(int)y <= (double)C.sizeY/(C.gapY + C.sizeY))
+                if ((packID != -1 || !Assets.readFromMemory(C.fileName + j + ".txt").equals("")) && (C.cheats || saved.charAt(3*( j )) == 'u' || packID == -1) && x >= 0 && x < 5 && y >=0 && y < 5 && x-(int)x <= (double)C.sizeX/(C.gapX + C.sizeX) && y-(int)y <= (double)C.sizeY/(C.gapY + C.sizeY))
                     game.setScreen(new ScreenGame(game, packID, j));
             }
         }
