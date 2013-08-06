@@ -99,7 +99,15 @@ public class GameRunner {
             if (c.sideVelocity > c.maxVelocity) c.sideVelocity = c.maxVelocity;
             if (c.sideVelocity < -c.maxVelocity) c.sideVelocity = -c.maxVelocity;
 
-            c.sideVelocity *= c.resistance;
+            if (c.sideVelocity > 0)
+            {
+                c.sideVelocity -= c.resistance * deltaTime;
+                if (c.sideVelocity < 0) c.sideVelocity = 0;
+            }
+            if (c.sideVelocity < 0) {
+                c.sideVelocity += c.resistance * deltaTime;
+                if (c.sideVelocity > 0) c.sideVelocity = 0;
+            }
         }
     }
 

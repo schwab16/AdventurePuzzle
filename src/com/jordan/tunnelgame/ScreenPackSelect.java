@@ -6,30 +6,42 @@ import com.jordan.framework.Input;
 import com.jordan.framework.Input.TouchEvent;
 import com.jordan.framework.Screen;
 
+import java.util.List;
+
 public class ScreenPackSelect extends Screen {
     public ScreenPackSelect(Game game) {
         super(game);
+        Assets.packByString(packID);
     }
+
+    public static int packID = 0;
 
     @Override
     public void update(float deltaTime) {
-
-        boolean pass = false, editor = false;
-        for (TouchEvent t : game.getInput().getTouchEvents())
-        {
+        List<TouchEvent> touchEventList = game.getInput().getTouchEvents();
+        for (int k = 0; k < touchEventList.size(); k++) {
+            TouchEvent t = touchEventList.get(k);
             if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > C.width-C.pauseArea && t.y < C.pauseArea) {
                 backButton();
                 return;
             }
-            if (t.type == TouchEvent.TOUCH_UP)
-                pass = true;
+            else if (t.type == TouchEvent.TOUCH_DOWN && t.x > C.width/2 - Assets.pack.getWidth()/2 && t.x < C.width/2 + Assets.pack.getWidth()/2 && t.y > C.height/2 - Assets.pack.getHeight()/2 && t.y < C.height/2 + Assets.pack.getHeight()/2) {
+                Assets.packByString(-3);
+                if (C.full || packID == 0)
+                    game.setScreen(new ScreenLevelSelect(game, packID));
+                else game.setScreen(new ScreenBuy(game));
+            }
+            else if (t.type == TouchEvent.TOUCH_DOWN && t.x > C.packX1 && t.x < C.packX2 && t.y > C.packY1 && t.y < C.packY2) {
+                packID--;
+                if (packID < -1) packID = C.numPacks;
+                Assets.packByString(packID);
+            }
+            else if (t.type == TouchEvent.TOUCH_DOWN && t.x < C.width - C.packX1 && t.x > C.width - C.packX2 && t.y > C.packY1 && t.y < C.packY2) {
+                packID++;
+                if (packID > C.numPacks) packID = -1;
+                Assets.packByString(packID);
+            }
         }
-
-        int packID = 0;
-
-        if (pass) game.setScreen(new ScreenLevelSelect(game, packID));
-
-
     }
 
     @Override
@@ -38,6 +50,7 @@ public class ScreenPackSelect extends Screen {
         Assets.menuByString("pack");
         g.drawImage(Assets.menu,0,0);
         g.drawImage(Assets.returnicon,C.width-C.pauseArea,0);
+        g.drawImage(Assets.pack,C.width/2 - Assets.pack.getWidth()/2, C.height/2 - Assets.pack.getHeight()/2);
     }
 
     @Override

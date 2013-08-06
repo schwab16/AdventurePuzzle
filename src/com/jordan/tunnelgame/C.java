@@ -2,6 +2,7 @@ package com.jordan.tunnelgame;
 
 public class C {
 
+    //full version, cheats (unlocks levels, shows fps)
     public static boolean full = true;
     public static boolean cheats = true;
     public static float maxDeltaTime = 3.15f;
@@ -18,9 +19,9 @@ public class C {
     public static int pauseArea = 50;
 
     //buffer of orbs&chasers
-    public static int buffer = 25;
+    public static int buffer = 35;
     //chaser speeds
-    public static double chaserGravity = -0.1, chaserMomentum = 1, chaserResistance = .75;
+    public static double chaserGravity = -0.1, chaserMomentum = 1, chaserResistance = .2;
     public static double maxVelocity = 5, maxFall = -10;
 
     //collision area ratios for star, blocks
@@ -40,10 +41,14 @@ public class C {
     //file header for pack
     public static String packFileName = "packa";
 
+    //num of current implemented packs
+    public static int numPacks = 2;
+
     //darkness when used
     public static int darkness = 100;
 
     //button locations
     public static int center = 1280/2 - 402/2;
-    public static int[][] buttonNormal3 = {{center,500},{center,600},{center,700}}, buttonNormal2 = {{center,500},{center,600}}, buttonNormal1 = {{center,700}}, buttonHelp = {{800,95}};
+    public static int[][] buttonNormal3 = {{center,400},{center,500},{center,600}}, buttonNormal2 = {{center,400},{center,500}}, buttonNormal1 = {{center,700}}, buttonHelp = {{800,95}};
+    public static int packY1 = 300, packY2 = 500, packX1 = 50, packX2 = 150;
 }

@@ -48,6 +48,7 @@ public class LevelStorage {
 
     public static String getLevelString(int packID, int levelNum)
     {
+        if (packID == -1) return Assets.readFromMemory(C.fileName + levelNum + ".txt");
         switch (packID * 100 + levelNum)
         {
             case -1: return ScreenLevelEditor.levelName + "#" + ScreenLevelEditor.backgroundString + "#" + ScreenLevelEditor.starString + "#" + ScreenLevelEditor.medalString + "#" + ScreenLevelEditor.levelString;
@@ -354,7 +355,17 @@ public class LevelStorage {
 
         }
 
-        return "";
+        return "le0# #(200,650)$(400,650)$(1000,650)#7.77$15.01$25.40#" +
+                "                                " +
+                "                                " +
+                "            Oa                  " +
+                "                                " +
+                "                                " +
+                "                                " +
+                "                                " +
+                "                                " +
+                "  f!                        Ca  " +
+                "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
     }
 
 }

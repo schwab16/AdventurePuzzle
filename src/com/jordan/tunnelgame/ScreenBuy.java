@@ -4,30 +4,25 @@ import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
 import com.jordan.framework.Screen;
 
-public class ScreenMainMenu extends Screen {
-    public ScreenMainMenu(Game game) {
+public class ScreenBuy extends Screen {
+    public ScreenBuy(Game game) {
         super(game);
     }
 
     @Override
     public void update(float deltaTime) {
-        switch (Assets.mainButtons.update(game.getInput().getTouchEvents()))
+        switch (Assets.returnButtons.update(game.getInput().getTouchEvents()))
         {
-            case 0: game.setScreen(new ScreenPackSelect(game)); break;
-            case 1:
-                if (C.full) game.setScreen(new ScreenEditorSelect(game));
-                else game.setScreen(new ScreenBuy(game));
-                break;
-            case 2: game.setScreen(new ScreenAbout(game)); break;
+            case 0: backButton();
         }
     }
 
     @Override
     public void paint(float deltaTime) {
         Graphics g = game.getGraphics();
-        Assets.menuByString("main");
+        Assets.menuByString("buy");
         g.drawImage(Assets.menu,0,0);
-        Assets.mainButtons.paint(g);
+        Assets.returnButtons.paint(g);
     }
 
     @Override
@@ -47,6 +42,6 @@ public class ScreenMainMenu extends Screen {
 
     @Override
     public void backButton() {
-
+        game.setScreen(new ScreenMainMenu(game));
     }
 }

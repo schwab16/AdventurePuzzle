@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class Assets {
 
     public static Image pauseicon, selectedwarp, returnicon, star, finishstar, finishmedal, locked, levelstar, levelmedal;
-    public static Image background , menu;
+    public static Image background , menu, pack;
     public static Button buttonreturn, buttonretry, buttonresume, buttonnextlevel, buttonlevelselect, buttonplay, buttonleveleditor, buttonabout, buttonsave, buttonquit, buttonhelp;
     public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons, saveButtons, helpButtons;
 
@@ -30,7 +30,7 @@ public class Assets {
     public static ArrayList<Image> tiles = new ArrayList<Image>();
     public static ArrayList<String> charCodes = new ArrayList<String>();
     public static ArrayList<String> backgrounds = new ArrayList<String>();
-    public static String currentBG = "del";
+    public static String currentBG = "del", currentMenu = "nada";
     public static boolean loaded = false;
 
     public static Graphics g;
@@ -115,8 +115,22 @@ public class Assets {
     }
 
     public static void menuByString(String mn) {
+        if (mn.equals(currentMenu)) return;
+        currentMenu = mn;
         menu = g.newImage(mn + "menu.png", ImageFormat.RGB565);
     }
+
+    public static void packByString(int pk) {
+        if (pk == -1) pack = g.newImage("packc.png", ImageFormat.RGB565);
+        else if (pk == -3) pack = null;
+        else pack = g.newImage("pack" + pk + ".png", ImageFormat.RGB565);
+    }
+
+    /*public static void packNextByString(int pk) {
+        if (pk == -1) packnext = g.newImage("packc.png", ImageFormat.RGB565);
+        else if (pk == -3) packnext = null;
+        else packnext = g.newImage("pack" + pk + ".png", ImageFormat.RGB565);
+    }*/
 
     public static double distance(Coord a, Coord b) {
         return Math.sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
