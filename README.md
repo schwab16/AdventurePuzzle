@@ -15,7 +15,7 @@ TODO LIST Jordan:
 -guys should face both ways
 -sound
 -music
-5-button coords in C
+-buy full screen
 
 
 TODO LIST Ike:

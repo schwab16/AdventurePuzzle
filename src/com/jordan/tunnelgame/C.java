@@ -45,5 +45,5 @@ public class C {
 
     //button locations
     public static int center = 1280/2 - 402/2;
-    public static int[][] buttonNormal3 = {{center,300},{center,475},{center,650}}, buttonNormal2 = {{center,400},{center,600}}, buttonNormal1 = {{center,600}}, buttonHelp = {{800,100}};
+    public static int[][] buttonNormal3 = {{center,500},{center,600},{center,700}}, buttonNormal2 = {{center,500},{center,600}}, buttonNormal1 = {{center,700}}, buttonHelp = {{800,95}};
 }
