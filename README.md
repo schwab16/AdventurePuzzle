@@ -15,8 +15,6 @@ TODO LIST Jordan:
 -guys should face both ways
 -sound
 -music
-1-save star / medal / locked levels
-2-show star / medal in level select
 5-button coords in C
 
 
@@ -32,6 +30,7 @@ TODO LIST Ike:
 -help menu
 3-editor menu
 -medals and star on finish
+-locked icon, level star/medal icons
 
 
 TODO LIST Testing:

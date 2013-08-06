@@ -14,15 +14,21 @@ public class LevelPack {
         this.packID = packID;
 
         for (int k = 1; k <= 25; k++)
-        {
             levels.add(new Level(packID, k));
-        }
 
-        saved = Assets.readFromMemory(C.packFileName + "" + packID);
+        saved = read(packID);
+    }
+
+    public static String read(int packID)
+    {
+        String saved = Assets.readFromMemory(C.packFileName + "" + packID);
 
         if (saved.equals("")) {
             Assets.writeToMemory(C.packFileName + "" + packID, "paku00l00l00l00l00l00l00l00l00l00l00l00l00l00l00l00l00l00l00l00l00l00l00l00l00pak");
+            saved = Assets.readFromMemory(C.packFileName + "" + packID);
         }
+
+        return saved;
     }
 
     public void setSave(int lvl, int type, char mem)
