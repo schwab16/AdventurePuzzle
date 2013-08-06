@@ -58,6 +58,11 @@ public class ScreenGame extends Screen {
         {
             star = level.getStars();
             medal = level.getMedal((int)time/100.0);
+            levelPack.setSave(level.levelNum + 1, 0, 'u');
+            if (star > levelPack.saved.charAt(3*level.levelNum + 1) - '0')
+                levelPack.setSave(level.levelNum, 1, (char)('0' + star));
+            if (medal > levelPack.saved.charAt(3*level.levelNum + 2) - '0')
+                levelPack.setSave(level.levelNum, 2, (char)('0' + medal));
         }
 
         lastDeltaTime = deltaTime;

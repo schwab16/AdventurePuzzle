@@ -2,6 +2,7 @@ package com.jordan.tunnelgame;
 
 public class C {
 
+    public static boolean full = true;
     public static boolean cheats = true;
     public static float maxDeltaTime = 3.15f;
 
@@ -36,10 +37,13 @@ public class C {
     public static int[][] medalLocs = {{400,140},{400,240},{400,340},{600,140},{600,240},{600,340},{400,540},{400,640},{400,740},{600,540},{600,640},{600,740},{400,940},{400,1040},{400,1140},{600,940},{600,1040},{600,1140},{500,240},{500,640},{500,1040}};
     public static int medalWidth = 75, paintSize = 75;
 
+    //file header for pack
+    public static String packFileName = "packa";
+
     //darkness when used
     public static int darkness = 100;
 
     //button locations
     public static int center = 1280/2 - 402/2;
-    public static int[][] buttonNormal3 = {{center,300},{center,475},{center,650}}, buttonNormal2 = {{center,400},{center,600}}, buttonNormal1 = {{center,600}}, buttonHelp = {{-400,0}};
+    public static int[][] buttonNormal3 = {{center,500},{center,600},{center,700}}, buttonNormal2 = {{center,500},{center,600}}, buttonNormal1 = {{center,700}}, buttonHelp = {{800,95}};
 }
