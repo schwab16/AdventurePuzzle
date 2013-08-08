@@ -4,7 +4,7 @@ public class C {
 
     //full version, cheats (unlocks levels, shows fps)
     public static boolean full = true;
-    public static boolean cheats = false;
+    public static boolean cheats = true;
     public static float maxDeltaTime = 3.15f;
 
     //dimensions of screen

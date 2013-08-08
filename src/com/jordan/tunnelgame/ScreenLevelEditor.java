@@ -343,8 +343,8 @@ public class ScreenLevelEditor extends Screen {
                     }
         if (gold <= 1) gold = 1.0f;
         if (bronze > 100) bronze = 99.9f;
-        if (gold > silver) silver = gold + 0.1f;
-        if (silver > bronze) bronze = silver + 0.1f;
+        if (gold >= silver) silver = gold + 0.1f;
+        if (silver >= bronze) bronze = silver + 0.1f;
         gold = Math.round(100*gold) / 100.0f;
         silver = Math.round(100*silver) / 100.0f;
         bronze = Math.round(100*bronze) / 100.0f;
