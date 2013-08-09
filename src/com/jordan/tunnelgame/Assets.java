@@ -1,5 +1,8 @@
 package com.jordan.tunnelgame;
 
+import android.graphics.Color;
+import android.graphics.Paint;
+
 import com.jordan.framework.Graphics;
 import com.jordan.framework.Graphics.ImageFormat;
 import com.jordan.framework.Image;
@@ -21,6 +24,8 @@ public class Assets {
 
     public static Image iChaser, iOrb, iTile;
     public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
+
+    public static Paint paint1, paint2;
 
     //public static Sound click;
     //public static Music theme;
@@ -99,6 +104,16 @@ public class Assets {
         iMetalTile = g.newImage("metaltile.png", ImageFormat.RGB565); tiles.add(iMetalTile); charCodes.add( "b&");
         iSnowTile = g.newImage("snowtile.png", ImageFormat.RGB565); tiles.add(iSnowTile); charCodes.add( "b^");
 
+        paint1 = new Paint();
+        paint1.setTextSize(C.pauseArea);
+        paint1.setTextAlign(Paint.Align.RIGHT);
+        paint1.setAntiAlias(true);
+        paint1.setColor(Color.WHITE);
+        paint2 = new Paint();
+        paint2.setTextSize(200);
+        paint2.setTextAlign(Paint.Align.CENTER);
+        paint2.setAntiAlias(true);
+        paint2.setColor(Color.WHITE);
     }}
 
     public static void backgroundByString(String bg)

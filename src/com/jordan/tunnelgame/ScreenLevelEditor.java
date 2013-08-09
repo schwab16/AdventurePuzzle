@@ -39,6 +39,7 @@ public class ScreenLevelEditor extends Screen {
     public Image selectedImage = Assets.iBasicTile;
     public int currentTile = 5;
     public int currentBackground = 0;
+    public float levelTime = 0;
 
     public ScreenLevelEditor(Game game, int num) {
         super(game);
@@ -102,7 +103,7 @@ public class ScreenLevelEditor extends Screen {
     }
     private void paintSelect() {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level,0);
+        GameDrawer.draw(g,level,0,-1);
         g.drawImage(Assets.menu,0,0);
         g.drawImage(selectedImage,C.editorCurrentBlockX,C.editorCurrentBlockY);
     }
@@ -142,7 +143,7 @@ public class ScreenLevelEditor extends Screen {
     }
     private void paintWarps() {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level,0);
+        GameDrawer.draw(g,level,0,-1);
         if (selected) g.drawImage(Assets.selectedwarp,((warpCharLocation/2) % C.xBlocks)*C.blocksSize,((warpCharLocation/2) / C.xBlocks)*C.blocksSize);
         g.drawImage(Assets.returnicon,C.width - C.pauseArea,0);
     }
@@ -190,7 +191,7 @@ public class ScreenLevelEditor extends Screen {
     }
     private void paintPlacement() {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level,0);
+        GameDrawer.draw(g,level,0,-1);
         g.drawImage(Assets.returnicon,C.width-C.pauseArea,0);
     }
 
@@ -227,20 +228,26 @@ public class ScreenLevelEditor extends Screen {
         g.drawImage(Assets.returnicon,1230,0);
     }
 
+
     private void updateTest(List<Input.TouchEvent> touchEvents, float deltaTime) {
         for (Input.TouchEvent t : touchEvents)
             if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > C.width - C.pauseArea && t.y < C.pauseArea) {
                 state = EditorType.Select;
                 Assets.menuByString("editor");
                 level.load();
+                levelTime = 0;
                 return;
             }
+        levelTime += deltaTime;
         ScreenGame.GameState s = GameRunner.update(touchEvents, deltaTime, level);
-        if (s != ScreenGame.GameState.Running) level.load();
+        if (s != ScreenGame.GameState.Running) {
+            level.load();
+            levelTime = 0;
+        }
     }
     private void paintTest(float deltaTime) {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level,deltaTime);
+        GameDrawer.draw(g,level,deltaTime, levelTime);
         g.drawImage(Assets.returnicon,C.width-C.pauseArea,0);
     }
 
@@ -436,7 +443,7 @@ public class ScreenLevelEditor extends Screen {
     }
     private void paintStar() {
         Graphics g = game.getGraphics();
-        GameDrawer.draw(g,level,0);
+        GameDrawer.draw(g,level,0,-1);
         g.drawImage(Assets.returnicon,C.width-C.pauseArea,0);
     }
 

@@ -5,7 +5,7 @@ import com.jordan.framework.Image;
 
 public class GameDrawer {
 
-    public static void draw(Graphics g, Level level, float deltaTime)
+    public static void draw(Graphics g, Level level, float deltaTime, float levelTime)
     {
         g.drawImage(Assets.background, 0,0);
 
@@ -42,5 +42,11 @@ public class GameDrawer {
             int y = (int)o.coord.y - i.getHeight()/2;
             g.drawImage(i, x, y);
         }
+
+        if (levelTime == -1) return;
+        levelTime = (int)levelTime / 100.0f;
+        levelTime = (int)(levelTime*10) /10.0f;
+        String j = "";
+        g.drawString("" + levelTime + j, C.width - C.pauseArea*2, C.pauseArea, Assets.paint1);
     }
 }

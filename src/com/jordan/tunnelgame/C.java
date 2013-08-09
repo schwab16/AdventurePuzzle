@@ -45,10 +45,15 @@ public class C {
     public static int numPacks = 6;
 
     //darkness when used
-    public static int darkness = 100;
+    public static int darkness = 200;
 
     //button locations
     public static int center = 1280/2 - 402/2;
     public static int[][] buttonNormal3 = {{center,400},{center,500},{center,600}}, buttonNormal2 = {{center,400},{center,500}}, buttonNormal1 = {{center,700}}, buttonHelp = {{800,95}};
+
+
+
+
     public static int packY1 = 300, packY2 = 500, packX1 = 50, packX2 = 150;
+    public static int finStarX = 200, finStarY = 200, finTextY = 375;
 }

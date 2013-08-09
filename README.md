@@ -9,7 +9,6 @@ TODO LIST Jordan:
 2-star&medals located, time shown on finish
 -jumping (&decide how)
 -improve collisions (on final chaser)
-3-show time in gamescreen (with hundreds)
 4-custom font for ingame score
 5-counts total medals and stars
 -more game stuff (new blocks)
