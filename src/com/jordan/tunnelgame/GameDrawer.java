@@ -9,38 +9,42 @@ public class GameDrawer {
     {
         g.drawImage(Assets.background, 0,0);
 
-        for (int x = 0; x < C.xBlocks; x++) {
-            for (int y = 0; y < C.yBlocks; y++) {
+        for (int x = C.xBlocks-1; x >= 0; x--) {
+            for (int y = C.yBlocks-1; y >= 0; y--) {
                 Tile t = level.tiles[x][y];
-                Image i = t.getImage(deltaTime);
+                Anim a = t.getImage(deltaTime);
+                Image i = a.image;
                 if (!(t instanceof TileEmpty))
-                    g.drawImage(i,(int)t.coord.x,(int)t.coord.y);
+                    g.drawImage(i,(int)t.coord.x,(int)t.coord.y,(int)a.coord.x,(int)a.coord.y,C.blocksSize,i.getHeight());
             }
         }
 
         for (Chaser c: level.chasers)
         {
-            Image i = c.getImage(deltaTime);
+            Anim a = c.getImage(deltaTime);
+            Image i = a.image;
             int x = (int)c.coord.x;
             int y = (int)c.coord.y;
-            g.drawImage(i, x, y);
+            g.drawImage(i, x, y,(int)a.coord.x,(int)a.coord.y,C.blocksSize,C.blocksSize);
         }
 
         for (Star s: level.stars)
         {
             if (s.caughtYet) continue;
-            Image i = s.getImage(deltaTime);
+            Anim a = s.getImage(deltaTime);
+            Image i = a.image;
             int x = (int)s.coord.x - i.getWidth()/2;
             int y = (int)s.coord.y - i.getHeight()/2;
-            g.drawImage(i, x, y);
+            g.drawImage(i, x, y,(int)a.coord.x,(int)a.coord.y,C.blocksSize/2,C.blocksSize/2);
         }
 
         for (Orb o: level.orbs)
         {
-            Image i = o.getImage(deltaTime);
+            Anim a =  o.getImage(deltaTime);
+            Image i = a.image;
             int x = (int)o.coord.x - i.getWidth()/2;
             int y = (int)o.coord.y - i.getHeight()/2;
-            g.drawImage(i, x, y);
+            g.drawImage(i, x, y,(int)a.coord.x,(int)a.coord.y,C.blocksSize,C.blocksSize);
         }
 
         if (levelTime == -1) return;

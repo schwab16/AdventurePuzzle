@@ -36,8 +36,8 @@ public class TileSlip extends Tile {
     }
 
     @Override
-    public Image getImage(float deltaTime) {
-        return Assets.iIceTile;
+    public Anim getImage(float deltaTime) {
+        return new Anim(Assets.iIceTile,new Coord(0,0));
     }
 
 }

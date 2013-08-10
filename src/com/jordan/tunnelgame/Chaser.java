@@ -26,22 +26,22 @@ public class Chaser {
 
     }
 
-    public Image getImage(float deltaTime)
+    public Anim getImage(float deltaTime)
     {
         switch(color)
         {
-            case 'a': return Assets.iChaser;
-            case 'b': return Assets.iChaser;
-            case 'c': return Assets.iChaser;
-            case 'd': return Assets.iChaser;
-            case 'e': return Assets.iChaser;
-            case 'f': return Assets.iChaser;
-            case 'g': return Assets.iChaser;
-            case 'h': return Assets.iChaser;
-            case 'i': return Assets.iChaser;
-            case 'j': return Assets.iChaser;
+            case 'a': return new Anim(Assets.iChaser,new Coord(0,0));
+            case 'b': return new Anim(Assets.iChaser,new Coord(0,0));
+            case 'c': return new Anim(Assets.iChaser,new Coord(0,0));
+            case 'd': return new Anim(Assets.iChaser,new Coord(0,0));
+            case 'e': return new Anim(Assets.iChaser,new Coord(0,0));
+            case 'f': return new Anim(Assets.iChaser,new Coord(0,0));
+            case 'g': return new Anim(Assets.iChaser,new Coord(0,0));
+            case 'h': return new Anim(Assets.iChaser,new Coord(0,0));
+            case 'i': return new Anim(Assets.iChaser,new Coord(0,0));
+            case 'j': return new Anim(Assets.iChaser,new Coord(0,0));
         }
-        return Assets.iChaser;
+        return new Anim(Assets.iChaser,new Coord(0,0));
     }
 
 }

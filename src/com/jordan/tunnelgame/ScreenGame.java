@@ -44,7 +44,7 @@ public class ScreenGame extends Screen {
             }
 
         time += deltaTime;
-        if (time > 999.9) time = 999.9f;
+        if (time > 99990) time = 99990f;
 
         state = GameRunner.update(touchEvents,deltaTime,level);
 

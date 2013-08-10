@@ -18,8 +18,8 @@ public class TileEmpty extends Tile {
     public void onTouch() {}
 
     @Override
-    public Image getImage(float deltaTime) {
-        return Assets.iTile;
+    public Anim getImage(float deltaTime) {
+        return new Anim(Assets.iTile,new Coord(0,0));
     }
 
 }

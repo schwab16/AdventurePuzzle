@@ -24,7 +24,7 @@ public class TileFinish extends Tile {
     }
 
     @Override
-    public Image getImage(float deltaTime) {
-        return Assets.iFinishTile;
+    public Anim getImage(float deltaTime) {
+        return new Anim(Assets.iFinishTile,new Coord(0,0));
     }
 }

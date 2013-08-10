@@ -1,5 +1,7 @@
 package com.jordan.tunnelgame;
 
+import android.graphics.Color;
+
 import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
 import com.jordan.framework.Input;
@@ -62,6 +64,18 @@ public class ScreenPackSelect extends Screen {
         } catch (Exception e) {
             g.drawImage(Assets.locked, C.width/2 - Assets.locked.getWidth()/2, C.height/2 - Assets.locked.getHeight()/2);
         }
+
+        int t = 0;
+        for (int l = 0; l < 6; l++){
+            String h = Assets.readFromMemory(C.packFileName + l);
+            if (h.equals("")) continue;
+            for (int k = 1; k<26; k++)
+                t += h.charAt(3*k + 1) + h.charAt(3*k + 2) - '0' - '0';
+        }
+
+        Assets.paint1.setColor(Color.BLACK);
+        g.drawString("Overall Score: " + t + "/900",C.width - 20, C.height - 20,Assets.paint1);
+        Assets.paint1.setColor(Color.WHITE);
     }
 
     @Override

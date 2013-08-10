@@ -42,7 +42,7 @@ public class TileWarp extends Tile {
     }
 
     @Override
-    public Image getImage(float deltaTime) {
-        return Assets.iWarpTile;
+    public Anim getImage(float deltaTime) {
+        return new Anim(Assets.iWarpTile,new Coord(0,0));
     }
 }

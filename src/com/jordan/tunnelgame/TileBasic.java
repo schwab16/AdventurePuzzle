@@ -36,16 +36,16 @@ public class TileBasic extends Tile {
     }
 
     @Override
-    public Image getImage(float deltaTime) {
+    public Anim getImage(float deltaTime) {
         switch(id)
         {
-            case '+': return Assets.iBasicTile;
-            case '-': return Assets.iRockTile;
-            case '/': return Assets.iStoneTile;
-            case '&': return Assets.iMetalTile;
-            case '^': return Assets.iSnowTile;
+            case '+': return new Anim(Assets.iBasicTile,new Coord(0,0));
+            case '-': return new Anim(Assets.iRockTile,new Coord(0,0));
+            case '/': return new Anim(Assets.iStoneTile,new Coord(0,0));
+            case '&': return new Anim(Assets.iMetalTile,new Coord(0,0));
+            case '^': return new Anim(Assets.iSnowTile,new Coord(0,0));
         }
-        return Assets.iBasicTile;
+        return new Anim(Assets.iBasicTile,new Coord(0,0));
     }
 
 }

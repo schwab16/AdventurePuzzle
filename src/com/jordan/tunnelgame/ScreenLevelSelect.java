@@ -1,5 +1,7 @@
 package com.jordan.tunnelgame;
 
+import android.graphics.Color;
+
 import com.jordan.framework.Game;
 import com.jordan.framework.Graphics;
 import com.jordan.framework.Input;
@@ -64,6 +66,14 @@ public class ScreenLevelSelect extends Screen {
                 }
             }
         }
+        String h = Assets.readFromMemory(C.packFileName + packID);
+        if (h.equals("") || packID == -1) return;
+        int t = 0;
+        for (int k = 1; k<26; k++)
+            t += h.charAt(3*k + 1) + h.charAt(3*k + 2) - '0' - '0';
+        Assets.paint1.setColor(Color.BLACK);
+        g.drawString("Score: " + t + "/150",C.width - 150, C.height/5 + 15,Assets.paint1);
+        Assets.paint1.setColor(Color.WHITE);
     }
 
     @Override

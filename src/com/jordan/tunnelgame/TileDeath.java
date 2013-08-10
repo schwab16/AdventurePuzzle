@@ -36,12 +36,12 @@ public class TileDeath extends Tile {
     }
 
     @Override
-    public Image getImage(float deltaTime) {
+    public Anim getImage(float deltaTime) {
         switch(id)
         {
-            case '*': return Assets.iFireTile;
+            case '*': return new Anim(Assets.iFireTile,new Coord(0,0));
         }
-        return Assets.iFireTile;
+        return new Anim(Assets.iFireTile,new Coord(0,0));
     }
 
 }

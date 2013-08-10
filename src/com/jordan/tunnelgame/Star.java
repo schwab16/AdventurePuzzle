@@ -21,8 +21,8 @@ public class Star {
             caughtYet = true;
     }
 
-    public Image getImage(float deltaTime)
+    public Anim getImage(float deltaTime)
     {
-        return Assets.star;
+        return new Anim(Assets.star, new Coord(0,0));
     }
 }

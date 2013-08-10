@@ -15,22 +15,22 @@ public class Orb {
         this.coord = start;
     }
 
-    public Image getImage(float deltaTime)
+    public Anim getImage(float deltaTime)
     {
         switch(color)
         {
-            case 'a': return Assets.iOrb;
-            case 'b': return Assets.iOrb;
-            case 'c': return Assets.iOrb;
-            case 'd': return Assets.iOrb;
-            case 'e': return Assets.iOrb;
-            case 'f': return Assets.iOrb;
-            case 'g': return Assets.iOrb;
-            case 'h': return Assets.iOrb;
-            case 'i': return Assets.iOrb;
-            case 'j': return Assets.iOrb;
+            case 'a': return new Anim(Assets.iOrb,new Coord(0,0));
+            case 'b': return new Anim(Assets.iOrb,new Coord(0,0));
+            case 'c': return new Anim(Assets.iOrb,new Coord(0,0));
+            case 'd': return new Anim(Assets.iOrb,new Coord(0,0));
+            case 'e': return new Anim(Assets.iOrb,new Coord(0,0));
+            case 'f': return new Anim(Assets.iOrb,new Coord(0,0));
+            case 'g': return new Anim(Assets.iOrb,new Coord(0,0));
+            case 'h': return new Anim(Assets.iOrb,new Coord(0,0));
+            case 'i': return new Anim(Assets.iOrb,new Coord(0,0));
+            case 'j': return new Anim(Assets.iOrb,new Coord(0,0));
         }
-        return Assets.iOrb;
+        return new Anim(Assets.iOrb,new Coord(0,0));
     }
 
 }
