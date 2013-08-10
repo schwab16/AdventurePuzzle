@@ -36,6 +36,7 @@ public class GameRunner {
     private static boolean chasersDie(ArrayList<Chaser> chasers) {
         for (Chaser c: chasers)
         {
+            if (c.finished) continue;
             if (c.dead) return true;
             if (c.coord.y > C.height + C.blocksSize && !c.finished) return true;
         }
@@ -45,11 +46,7 @@ public class GameRunner {
     private static boolean chasersFinish(ArrayList<Chaser> chasers) {
         for (Chaser c: chasers)
         {
-            if (c.finished)
-            {
-                c.coord.x = -C.width;
-                c.coord.y = 0;
-            }
+            if (c.finished) continue;
             else return false;
         }
         return true;
@@ -58,6 +55,7 @@ public class GameRunner {
     private static void chasersMove(ArrayList<Chaser> chasers, float deltaTime) {
         for(Chaser c: chasers)
         {
+            if (c.finished) continue;
             c.coord.y -= c.upwardVelocity * deltaTime;
             c.coord.x += c.sideVelocity * deltaTime;
         }
@@ -67,6 +65,7 @@ public class GameRunner {
         for (int z = 0; z < chasers.size(); z++)
         {
             Chaser c = chasers.get(z);
+            if (c.finished) continue;
             ArrayList<Tile> ti = Tile.getAdjacentTiles(tiles,c.coord);
             for (int k = 0; k < ti.size(); k++)
             {
@@ -79,6 +78,7 @@ public class GameRunner {
 
     private static void chasersFallDown(ArrayList<Chaser> chasers, float deltaTime) {
         for (Chaser c: chasers) {
+            if (c.finished) continue;
             c.upwardVelocity += c.gravity * deltaTime;
             if (c.upwardVelocity < C.maxFall) c.upwardVelocity = C.maxFall;
         }
@@ -87,13 +87,18 @@ public class GameRunner {
     private static void chasersFollowOrbs(ArrayList<Chaser> chasers, ArrayList<Orb> orbs, float deltaTime) {
         for (Chaser c: chasers)
         {
+            if (c.finished) continue;
             for (Orb o: orbs)
                 if (c.color == o.color)
                 {
                     if (c.coord.x > o.coord.x-C.blocksSize/2 + C.buffer)
                         c.sideVelocity -= deltaTime * c.momentum;
-                    if (c.coord.x + C.buffer < o.coord.x-C.blocksSize/2)
+                    else if (c.coord.x + C.buffer < o.coord.x-C.blocksSize/2)
                         c.sideVelocity += deltaTime * c.momentum;
+                    else if (c.upwardVelocity>=0 && !c.jumping && c.coord.y > o.coord.y && c.coord.y < o.coord.y +C.jumpBuffer) {
+                        c.jumping = true;
+                        c.upwardVelocity = C.jump;
+                    }
                 }
 
             if (c.sideVelocity > c.maxVelocity) c.sideVelocity = c.maxVelocity;

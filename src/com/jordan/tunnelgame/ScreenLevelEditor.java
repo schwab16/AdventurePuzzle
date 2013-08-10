@@ -105,7 +105,7 @@ public class ScreenLevelEditor extends Screen {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level,0,-1);
         g.drawImage(Assets.menu,0,0);
-        g.drawImage(selectedImage,C.editorCurrentBlockX,C.editorCurrentBlockY);
+        g.drawImage(selectedImage,C.editorCurrentBlockX,C.editorCurrentBlockY,0,0,C.blocksSize,selectedImage.getHeight());
     }
 
 
@@ -139,7 +139,6 @@ public class ScreenLevelEditor extends Screen {
                 }
                 level.load();
             }
-        level.load();
     }
     private void paintWarps() {
         Graphics g = game.getGraphics();
@@ -218,7 +217,7 @@ public class ScreenLevelEditor extends Screen {
         int x = 0, y= 0;
         for (Image i: Assets.tiles)
         {
-            g.drawImage(i,x,y);
+            g.drawImage(i,x,y,0,0,C.blocksSize,i.getHeight());
             x+=C.blocksSize;
             if (x == C.width - C.blocksSize) {
                 x = 0;
@@ -436,7 +435,7 @@ public class ScreenLevelEditor extends Screen {
         int s1 = level.stars.get(1).pointerID;
         int s2 = level.stars.get(2).pointerID;
         starString = level.stars.get(0).coord.toString(true) + "$" + level.stars.get(1).coord.toString(true) + "$" + level.stars.get(2).coord.toString(true);
-        level.load();
+        if (touchEvents.size() > 0) level.load();
         level.stars.get(0).pointerID = s0;
         level.stars.get(1).pointerID = s1;
         level.stars.get(2).pointerID = s2;

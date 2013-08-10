@@ -33,4 +33,9 @@ public class Coord {
     {
         return "(" + (int)x + ", " + (int)y + ")";
     }
+
+    public Coord clone()
+    {
+        return new Coord(x,y);
+    }
 }

@@ -25,6 +25,7 @@ public abstract class Tile {
         if (chaser.upwardVelocity < 0)
             chaser.upwardVelocity = 0;
         chaser.coord.y = coord.y - C.blocksSize + 1;
+        chaser.jumping = false;
     }
 
     public void basicLeftCollision(Chaser chaser)

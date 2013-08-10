@@ -15,6 +15,7 @@ public class Chaser {
     public boolean readyToWarp[] = new boolean[43];
     public boolean finished = false;
     public boolean dead = false;
+    public boolean jumping = false;
 
     public Chaser(Coord start, char color)
     {

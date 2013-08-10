@@ -19,7 +19,7 @@ public class C {
     public static int pauseArea = 50;
 
     //buffer of orbs&chasers
-    public static int buffer = 35;
+    public static int buffer = 35, jumpBuffer = 200, jump = 5;
     //chaser speeds
     public static double chaserGravity = -0.1, chaserMomentum = 1, chaserResistance = .2;
     public static double maxVelocity = 5, maxFall = -10;

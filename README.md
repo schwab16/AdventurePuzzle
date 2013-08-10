@@ -6,10 +6,8 @@ Graphics: Isaac Schwab
 
 TODO LIST Jordan:
 =======
--jumping (&decide how)
 -improve collisions (on final chaser)
 -more game stuff (new blocks)
--animation (start with gem, easy)
 -guys should face both ways
 -sound
 -music
@@ -22,10 +20,11 @@ TODO LIST Ike:
 -backgrounds: desert, ocean, forest, jungle, prairie, city, building
 -about menu
 -help menu
-2-locked icon
+-locked icon
 -buy full screen
 -pack screens
-4-medal menu rectangles
+-medal menu rectangles
+-animate chaser, orb, fire
 
 
 TODO LIST Testing:

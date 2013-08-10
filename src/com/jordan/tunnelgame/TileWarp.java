@@ -41,8 +41,23 @@ public class TileWarp extends Tile {
 
     }
 
+    public float frameDT = 0;
+    public int currentFrame = (int)(Math.random()*Assets.iWarpTile.getWidth()/C.blocksSize);
+    public float frameLength = 4;
+    public int max = Assets.iWarpTile.getWidth()/C.blocksSize;
     @Override
     public Anim getImage(float deltaTime) {
-        return new Anim(Assets.iWarpTile,new Coord(0,0));
+        Image i = Assets.iWarpTile;
+        frameDT += deltaTime;
+
+        if (frameDT > frameLength)
+        {
+            frameDT -= frameLength;
+            currentFrame++;
+            if (currentFrame == max) currentFrame = 0;
+        }
+
+        Coord cc = new Coord(currentFrame * C.blocksSize,0);
+        return new Anim(i,cc);
     }
 }
