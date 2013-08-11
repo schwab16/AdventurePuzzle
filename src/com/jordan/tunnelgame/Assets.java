@@ -51,6 +51,7 @@ public class Assets {
         backgrounds.add("night");
         backgrounds.add("sunset");
         backgrounds.add("grassland");
+        backgrounds.add("mountain");
 
         //buttons
         Button.setButtons(g.newImage("button.png", ImageFormat.RGB565),g.newImage("buttonpushed.png", ImageFormat.RGB565));

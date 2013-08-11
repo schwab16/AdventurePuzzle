@@ -66,7 +66,7 @@ public class LevelStorage {
                         "b+b+b+b+b+            w0  b+b+d*" +
                         "b+b+b+b+b+b+b+vcvcb+b+b+b+b+b+b+";
             case 2:
-                return "test2#sunset#(200,50)$(400,50)$(1000,50)#7.77$15.01$25.40#" +
+                return "test2#mountain#(200,50)$(400,50)$(1000,50)#7.77$15.01$25.40#" +
                         "  w0                            " +
                         "                w2      Ob      " +
                         "            Oa    f!            " +
