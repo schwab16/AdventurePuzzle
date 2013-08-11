@@ -6,6 +6,7 @@ public class Chaser {
 
     public Coord coord;
     public final char color;
+    public Anim anim;
     public double upwardVelocity = 0;
     public double gravity = C.chaserGravity;
     public double sideVelocity = 0;
@@ -22,27 +23,28 @@ public class Chaser {
         this.color = color;
         this.coord = start;
 
-        for(int k = 0; k < 10; k++)
+        for(int k = 0; k < 43; k++)
             readyToWarp[k] = true;
 
+        switch(color)
+        {
+            case 'a': anim = new Anim(Assets.iChaser,new int[]{0},100); break;
+            case 'b': anim = new Anim(Assets.iChaser,new int[]{0},100); break;
+            case 'c': anim = new Anim(Assets.iChaser,new int[]{0},100); break;
+            case 'd': anim = new Anim(Assets.iChaser,new int[]{0},100); break;
+            case 'e': anim = new Anim(Assets.iChaser,new int[]{0},100); break;
+            case 'f': anim = new Anim(Assets.iChaser,new int[]{0},100); break;
+            case 'g': anim = new Anim(Assets.iChaser,new int[]{0},100); break;
+            case 'h': anim = new Anim(Assets.iChaser,new int[]{0},100); break;
+            case 'i': anim = new Anim(Assets.iChaser,new int[]{0},100); break;
+            case 'j': anim = new Anim(Assets.iChaser,new int[]{0},100); break;
+        }
     }
 
     public Anim getImage(float deltaTime)
     {
-        switch(color)
-        {
-            case 'a': return new Anim(Assets.iChaser,new Coord(0,0));
-            case 'b': return new Anim(Assets.iChaser,new Coord(0,0));
-            case 'c': return new Anim(Assets.iChaser,new Coord(0,0));
-            case 'd': return new Anim(Assets.iChaser,new Coord(0,0));
-            case 'e': return new Anim(Assets.iChaser,new Coord(0,0));
-            case 'f': return new Anim(Assets.iChaser,new Coord(0,0));
-            case 'g': return new Anim(Assets.iChaser,new Coord(0,0));
-            case 'h': return new Anim(Assets.iChaser,new Coord(0,0));
-            case 'i': return new Anim(Assets.iChaser,new Coord(0,0));
-            case 'j': return new Anim(Assets.iChaser,new Coord(0,0));
-        }
-        return new Anim(Assets.iChaser,new Coord(0,0));
+        anim.add(100);
+        return anim;
     }
 
 }

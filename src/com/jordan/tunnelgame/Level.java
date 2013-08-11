@@ -80,6 +80,7 @@ public class Level {
                 else if (typeID == 'b') tiles[x][y] = new TileBasic(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'd') tiles[x][y] = new TileDeath(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 's') tiles[x][y] = new TileSlip(new Coord(x*pix,y*pix),charID);
+                else if (typeID == 'v') tiles[x][y] = new TileVanish(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'w') {
                     tiles[x][y] = new TileWarp(new Coord(x*pix,y*pix),'0',TileWarp.currentID++,charID);
                     TileWarp.otherWarps.add((TileWarp)tiles[x][y]);

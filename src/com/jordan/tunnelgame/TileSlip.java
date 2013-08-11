@@ -5,6 +5,10 @@ import com.jordan.framework.Image;
 public class TileSlip extends Tile {
     public TileSlip(Coord coord, char id) {
         super(coord, id);
+        switch (id)
+        {
+            case '_': anim = new Anim(Assets.iIceTile, new int[]{0},100); break;
+        }
     }
 
     @Override
@@ -26,7 +30,7 @@ public class TileSlip extends Tile {
     }
 
     @Override
-    public void update() {
+    public void update(float deltaTime) {
 
     }
 
@@ -37,7 +41,8 @@ public class TileSlip extends Tile {
 
     @Override
     public Anim getImage(float deltaTime) {
-        return new Anim(Assets.iIceTile,new Coord(0,0));
+        anim.add(deltaTime);
+        return anim;
     }
 
 }

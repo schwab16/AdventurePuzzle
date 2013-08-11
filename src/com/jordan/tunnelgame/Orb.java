@@ -5,6 +5,7 @@ import com.jordan.framework.Image;
 public class Orb {
 
     public Coord coord;
+    public Anim anim;
     public final char color;
     public boolean trackable = true;
     public int pointerID = -1;
@@ -13,24 +14,26 @@ public class Orb {
     {
         this.color = color;
         this.coord = start;
+
+        switch(color)
+        {
+            case 'a': anim = new Anim(Assets.iOrb,new int[]{0},100); break;
+            case 'b': anim = new Anim(Assets.iOrb,new int[]{0},100); break;
+            case 'c': anim = new Anim(Assets.iOrb,new int[]{0},100); break;
+            case 'd': anim = new Anim(Assets.iOrb,new int[]{0},100); break;
+            case 'e': anim = new Anim(Assets.iOrb,new int[]{0},100); break;
+            case 'f': anim = new Anim(Assets.iOrb,new int[]{0},100); break;
+            case 'g': anim = new Anim(Assets.iOrb,new int[]{0},100); break;
+            case 'h': anim = new Anim(Assets.iOrb,new int[]{0},100); break;
+            case 'i': anim = new Anim(Assets.iOrb,new int[]{0},100); break;
+            case 'j': anim = new Anim(Assets.iOrb,new int[]{0},100); break;
+        }
     }
 
     public Anim getImage(float deltaTime)
     {
-        switch(color)
-        {
-            case 'a': return new Anim(Assets.iOrb,new Coord(0,0));
-            case 'b': return new Anim(Assets.iOrb,new Coord(0,0));
-            case 'c': return new Anim(Assets.iOrb,new Coord(0,0));
-            case 'd': return new Anim(Assets.iOrb,new Coord(0,0));
-            case 'e': return new Anim(Assets.iOrb,new Coord(0,0));
-            case 'f': return new Anim(Assets.iOrb,new Coord(0,0));
-            case 'g': return new Anim(Assets.iOrb,new Coord(0,0));
-            case 'h': return new Anim(Assets.iOrb,new Coord(0,0));
-            case 'i': return new Anim(Assets.iOrb,new Coord(0,0));
-            case 'j': return new Anim(Assets.iOrb,new Coord(0,0));
-        }
-        return new Anim(Assets.iOrb,new Coord(0,0));
+        anim.add(deltaTime);
+        return anim;
     }
 
 }

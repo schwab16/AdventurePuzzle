@@ -33,8 +33,8 @@ public class GameDrawer {
             if (s.caughtYet) continue;
             Anim a = s.getImage(deltaTime);
             Image i = a.image;
-            int x = (int)s.coord.x - i.getWidth()/2;
-            int y = (int)s.coord.y - i.getHeight()/2;
+            int x = (int)s.coord.x - C.blocksSize/4;
+            int y = (int)s.coord.y - C.blocksSize/4;
             g.drawImage(i, x, y,(int)a.coord.x,(int)a.coord.y,C.blocksSize/2,C.blocksSize/2);
         }
 
@@ -42,8 +42,8 @@ public class GameDrawer {
         {
             Anim a =  o.getImage(deltaTime);
             Image i = a.image;
-            int x = (int)o.coord.x - i.getWidth()/2;
-            int y = (int)o.coord.y - i.getHeight()/2;
+            int x = (int)o.coord.x - C.blocksSize/2;
+            int y = (int)o.coord.y - C.blocksSize/2;
             g.drawImage(i, x, y,(int)a.coord.x,(int)a.coord.y,C.blocksSize,C.blocksSize);
         }
 

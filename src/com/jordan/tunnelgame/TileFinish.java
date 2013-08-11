@@ -5,6 +5,7 @@ import com.jordan.framework.Image;
 public class TileFinish extends Tile {
     public TileFinish(Coord coord, char id) {
         super(coord, id);
+        anim = new Anim(Assets.iFinishTile,new int[]{0,1,2,3,4,5,6,7,8,9,8,7,6,5,4,3,2,1}, 5);
     }
 
     @Override
@@ -17,7 +18,7 @@ public class TileFinish extends Tile {
     }
 
     @Override
-    public void update() {
+    public void update(float deltaTime) {
 
     }
 
@@ -26,28 +27,9 @@ public class TileFinish extends Tile {
 
     }
 
-
-    public float frameDT = 0;
-    public int currentFrame = (int)((Math.random()*Assets.iFinishTile.getWidth()-2)/C.blocksSize) + 1;
-    public float frameLength = 5;
-    public boolean up = Math.random() < .5;
-    int max = Assets.iFinishTile.getWidth()/C.blocksSize;
     @Override
     public Anim getImage(float deltaTime) {
-        Image i = Assets.iFinishTile;
-        frameDT += deltaTime;
-
-        if (frameDT > frameLength)
-        {
-            frameDT -= frameLength;
-            if (up) currentFrame++;
-            else currentFrame--;
-
-            if (currentFrame == max-1) up = false;
-            if (currentFrame == 0) up = true;
-        }
-
-        Coord cc = new Coord(currentFrame * C.blocksSize,0);
-        return new Anim(i,cc);
+        anim.add(deltaTime);
+        return anim;
     }
 }

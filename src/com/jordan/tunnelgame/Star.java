@@ -5,6 +5,7 @@ import com.jordan.framework.Image;
 public class Star {
 
     public Coord coord;
+    public Anim anim;
     public boolean caughtYet = false;
     public int num;
     public int pointerID = -1;
@@ -13,6 +14,8 @@ public class Star {
     {
         this.coord = coord;
         this.num = num;
+
+        anim = new Anim(Assets.star,new int[]{0},100);
     }
 
     public void checkCollision(Chaser chaser)
@@ -23,6 +26,6 @@ public class Star {
 
     public Anim getImage(float deltaTime)
     {
-        return new Anim(Assets.star, new Coord(0,0));
+        return anim;
     }
 }

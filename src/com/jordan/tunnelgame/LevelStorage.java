@@ -19,6 +19,8 @@ public class LevelStorage {
 
     'd*' : fire tile
 
+    'vc' : vanish cloud tile
+
     's_' : ice tile
 
     'w0'123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ : warp tile
@@ -35,15 +37,14 @@ public class LevelStorage {
     4) make it recognised by the level class switch statement
     5) add a class that extends tile, implements methods (jordan only)
     6) getImage needs to return the correct image
-    7) add functionality (in the class, in GameRunner) (jordan only)
-    8) add it to a level
+    7) animations
+    8) add functionality (in the class, in GameRunner) (jordan only)
+    9) add it to a level
 
     HOW TO ADD A NEW BACKGROUND
     1) put it in assets folder, name it backgroundwhatever.png
-    2) make it an instance variable here
-    3) load it in the load method
-    4) add an if statement in the backgroundByString method
-    5) add it to a level after the first hashtaga
+    2) add string in load method
+    3) add it to a level after the first hashtag
     */
 
     public static String getLevelString(int packID, int levelNum)
@@ -53,7 +54,7 @@ public class LevelStorage {
         {
             case -1: return ScreenLevelEditor.levelName + "#" + ScreenLevelEditor.backgroundString + "#" + ScreenLevelEditor.starString + "#" + ScreenLevelEditor.medalString + "#" + ScreenLevelEditor.levelString;
             case 1:
-                return "test1#moon#(200,50)$(400,50)$(1000,50)#7.77$15.01$25.40#" +
+                return "test1#grassland#(200,50)$(400,50)$(1000,50)#7.77$15.01$25.40#" +
                         "  w0                            " +
                         "                w2      Ob      " +
                         "            Oa    f!            " +
@@ -63,7 +64,7 @@ public class LevelStorage {
                         "  b+                            " +
                         "b+b+b+          Ca              " +
                         "b+b+b+b+b+            w0  b+b+d*" +
-                        "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+                        "b+b+b+b+b+b+b+vcvcb+b+b+b+b+b+b+";
             case 2:
                 return "test2#sunset#(200,50)$(400,50)$(1000,50)#7.77$15.01$25.40#" +
                         "  w0                            " +
@@ -101,7 +102,7 @@ public class LevelStorage {
                         "  b+b+b+b+            w0  b+b+d*" +
                         "  b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
             case 5:
-                return "le0#sunset#(200,50)$(400,50)$(1000,50)#7.77$15.01$25.40#" +
+                return "le0#moon#(200,50)$(400,50)$(1000,50)#7.77$15.01$25.40#" +
                         "b+                              " +
                         "  b+b+                        b+" +
                         "    b+      Oa              b+  " +

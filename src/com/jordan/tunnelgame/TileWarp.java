@@ -15,6 +15,7 @@ public class TileWarp extends Tile {
         super(coord, id);
         this.targetID = targetID - '0';
         this.myID = myID;
+        anim = new Anim(Assets.iWarpTile,new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29}, 4);
     }
 
     @Override
@@ -32,7 +33,7 @@ public class TileWarp extends Tile {
     }
 
     @Override
-    public void update() {
+    public void update(float deltaTime) {
 
     }
 
@@ -41,23 +42,9 @@ public class TileWarp extends Tile {
 
     }
 
-    public float frameDT = 0;
-    public int currentFrame = (int)(Math.random()*Assets.iWarpTile.getWidth()/C.blocksSize);
-    public float frameLength = 4;
-    public int max = Assets.iWarpTile.getWidth()/C.blocksSize;
     @Override
     public Anim getImage(float deltaTime) {
-        Image i = Assets.iWarpTile;
-        frameDT += deltaTime;
-
-        if (frameDT > frameLength)
-        {
-            frameDT -= frameLength;
-            currentFrame++;
-            if (currentFrame == max) currentFrame = 0;
-        }
-
-        Coord cc = new Coord(currentFrame * C.blocksSize,0);
-        return new Anim(i,cc);
+        anim.add(deltaTime);
+        return anim;
     }
 }

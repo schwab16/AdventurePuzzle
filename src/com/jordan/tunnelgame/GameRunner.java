@@ -11,12 +11,16 @@ public class GameRunner {
     public static ScreenGame.GameState update(List<TouchEvent> touchEvents, float deltaTime, Level level)
     {
         if (touchEvents.size() > 0)
-            orbsByTouch(touchEvents,level.orbs);
+            orbsByTouch(touchEvents,level.orbs, level.tiles);
         chasersFollowOrbs(level.chasers, level.orbs, deltaTime);
         chasersFallDown(level.chasers, deltaTime);
         chasersMove(level.chasers, deltaTime);
         chasersCollide(level.chasers, level.tiles);
         chasersStar(level.chasers, level.stars);
+
+        for (int x = 0; x < C.xBlocks; x++)
+            for (int y = 0; y < C.yBlocks; y++)
+                level.tiles[x][y].update(deltaTime);
 
         if (chasersFinish(level.chasers))
             return ScreenGame.GameState.Finish;
@@ -116,7 +120,7 @@ public class GameRunner {
         }
     }
 
-    private static void orbsByTouch(List<TouchEvent> touchEvents, ArrayList<Orb> orbs) {
+    private static void orbsByTouch(List<TouchEvent> touchEvents, ArrayList<Orb> orbs, Tile[][] tiles) {
         for (Input.TouchEvent event: touchEvents)
             switch(event.type)
             {
@@ -137,6 +141,9 @@ public class GameRunner {
                         closest.pointerID = event.pointer;
                         closest.coord = new Coord(event.x, event.y);
                         closest.trackable = true;
+                    }
+                    else {
+                        tiles[event.x/C.blocksSize][event.y/C.blocksSize].onTouch();
                     }
                     break;
                 case Input.TouchEvent.TOUCH_DRAGGED:

@@ -8,6 +8,7 @@ public abstract class Tile {
 
     public Coord coord;
     public char id;
+    public Anim anim;
 
     public Tile(Coord coord, char id)
     {
@@ -16,7 +17,7 @@ public abstract class Tile {
     }
 
     public abstract void collision(Chaser chaser, CollisionType type);
-    public abstract void update();
+    public abstract void update(float deltaTime);
     public abstract void onTouch();
     public abstract Anim getImage(float deltaTime);
 

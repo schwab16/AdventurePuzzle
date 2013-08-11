@@ -5,6 +5,14 @@ import com.jordan.framework.Image;
 public class TileBasic extends Tile {
     public TileBasic(Coord coord, char id) {
         super(coord, id);
+        switch(id)
+        {
+            case '+': anim = new Anim(Assets.iBasicTile,new int[]{0}, 100); break;
+            case '-': anim = new Anim(Assets.iRockTile,new int[]{0}, 100); break;
+            case '/': anim = new Anim(Assets.iStoneTile,new int[]{0}, 100); break;
+            case '&': anim = new Anim(Assets.iMetalTile,new int[]{0}, 100); break;
+            case '^': anim = new Anim(Assets.iSnowTile,new int[]{0}, 100); break;
+        }
     }
 
     @Override
@@ -26,7 +34,7 @@ public class TileBasic extends Tile {
     }
 
     @Override
-    public void update() {
+    public void update(float deltaTime) {
 
     }
 
@@ -37,15 +45,8 @@ public class TileBasic extends Tile {
 
     @Override
     public Anim getImage(float deltaTime) {
-        switch(id)
-        {
-            case '+': return new Anim(Assets.iBasicTile,new Coord(0,0));
-            case '-': return new Anim(Assets.iRockTile,new Coord(0,0));
-            case '/': return new Anim(Assets.iStoneTile,new Coord(0,0));
-            case '&': return new Anim(Assets.iMetalTile,new Coord(0,0));
-            case '^': return new Anim(Assets.iSnowTile,new Coord(0,0));
-        }
-        return new Anim(Assets.iBasicTile,new Coord(0,0));
+        anim.add(deltaTime);
+        return anim;
     }
 
 }

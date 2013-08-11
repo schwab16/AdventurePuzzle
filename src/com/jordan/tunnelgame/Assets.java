@@ -23,7 +23,7 @@ public class Assets {
     public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons, saveButtons, helpButtons;
 
     public static Image iChaser, iOrb, iTile;
-    public static Image iBasicTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
+    public static Image iBasicTile, iCloudTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
 
     public static Paint paint1, paint2;
 
@@ -50,6 +50,7 @@ public class Assets {
         backgrounds.add("moon");
         backgrounds.add("night");
         backgrounds.add("sunset");
+        backgrounds.add("grassland");
 
         //buttons
         Button.setButtons(g.newImage("button.png", ImageFormat.RGB565),g.newImage("buttonpushed.png", ImageFormat.RGB565));
@@ -103,6 +104,7 @@ public class Assets {
         iIceTile = g.newImage("icetile.png", ImageFormat.RGB565); tiles.add(iIceTile); charCodes.add( "s_");
         iMetalTile = g.newImage("metaltile.png", ImageFormat.RGB565); tiles.add(iMetalTile); charCodes.add( "b&");
         iSnowTile = g.newImage("snowtile.png", ImageFormat.RGB565); tiles.add(iSnowTile); charCodes.add( "b^");
+        iCloudTile = g.newImage("cloudtile.png", ImageFormat.RGB565); tiles.add(iCloudTile); charCodes.add( "vc");
 
         paint1 = new Paint();
         paint1.setTextSize(C.pauseArea);
@@ -138,12 +140,6 @@ public class Assets {
         else if (pk == -3) pack = null;
         else pack = g.newImage("pack" + pk + ".png", ImageFormat.RGB565);
     }
-
-    /*public static void packNextByString(int pk) {
-        if (pk == -1) packnext = g.newImage("packc.png", ImageFormat.RGB565);
-        else if (pk == -3) packnext = null;
-        else packnext = g.newImage("pack" + pk + ".png", ImageFormat.RGB565);
-    }*/
 
     public static double distance(Coord a, Coord b) {
         return Math.sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y));
