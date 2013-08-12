@@ -22,6 +22,17 @@ public class Anim {
         coord = new Coord(C.blocksSize * frameOrder[currentFrame], 0);
     }
 
+    public Anim(Image i, int[] frameOrder, float frameLength, int s)
+    {
+        image = i;
+        this.frameOrder = frameOrder;
+        this.frameLength = frameLength;
+
+        currentFrame = s;
+
+        coord = new Coord(C.blocksSize * frameOrder[currentFrame], 0);
+    }
+
     public void add(float deltaTime)
     {
         frameDT += deltaTime;
@@ -33,5 +44,12 @@ public class Anim {
             if (currentFrame >= frameOrder.length) currentFrame = 0;
             coord = new Coord(C.blocksSize * frameOrder[currentFrame], 0);
         }
+    }
+
+    public void setTile(int frame)
+    {
+        frameDT = 0;
+        currentFrame = frame;
+        coord = new Coord(C.blocksSize * frameOrder[currentFrame], 0);
     }
 }

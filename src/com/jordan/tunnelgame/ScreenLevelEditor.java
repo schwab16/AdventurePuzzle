@@ -21,17 +21,17 @@ public class ScreenLevelEditor extends Screen {
 
     public static String levelName = C.defaultLevelName;
     public static String backgroundString = "";
-    public static String starString = "(200,50)$(400,50)$(1000,50)";
+    public static String starString = "(200,50)$(640,50)$(1080,50)";
     public static String medalString = "7.0$15.0$25.0";
     public static String levelString =
-            "                                " +
-                    "                                " +
-                    "            Oa                  " +
                     "                                " +
                     "                                " +
                     "                                " +
                     "                                " +
                     "                                " +
+                    "                                " +
+                    "                                " +
+                    "        Oa                      " +
                     "  f!                        Ca  " +
                     "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
     public static int levelNum;
@@ -50,18 +50,18 @@ public class ScreenLevelEditor extends Screen {
 
         levelName = C.defaultLevelName;
         backgroundString = "";
-        starString = "(200,50)$(400,50)$(1000,50)";
+        starString = "(200,50)$(640,50)$(1080,50)";
         medalString = "7.0$15.0$25.0";
         levelString =   "                                " +
-                "                                " +
-                "            Oa                  " +
-                "                                " +
-                "                                " +
-                "                                " +
-                "                                " +
-                "                                " +
-                "  f!                        Ca  " +
-                "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
+                    "                                " +
+                    "                                " +
+                    "                                " +
+                    "                                " +
+                    "                                " +
+                    "                                " +
+                    "        Oa                      " +
+                    "  f!                        Ca  " +
+                    "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
 
         String k = Assets.readFromMemory(C.fileName + levelNum + ".txt");
         if (!k.equals("")) {

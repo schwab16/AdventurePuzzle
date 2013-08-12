@@ -3,22 +3,35 @@ package com.jordan.tunnelgame;
 public class TileVanish extends Tile {
     public TileVanish(Coord coord, char id) {
         super(coord, id);
+
+        int[] frames = new int[numFrames];
+        for (int k = 0; k < numFrames; k++)
+            frames[k] = k;
+
         switch (id)
         {
-            case 'c': anim = new Anim(Assets.iCloudTile,new int[]{0,1,2,3},100); break;
+            case 'c': anim = new Anim(Assets.iCloudTile,frames,frameLength,0); break;
         }
     }
+
+    public final int maxVanish = 100, maxReappear = 200, frameLength = 5, numFrames = Assets.iCloudTile.getWidth()/C.blocksSize;
+    public boolean guyOn = false, walkable = true;
+    public float timeUntilVanish = maxVanish, timeUntilReappear = maxReappear;
 
     @Override
     public void collision(Chaser chaser, CollisionType type) {
         switch (type) {
-            case TOP: basicTopCollision(chaser);
+            case TOP:
+                if (walkable) {
+                    guyOn = true;
+                    basicTopCollision(chaser);
+                }
                 break;
-            case LEFT: basicLeftCollision(chaser);
+            case LEFT: //basicLeftCollision(chaser);
                 break;
-            case RIGHT: basicRightCollision(chaser);
+            case RIGHT: //basicRightCollision(chaser);
                 break;
-            case BOTTOM: basicBottomCollision(chaser);
+            case BOTTOM: //basicBottomCollision(chaser);
                 break;
             case IN:
                 break;
@@ -29,7 +42,29 @@ public class TileVanish extends Tile {
 
     @Override
     public void update(float deltaTime) {
+        if (guyOn && walkable) {
+            timeUntilVanish -= deltaTime;
+        }
+        else if (walkable) {
+            timeUntilVanish += deltaTime;
+            if (timeUntilVanish > maxVanish) timeUntilVanish = maxVanish;
+        }
+        else if (!walkable) {
+            timeUntilReappear -= deltaTime;
+        }
 
+        if (timeUntilVanish < 0.1) {
+            walkable = false;
+            timeUntilVanish = 0.1f;
+            timeUntilReappear = maxReappear;
+        }
+        if (timeUntilReappear < 0.1) {
+            walkable = true;
+            timeUntilReappear = 0.1f;
+            timeUntilVanish = 15;
+        }
+
+        guyOn = false;
     }
 
     @Override
@@ -39,7 +74,7 @@ public class TileVanish extends Tile {
 
     @Override
     public Anim getImage(float deltaTime) {
-        anim.add(deltaTime);
+        anim.setTile((int)((maxVanish - timeUntilVanish)*numFrames)/100);
         return anim;
     }
 }

@@ -12,15 +12,12 @@ public class GameRunner {
     {
         if (touchEvents.size() > 0)
             orbsByTouch(touchEvents,level.orbs, level.tiles);
+        updateBlocks(level.tiles, deltaTime);
         chasersFollowOrbs(level.chasers, level.orbs, deltaTime);
         chasersFallDown(level.chasers, deltaTime);
         chasersMove(level.chasers, deltaTime);
         chasersCollide(level.chasers, level.tiles);
         chasersStar(level.chasers, level.stars);
-
-        for (int x = 0; x < C.xBlocks; x++)
-            for (int y = 0; y < C.yBlocks; y++)
-                level.tiles[x][y].update(deltaTime);
 
         if (chasersFinish(level.chasers))
             return ScreenGame.GameState.Finish;
@@ -28,6 +25,12 @@ public class GameRunner {
             return ScreenGame.GameState.Fail;
         else
             return ScreenGame.GameState.Running;
+    }
+
+    private static void updateBlocks(Tile[][] tiles, float deltaTime) {
+        for (int x = 0; x < C.xBlocks; x++)
+            for (int y = 0; y < C.yBlocks; y++)
+                tiles[x][y].update(deltaTime);
     }
 
     private static void chasersStar(ArrayList<Chaser> chasers, ArrayList<Star> stars) {

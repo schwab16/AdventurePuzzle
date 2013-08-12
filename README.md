@@ -6,12 +6,14 @@ Graphics: Isaac Schwab
 
 TODO LIST Jordan:
 =======
+-new tiles: cloud, bomb, cracked, push switch, wind,  spring
 -improve collisions (on final chaser)
--more game stuff (new blocks)
--guys should face both ways
--sound
--music
+-animate chasers (jumps, face both ways, finishing, death)
+-animate bg objects (possibly)
+-sound & music
 -buying from ingame
+-pause on resume from home button
+-locked finished (gradual entry to finish tile, on chaser anim)
 
 
 TODO LIST Ike:
