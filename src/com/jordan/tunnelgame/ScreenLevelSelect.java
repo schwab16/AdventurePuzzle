@@ -35,7 +35,7 @@ public class ScreenLevelSelect extends Screen {
                 double x = (double)(t.x - C.initX)/(C.sizeX + C.gapX);
                 double y = (double)(t.y - C.initY)/(C.sizeY + C.gapY);
                 int j = (int)x + 5*(int)y + 1;
-                if ((packID != -1 || !Assets.readFromMemory(C.fileName + j + ".txt").equals("")) && (C.cheats || saved.charAt(3*( j )) == 'u' || packID == -1) && x >= 0 && x < 5 && y >=0 && y < 5 && x-(int)x <= (double)C.sizeX/(C.gapX + C.sizeX) && y-(int)y <= (double)C.sizeY/(C.gapY + C.sizeY))
+                if ((packID != -1 || !Assets.readFromMemory(C.fileName + j + ".txt").equals("")) && (C.cheats || saved.charAt(3*( j )) == 'u' || packID == -1 || score(Assets.readFromMemory(C.packFileName + packID)) > 4*j) && x >= 0 && x < 5 && y >=0 && y < 5 && x-(int)x <= (double)C.sizeX/(C.gapX + C.sizeX) && y-(int)y <= (double)C.sizeY/(C.gapY + C.sizeY))
                     game.setScreen(new ScreenGame(game, packID, j));
             }
         }
@@ -57,7 +57,7 @@ public class ScreenLevelSelect extends Screen {
                 int star = saved.charAt(3*(k+1)+1) - '0';
                 int medal = saved.charAt(3*(k+1)+2) - '0';
                 char un = saved.charAt(3*(k+1));
-                if (un == 'l') {
+                if (un == 'l' && score(Assets.readFromMemory(C.packFileName + packID)) <= 4*k + 4) {
                     g.drawImage(Assets.locked,(k%5)*(C.sizeX+C.gapX) + C.initX, (k/5)*(C.sizeY + C.gapY) + C.initY);
                 }
                 else {
@@ -68,12 +68,19 @@ public class ScreenLevelSelect extends Screen {
         }
         String h = Assets.readFromMemory(C.packFileName + packID);
         if (h.equals("") || packID == -1) return;
-        int t = 0;
-        for (int k = 1; k<26; k++)
-            t += h.charAt(3*k + 1) + h.charAt(3*k + 2) - '0' - '0';
+        int t = score(h);
         Assets.paint1.setColor(Color.BLACK);
         g.drawString("Score: " + t + "/150",C.width - 150, C.height/5 + 15,Assets.paint1);
         Assets.paint1.setColor(Color.WHITE);
+    }
+
+    public int score(String h)
+    {
+        if (h.equals("")) return -1;
+        int t = 0;
+        for (int k = 1; k<26; k++)
+            t += h.charAt(3*k + 1) + h.charAt(3*k + 2) - '0' - '0';
+        return t;
     }
 
     @Override

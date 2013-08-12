@@ -25,7 +25,7 @@ public class ScreenPackSelect extends Screen {
             TouchEvent t = touchEventList.get(k);
             boolean b = false;
             try {
-                b = Assets.readFromMemory(C.packFileName + (packID-1)).charAt(78) == 'u';
+                b = Assets.readFromMemory(C.packFileName + (packID-1)).charAt(78) == 'u' || score() >= packID*100;
             } catch (Exception e) {}
             if (t.type == Input.TouchEvent.TOUCH_DOWN && t.x > C.width-C.pauseArea && t.y < C.pauseArea) {
                 backButton();
@@ -59,12 +59,20 @@ public class ScreenPackSelect extends Screen {
         g.drawImage(Assets.pack,C.width/2 - Assets.pack.getWidth()/2, C.height/2 - Assets.pack.getHeight()/2);
         int j = packID - 1;
         try {
-            if (packID != 0 && packID != -1 && Assets.readFromMemory(C.packFileName + j).charAt(78) != 'u')
+            if (packID != 0 && packID != -1 && score() < packID*100 && Assets.readFromMemory(C.packFileName + j).charAt(78) != 'u')
                 g.drawImage(Assets.locked, C.width/2 - Assets.locked.getWidth()/2, C.height/2 - Assets.locked.getHeight()/2);
         } catch (Exception e) {
             g.drawImage(Assets.locked, C.width/2 - Assets.locked.getWidth()/2, C.height/2 - Assets.locked.getHeight()/2);
         }
 
+        int t = score();
+
+        Assets.paint1.setColor(Color.BLACK);
+        g.drawString("Overall Score: " + t + "/900",C.width - 20, C.height - 20,Assets.paint1);
+        Assets.paint1.setColor(Color.WHITE);
+    }
+
+    public int score() {
         int t = 0;
         for (int l = 0; l < 6; l++){
             String h = Assets.readFromMemory(C.packFileName + l);
@@ -72,10 +80,7 @@ public class ScreenPackSelect extends Screen {
             for (int k = 1; k<26; k++)
                 t += h.charAt(3*k + 1) + h.charAt(3*k + 2) - '0' - '0';
         }
-
-        Assets.paint1.setColor(Color.BLACK);
-        g.drawString("Overall Score: " + t + "/900",C.width - 20, C.height - 20,Assets.paint1);
-        Assets.paint1.setColor(Color.WHITE);
+        return t;
     }
 
     @Override
