@@ -23,7 +23,7 @@ public class Assets {
     public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons, saveButtons, helpButtons;
 
     public static Image iChaser, iOrb, iTile;
-    public static Image iBasicTile, iCloudTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
+    public static Image iBasicTile, iCloudTile, iHalfTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
 
     public static Paint paint1, paint2;
 
@@ -106,6 +106,7 @@ public class Assets {
         iMetalTile = g.newImage("metaltile.png", ImageFormat.RGB565); tiles.add(iMetalTile); charCodes.add( "b&");
         iSnowTile = g.newImage("snowtile.png", ImageFormat.RGB565); tiles.add(iSnowTile); charCodes.add( "b^");
         iCloudTile = g.newImage("cloudtile.png", ImageFormat.RGB565); tiles.add(iCloudTile); charCodes.add( "vc");
+        iHalfTile = g.newImage("halftile.png", ImageFormat.RGB565); tiles.add(iHalfTile); charCodes.add( "h+");
 
         paint1 = new Paint();
         paint1.setTextSize(C.pauseArea);

@@ -53,15 +53,15 @@ public class TileVanish extends Tile {
             timeUntilReappear -= deltaTime;
         }
 
-        if (timeUntilVanish < 0.1) {
+        if (timeUntilVanish < 0) {
             walkable = false;
-            timeUntilVanish = 0.1f;
+            timeUntilVanish = 0;
             timeUntilReappear = maxReappear;
         }
-        if (timeUntilReappear < 0.1) {
+        if (timeUntilReappear < 0) {
             walkable = true;
-            timeUntilReappear = 0.1f;
-            timeUntilVanish = 15;
+            timeUntilReappear = 0;
+            timeUntilVanish = 25;
         }
 
         guyOn = false;
@@ -74,7 +74,7 @@ public class TileVanish extends Tile {
 
     @Override
     public Anim getImage(float deltaTime) {
-        anim.setTile((int)((maxVanish - timeUntilVanish)*numFrames)/100);
+        anim.setTile((int)((maxVanish - timeUntilVanish)*(numFrames-1))/100);
         return anim;
     }
 }

@@ -79,6 +79,7 @@ public class Level {
                 else if (typeID == 'f') tiles[x][y] = new TileFinish(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'b') tiles[x][y] = new TileBasic(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'd') tiles[x][y] = new TileDeath(new Coord(x*pix,y*pix),charID);
+                else if (typeID == 'h') tiles[x][y] = new TileHalf(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 's') tiles[x][y] = new TileSlip(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'v') tiles[x][y] = new TileVanish(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'w') {

@@ -19,6 +19,8 @@ public class LevelStorage {
 
     'd*' : fire tile
 
+    'h+' : half tile (no bottom/left/right collisions)
+
     'vc' : vanish cloud tile
 
     's_' : ice tile
@@ -62,8 +64,8 @@ public class LevelStorage {
                         "            b+b+b+b+d*b+b+b+    " +
                         "b+  w1                          " +
                         "  b+                            " +
-                        "b+b+b+          Ca              " +
-                        "b+b+b+b+b+            w0  b+b+d*" +
+                        "b+  b+          Ca              " +
+                        "b+h+h+h+h+            w0  b+b+d*" +
                         "b+b+b+b+b+b+b+vcvcb+b+b+b+b+b+b+";
             case 2:
                 return "test2#mountain#(200,50)$(400,50)$(1000,50)#7.77$15.01$25.40#" +
