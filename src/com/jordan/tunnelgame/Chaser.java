@@ -7,16 +7,23 @@ public class Chaser {
     public Coord coord;
     public final char color;
     public Anim anim;
+
     public double upwardVelocity = 0;
     public double gravity = C.chaserGravity;
     public double sideVelocity = 0;
     public double momentum = C.chaserMomentum;
     public double resistance = C.chaserResistance;
     public double maxVelocity = C.maxVelocity;
+
     public boolean readyToWarp[] = new boolean[43];
     public boolean finished = false;
     public boolean dead = false;
     public boolean jumping = false;
+
+    public boolean keyRed = false;
+    public boolean keyBlue = false;
+    public boolean keyYellow = false;
+
 
     public Chaser(Coord start, char color)
     {

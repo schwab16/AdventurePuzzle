@@ -12,10 +12,10 @@ public class GameDrawer {
         for (int x = C.xBlocks-1; x >= 0; x--) {
             for (int y = C.yBlocks-1; y >= 0; y--) {
                 Tile t = level.tiles[x][y];
+                if (t instanceof TileEmpty) continue;
                 Anim a = t.getImage(deltaTime);
                 Image i = a.image;
-                if (!(t instanceof TileEmpty))
-                    g.drawImage(i,(int)t.coord.x,(int)t.coord.y,(int)a.coord.x,(int)a.coord.y,C.blocksSize,i.getHeight());
+                g.drawImage(i,(int)t.coord.x,(int)t.coord.y,(int)a.coord.x,(int)a.coord.y,C.blocksSize,i.getHeight());
             }
         }
 

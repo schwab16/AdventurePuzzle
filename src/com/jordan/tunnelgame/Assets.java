@@ -18,12 +18,12 @@ import java.util.ArrayList;
 public class Assets {
 
     public static Image pauseicon, selectedwarp, returnicon, star, finishstar, finishmedal, locked, levelstar, levelmedal;
-    public static Image background , menu, pack;
+    public static Image background , menu, pack, dummy;
     public static Button buttonreturn, buttonretry, buttonresume, buttonnextlevel, buttonlevelselect, buttonplay, buttonleveleditor, buttonabout, buttonsave, buttonquit, buttonhelp;
     public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons, saveButtons, helpButtons;
 
     public static Image iChaser, iOrb, iTile;
-    public static Image iBasicTile, iCloudTile, iHalfTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
+    public static Image iBasicTile, iKeyRed, iKeyBlue, iKeyYellow, iKeyholeRed, iKeyholeBlue, iKeyholeYellow, iCloudTile, iHalfTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
 
     public static Paint paint1, paint2;
 
@@ -45,6 +45,7 @@ public class Assets {
     }
 
     public static void load() { if (!loaded) { loaded = true;
+        dummy = g.newImage("dummy.png", ImageFormat.RGB565);
 
         backgrounds.add("");
         backgrounds.add("moon");
@@ -107,6 +108,12 @@ public class Assets {
         iSnowTile = g.newImage("snowtile.png", ImageFormat.RGB565); tiles.add(iSnowTile); charCodes.add( "b^");
         iCloudTile = g.newImage("cloudtile.png", ImageFormat.RGB565); tiles.add(iCloudTile); charCodes.add( "vc");
         iHalfTile = g.newImage("halftile.png", ImageFormat.RGB565); tiles.add(iHalfTile); charCodes.add( "h+");
+        iKeyRed = g.newImage("keyred.png", ImageFormat.RGB565); tiles.add(iKeyRed); charCodes.add( "Kr");
+        iKeyBlue = g.newImage("keyblue.png", ImageFormat.RGB565); tiles.add(iKeyBlue); charCodes.add( "Kb");
+        iKeyYellow = g.newImage("keyyellow.png", ImageFormat.RGB565); tiles.add(iKeyYellow); charCodes.add( "Ky");
+        iKeyholeRed = g.newImage("keyholered.png", ImageFormat.RGB565); tiles.add(iKeyholeRed); charCodes.add( "kr");
+        iKeyholeBlue = g.newImage("keyholeblue.png", ImageFormat.RGB565); tiles.add(iKeyholeBlue); charCodes.add( "kb");
+        iKeyholeYellow = g.newImage("keyholeyellow.png", ImageFormat.RGB565); tiles.add(iKeyholeYellow); charCodes.add( "ky");
 
         paint1 = new Paint();
         paint1.setTextSize(C.pauseArea);

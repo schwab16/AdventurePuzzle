@@ -6,7 +6,7 @@ Graphics: Isaac Schwab
 
 TODO LIST Jordan:
 =======
--new tiles: cloud, bomb, cracked, push switch, wind,  spring
+-new tiles: bomb, cracked, push switch, wind, key, keyhole, arrow pusher, spring, slip
 -improve collisions (on final chaser)
 -animate chasers (jumps, face both ways, finishing, death)
 -animate bg objects (possibly)

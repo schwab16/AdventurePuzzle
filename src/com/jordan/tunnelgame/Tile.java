@@ -23,31 +23,35 @@ public abstract class Tile {
 
     public void basicTopCollision(Chaser chaser)
     {
-        if (chaser.upwardVelocity < 0)
+        if (chaser.upwardVelocity < 0) {
             chaser.upwardVelocity = 0;
-        chaser.coord.y = coord.y - C.blocksSize + 1;
-        chaser.jumping = false;
+            chaser.coord.y = coord.y - C.blocksSize + 1;
+            chaser.jumping = false;
+        }
     }
 
     public void basicLeftCollision(Chaser chaser)
     {
-        if (chaser.sideVelocity > 0)
+        if (chaser.sideVelocity > 0) {
             chaser.sideVelocity = 0;
-        chaser.coord.x = coord.x - C.blocksSize + 1;
+            chaser.coord.x = coord.x - C.blocksSize + 1;
+        }
     }
 
     public void basicRightCollision(Chaser chaser)
     {
-        if (chaser.sideVelocity < 0)
+        if (chaser.sideVelocity < 0) {
             chaser.sideVelocity = 0;
-        chaser.coord.x = coord.x + C.blocksSize - 1;
+            chaser.coord.x = coord.x + C.blocksSize - 1;
+        }
     }
 
     public void basicBottomCollision(Chaser chaser)
     {
-        if (chaser.upwardVelocity > 0)
+        if (chaser.upwardVelocity > 0) {
             chaser.upwardVelocity = -chaser.upwardVelocity/2;
-        chaser.coord.y = coord.y + C.blocksSize - 1;
+            chaser.coord.y = coord.y + C.blocksSize - 1;
+        }
     }
 
     public static ArrayList<Tile> getAdjacentTiles(Tile[][] tiles, Coord c)

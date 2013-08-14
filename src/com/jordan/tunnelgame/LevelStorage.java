@@ -21,12 +21,15 @@ public class LevelStorage {
 
     'h+' : half tile (no bottom/left/right collisions)
 
+    'Kr' by: key tile (unlocks keyhole)
+    'kr' by: keyhole tile
+
     'vc' : vanish cloud tile
 
     's_' : ice tile
 
     'w0'123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ : warp tile
-            (their id is as they appear, they target the # representing them )
+            (their id is the order they appear, they target the # representing them )
 
     CHASER/ORB IDS 'a-j' 'A-J'
     'Ca' - 'Cj' : default chaser
@@ -56,15 +59,15 @@ public class LevelStorage {
         {
             case -1: return ScreenLevelEditor.levelName + "#" + ScreenLevelEditor.backgroundString + "#" + ScreenLevelEditor.starString + "#" + ScreenLevelEditor.medalString + "#" + ScreenLevelEditor.levelString;
             case 1:
-                return "test1#grassland#(200,50)$(400,50)$(1000,50)#7.77$15.01$25.40#" +
+                return "test1#grassland#(200,50)$(120,600)$(1200,150)#7.77$15.01$25.40#" +
                         "  w0                            " +
-                        "                w2      Ob      " +
-                        "            Oa    f!            " +
+                        "  Kb            w2kr    Ob      " +
+                        "            Oa  krf!kr          " +
                         "                  b+      Cb    " +
                         "            b+b+b+b+d*b+b+b+    " +
                         "b+  w1                          " +
-                        "  b+                            " +
-                        "b+  b+          Ca              " +
+                        "b-kb                            " +
+                        "b+Krb+          Ca              " +
                         "b+h+h+h+h+            w0  b+b+d*" +
                         "b+b+b+b+b+b+b+vcvcb+b+b+b+b+b+b+";
             case 2:
