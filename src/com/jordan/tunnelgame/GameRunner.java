@@ -17,6 +17,7 @@ public class GameRunner {
         chasersFallDown(level.chasers, deltaTime);
         chasersMove(level.chasers, deltaTime);
         chasersCollide(level.chasers, level.tiles);
+        if (level.bomb) bombsExplode(level.tiles);
         chasersStar(level.chasers, level.stars);
 
         if (chasersFinish(level.chasers))
@@ -25,6 +26,13 @@ public class GameRunner {
             return ScreenGame.GameState.Fail;
         else
             return ScreenGame.GameState.Running;
+    }
+
+    private static void bombsExplode(Tile[][] tiles) {
+        for (int x = 0; x < C.xBlocks; x++)
+            for (int y = 0; y < C.yBlocks; y++)
+                if (tiles[x][y] instanceof TileBomb)
+                    ((TileBomb)tiles[x][y]).explode(tiles);
     }
 
     private static void updateBlocks(Tile[][] tiles, float deltaTime) {

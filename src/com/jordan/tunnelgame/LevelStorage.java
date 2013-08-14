@@ -12,9 +12,13 @@ public class LevelStorage {
     'f!' : finish tile
 
     'b+' : basic tile
-    'b/' : stone tile
     'b^' : snow tile
     'b&' : metal tile
+
+    'xx' : bomb tile
+
+    'c-' : gray stone cracked tile (midtile)
+    'c/' : brown stone cracked tile (stonetile)
 
     'd*' : fire tile
 
@@ -66,9 +70,9 @@ public class LevelStorage {
                         "            b+b+b+b+d*b+b+b+    " +
                         "b+  w1                          " +
                         "b+kb                            " +
-                        "b+Krb+          Ca              " +
-                        "b+h+h+h+h+            w0  b+b+d*" +
-                        "b+b+b+b+b+b+b+vcvcb+b+b+b+b+b+b+";
+                        "b+Krb+          Ca      xx      " +
+                        "b+h+h+h+h+            w0  c-b+d*" +
+                        "b+b+b+b+b+b+b+vcvcb+b+b+c-c-b+b+";
             case 2:
                 return "test2#mountain#(200,50)$(400,50)$(1000,50)#7.77$15.01$25.40#" +
                         "  w0                            " +
