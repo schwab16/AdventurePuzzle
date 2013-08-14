@@ -8,6 +8,7 @@ public class TileBasic extends Tile {
         switch(id)
         {
             case '+': anim = new Anim(Assets.iBasicTile,new int[]{0}, 100); break;
+            case '<': anim = new Anim(Assets.iDirtTile,new int[]{0}, 100); break;
             case '&': anim = new Anim(Assets.iMetalTile,new int[]{0}, 100); break;
             case '^': anim = new Anim(Assets.iSnowTile,new int[]{0}, 100); break;
         }

@@ -14,6 +14,7 @@ public class LevelStorage {
     'b+' : basic tile
     'b^' : snow tile
     'b&' : metal tile
+    'b<' : dirt tile
 
     'xx' : bomb tile
 

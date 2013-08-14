@@ -7,7 +7,7 @@ public class TileVanish extends Tile {
         switch (id)
         {
             case 'c':
-                loop = new Anim(Assets.iCloudTile,new int[]{0,1,2,3,4,5,6,7,8,9},frameLength);
+                loop = new Anim(Assets.iCloudTile,new int[]{0,1,2,3,4,5,6,7,8,9},frameLength,0);
                 vanish = new Anim(Assets.iCloudTile,new int[]{10,11,12,13,14,15,16,17,18,19,20},frameLength,10);
                 anim = loop;
                 break;
@@ -74,7 +74,7 @@ public class TileVanish extends Tile {
         if (timeUntilReappear < 0) {
             walkable = true;
             timeUntilReappear = 0;
-            timeUntilVanish = 25;
+            timeUntilVanish = maxVanish/10;
         }
 
         guyOn = false;
