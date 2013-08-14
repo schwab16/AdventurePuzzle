@@ -2,7 +2,7 @@ package com.jordan.tunnelgame;
 
 public class TileKeyhole extends Tile {
     public TileKeyhole(Coord coord, char id) {
-        super(coord, id);
+        super(coord, 'k', id);
         switch(id)
         {
             case 'r': anim = new Anim(Assets.iKeyholeRed,new int[]{0}, 100); break;

@@ -4,7 +4,7 @@ import com.jordan.framework.Image;
 
 public class TileDeath extends Tile {
     public TileDeath(Coord coord, char id) {
-        super(coord, id);
+        super(coord, 'd', id);
         switch(id)
         {
             case '*': anim = new Anim(Assets.iFireTile,new int[]{0,1,2,3,4,5,6,7,8,9},10); break;

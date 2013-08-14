@@ -2,7 +2,7 @@ package com.jordan.tunnelgame;
 
 public class TileHalf extends Tile {
     public TileHalf(Coord coord, char id) {
-        super(coord, id);
+        super(coord, 'h', id);
         switch(id)
         {
             case '+': anim = new Anim(Assets.iHalfTile,new int[]{0}, 100); break;

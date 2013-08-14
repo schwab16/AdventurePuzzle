@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class TileBomb extends Tile {
     public TileBomb(Coord coord, char id) {
-        super(coord, id);
+        super(coord, 'x', id);
         anim = new Anim(Assets.iBomb,new int[]{0},100);
         smoke = new Anim(Assets.iSmoke,new int[]{0,1,2},100,0);
     }

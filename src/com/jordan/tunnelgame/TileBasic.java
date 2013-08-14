@@ -4,7 +4,7 @@ import com.jordan.framework.Image;
 
 public class TileBasic extends Tile {
     public TileBasic(Coord coord, char id) {
-        super(coord, id);
+        super(coord, 'b', id);
         switch(id)
         {
             case '+': anim = new Anim(Assets.iBasicTile,new int[]{0}, 100); break;
@@ -13,6 +13,17 @@ public class TileBasic extends Tile {
             case '^': anim = new Anim(Assets.iSnowTile,new int[]{0}, 100); break;
         }
     }
+
+    /*public TileBasic(Coord coord, char id, boolean ul, boolean ur, boolean dl, boolean dr) {
+        super(coord, 'b', id);
+        switch(id)
+        {
+            case '+': anim = new Anim(Assets.iBasicTile,Assets.iBasicCorner,new int[]{0}, 100,ul,ur,dl,dr); break;
+            case '<': anim = new Anim(Assets.iDirtTile,new int[]{0}, 100,ul,ur,dl,dr); break;
+            case '&': anim = new Anim(Assets.iMetalTile,new int[]{0}, 100,ul,ur,dl,dr); break;
+            case '^': anim = new Anim(Assets.iSnowTile,new int[]{0}, 100,ul,ur,dl,dr); break;
+        }
+    }*/
 
     @Override
     public void collision(Chaser chaser, CollisionType type) {

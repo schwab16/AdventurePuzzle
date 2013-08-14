@@ -10,6 +10,8 @@ public class Anim {
     public int currentFrame;
     public float frameLength;
     public int[] frameOrder;
+    //public boolean cornerUL = false; cornerUR = false, cornerDL = false; cornerDR = false;
+    //public Image corners;
 
     public Anim(Image i, int[] frameOrder, float frameLength)
     {
@@ -21,6 +23,25 @@ public class Anim {
 
         coord = new Coord(C.blocksSize * frameOrder[currentFrame], 0);
     }
+
+    /*
+    public Anim(Image i, Image c, int[] frameOrder, float frameLength, boolean ul, boolean ur, boolean dl, boolean dr)
+    {
+        image = i;
+        corner = c;
+        this.frameOrder = frameOrder;
+        this.frameLength = frameLength;
+
+        currentFrame = (int)(frameOrder.length * Math.random());
+
+        coord = new Coord(C.blocksSize * frameOrder[currentFrame], 0);
+
+        cornerUL = ul;
+        cornerUR = ur;
+        cornerDR = dr;
+        cornerDL = dl;
+    }
+    */
 
     public Anim(Image i, int[] frameOrder, float frameLength, int s)
     {

@@ -2,7 +2,7 @@ package com.jordan.tunnelgame;
 
 public class TileVanish extends Tile {
     public TileVanish(Coord coord, char id) {
-        super(coord, id);
+        super(coord, 'v', id);
 
         switch (id)
         {

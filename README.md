@@ -6,7 +6,9 @@ Graphics: Isaac Schwab
 
 TODO LIST Jordan:
 =======
--new tiles: bomb, cracked, push switch, wind, arrow pusher, spring, slip
+-code in corners (if we are going to use them)
+-new tiles: push switch, wind, arrow pusher, spring, slip
+-revise: bomb (smoke is 5x5)
 -improve collisions (on final chaser)
 -animate chasers (jumps, face both ways, finishing, death)
 -animate bg objects (possibly)
@@ -18,15 +20,31 @@ TODO LIST Jordan:
 
 TODO LIST Ike:
 =======
--tiles: dirt, lava, wood, clouds, spikes, bomb, glass, push button, spring block(pushes you)
--backgrounds: desert, ocean, forest, jungle, prairie, city, building
--about menu
--help menu
--locked icon
--buy full screen
--pack screens
--medal menu rectangles
--animate chaser, orb, fire
+1-locked icon
+2-medal menu rectangles
+2.5-anim gems (or make a new orb)
+3-bomb tile
+3-smoke anim for bomb
+4-keys and keyholes (no anim)
+5-anim chaser (take 2)
+5-anim fire tile
+6-decide / make corners
+7-new backgrounds: desert, ocean, forest, jungle, prairie, city, building
+7-non unique functioning new tiles: wood, glass, spikes, lava
+8-pack screens
+9-about menu
+9-help menu
+9-buy full screen
+
+
+TODO LIST Pack Themes:
+=======
+1-
+2-
+3-
+4-
+5-
+6-
 
 
 TODO LIST Testing:

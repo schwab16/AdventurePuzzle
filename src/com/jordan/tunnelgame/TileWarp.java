@@ -12,7 +12,7 @@ public class TileWarp extends Tile {
     public int targetID;
 
     public TileWarp(Coord coord, char id, int myID, char targetID) {
-        super(coord, id);
+        super(coord, 'w', id);
         this.targetID = targetID - '0';
         this.myID = myID;
         anim = new Anim(Assets.iWarpTile,new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29}, 4);

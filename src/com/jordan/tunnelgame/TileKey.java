@@ -2,7 +2,7 @@ package com.jordan.tunnelgame;
 
 public class TileKey extends Tile {
     public TileKey(Coord coord, char id) {
-        super(coord, id);
+        super(coord, 'K', id);
         switch(id)
         {
             case 'r': anim = new Anim(Assets.iKeyRed,new int[]{0}, 100); break;

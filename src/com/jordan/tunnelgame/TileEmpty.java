@@ -5,7 +5,7 @@ import com.jordan.framework.Image;
 public class TileEmpty extends Tile {
 
     public TileEmpty(Coord coord, char id) {
-        super(coord, id);
+        super(coord, ' ', id);
         anim = new Anim(Assets.iTile,new int[]{0},100);
     }
 

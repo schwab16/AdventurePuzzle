@@ -7,14 +7,15 @@ import java.util.ArrayList;
 public abstract class Tile {
 
     public Coord coord;
-    public char id;
+    public char typeID, id;
     public Anim anim;
     public Tile[][] tiles;
 
-    public Tile(Coord coord, char id)
+    public Tile(Coord coord, char typeID, char id)
     {
         this.coord = coord;
         this.id = id;
+        this.typeID = typeID;
     }
 
     public abstract void collision(Chaser chaser, CollisionType type);

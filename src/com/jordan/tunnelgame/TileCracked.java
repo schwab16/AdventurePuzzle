@@ -2,7 +2,7 @@ package com.jordan.tunnelgame;
 
 public class TileCracked extends Tile {
     public TileCracked(Coord coord, char id) {
-        super(coord, id);
+        super(coord, 'c', id);
         switch(id)
         {
             case '-': anim = new Anim(Assets.iRockTile,new int[]{0}, 100); break;

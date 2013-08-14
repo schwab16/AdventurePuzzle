@@ -4,7 +4,7 @@ import com.jordan.framework.Image;
 
 public class TileSlip extends Tile {
     public TileSlip(Coord coord, char id) {
-        super(coord, id);
+        super(coord, 's', id);
         switch (id)
         {
             case '_': anim = new Anim(Assets.iIceTile, new int[]{0},100); break;

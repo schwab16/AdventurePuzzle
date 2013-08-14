@@ -16,6 +16,7 @@ public class GameDrawer {
                 Anim a = t.getImage(deltaTime);
                 Image i = a.image;
                 g.drawImage(i,(int)t.coord.x,(int)t.coord.y,(int)a.coord.x,(int)a.coord.y,C.blocksSize,i.getHeight());
+                //draw corners
             }
         }
 

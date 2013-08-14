@@ -107,6 +107,9 @@ public class Level {
                 else tiles[x][y] = new TileEmpty(new Coord(x*pix,y*pix),charID);
             }
         }
+
+        //find which ones need corners
+
     }
 
 }
