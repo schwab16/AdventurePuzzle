@@ -86,7 +86,7 @@ public class ScreenGame extends Screen {
 
 	private void updatePaused(List<TouchEvent> touchEvents) {
         switch (Assets.pauseButtons.update(touchEvents)) {
-            case 0: resume(); break;
+            case 0: resume1(); break;
             case 1: retry(); break;
             case 2: levelSelect(); break;
         }
@@ -196,6 +196,11 @@ public class ScreenGame extends Screen {
         state = GameState.Ready;
     }
 
+    public void resume1() {
+        if (state == GameState.Running)
+            state = GameState.Paused;
+    }
+
 	@Override
 	public void pause() {
 		if (state == GameState.Running)
@@ -204,8 +209,7 @@ public class ScreenGame extends Screen {
 
 	@Override
 	public void resume() {
-		if (state == GameState.Paused)
-			state = GameState.Running;
+
 	}
 
 	@Override

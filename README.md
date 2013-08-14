@@ -6,12 +6,12 @@ Graphics: Isaac Schwab
 
 TODO LIST Jordan:
 =======
--new tiles: bomb, cracked, push switch, wind, key, keyhole, arrow pusher, spring, slip
+-new tiles: bomb, cracked, push switch, wind, arrow pusher, spring, slip
 -improve collisions (on final chaser)
 -animate chasers (jumps, face both ways, finishing, death)
 -animate bg objects (possibly)
 -sound & music
--buying from ingame
+-buying from in game
 -pause on resume from home button
 -locked finished (gradual entry to finish tile, on chaser anim)
 

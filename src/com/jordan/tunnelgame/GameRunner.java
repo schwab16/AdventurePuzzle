@@ -53,8 +53,7 @@ public class GameRunner {
     private static boolean chasersFinish(ArrayList<Chaser> chasers) {
         for (Chaser c: chasers)
         {
-            if (c.finished) continue;
-            else return false;
+            if (!c.finished) return false;
         }
         return true;
     }

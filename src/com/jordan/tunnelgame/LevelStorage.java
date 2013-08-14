@@ -12,7 +12,6 @@ public class LevelStorage {
     'f!' : finish tile
 
     'b+' : basic tile
-    'b-' : rock tile
     'b/' : stone tile
     'b^' : snow tile
     'b&' : metal tile
@@ -66,7 +65,7 @@ public class LevelStorage {
                         "                  b+      Cb    " +
                         "            b+b+b+b+d*b+b+b+    " +
                         "b+  w1                          " +
-                        "b-kb                            " +
+                        "b+kb                            " +
                         "b+Krb+          Ca              " +
                         "b+h+h+h+h+            w0  b+b+d*" +
                         "b+b+b+b+b+b+b+vcvcb+b+b+b+b+b+b+";
@@ -343,7 +342,7 @@ public class LevelStorage {
                         "      b+b+            b+b+b+    " +
                         "          b+b+        b+        " +
                         "    b+  b+  b+      b+          " +
-                        "        b+    b-  b+            " +
+                        "        b+    b+  b+            " +
                         "  f!                        Ca  " +
                         "b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+b+";
             case 25:
@@ -351,9 +350,9 @@ public class LevelStorage {
                         "b+                              " +
                         "  b+b+                        b+" +
                         "    b+      Oa              b+  " +
-                        "b+    b+  b-            b-b+    " +
-                        "      b-b-            b-b+b+    " +
-                        "          b-b-        b-        " +
+                        "b+    b+  b+            b+b+    " +
+                        "      b+b+            b+b+b+    " +
+                        "          b+b+        b+        " +
                         "                                " +
                         "                                " +
                         "  f!                        Ca  " +
