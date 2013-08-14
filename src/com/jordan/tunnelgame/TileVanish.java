@@ -4,19 +4,20 @@ public class TileVanish extends Tile {
     public TileVanish(Coord coord, char id) {
         super(coord, id);
 
-        int[] frames = new int[numFrames];
-        for (int k = 0; k < numFrames; k++)
-            frames[k] = k;
-
         switch (id)
         {
-            case 'c': anim = new Anim(Assets.iCloudTile,frames,frameLength,0); break;
+            case 'c':
+                loop = new Anim(Assets.iCloudTile,new int[]{0,1,2,3,4,5,6,7,8,9},frameLength);
+                vanish = new Anim(Assets.iCloudTile,new int[]{10,11,12,13,14,15,16,17,18,19,20},frameLength,10);
+                anim = loop;
+                break;
         }
     }
 
-    public final int maxVanish = 100, maxReappear = 200, frameLength = 5, numFrames = Assets.iCloudTile.getWidth()/C.blocksSize;
+    public final int maxVanish = 100, maxReappear = 200, frameLength = 5, numFrames = 10;
     public boolean guyOn = false, walkable = true;
     public float timeUntilVanish = maxVanish, timeUntilReappear = maxReappear;
+    public Anim vanish, loop;
 
     @Override
     public void collision(Chaser chaser, CollisionType type) {
@@ -42,12 +43,24 @@ public class TileVanish extends Tile {
 
     @Override
     public void update(float deltaTime) {
+        if (timeUntilVanish >= maxVanish) {
+            float fdt = anim.frameDT;
+            loop = new Anim(Assets.iCloudTile,new int[]{0,1,2,3,4,5,6,7,8,9},frameLength,loop.currentFrame);
+            loop.frameDT = fdt;
+            anim = loop;
+        }
+        else {
+            anim = vanish;
+        }
+
         if (guyOn && walkable) {
             timeUntilVanish -= deltaTime;
         }
         else if (walkable) {
             timeUntilVanish += deltaTime;
-            if (timeUntilVanish > maxVanish) timeUntilVanish = maxVanish;
+            if (timeUntilVanish > maxVanish) {
+                timeUntilVanish = maxVanish;
+            }
         }
         else if (!walkable) {
             timeUntilReappear -= deltaTime;
@@ -74,7 +87,8 @@ public class TileVanish extends Tile {
 
     @Override
     public Anim getImage(float deltaTime) {
-        anim.setTile((int)((maxVanish - timeUntilVanish)*(numFrames-1))/100);
+        if (timeUntilVanish >= maxVanish) anim.add(deltaTime);
+        else anim.setTile((int)(10 + (maxVanish - timeUntilVanish)*(numFrames-1))/100);
         return anim;
     }
 }
