@@ -7,7 +7,7 @@ public class TileDeath extends Tile {
         super(coord, id);
         switch(id)
         {
-            case '*': anim = new Anim(Assets.iFireTile,new int[]{0},100); break;
+            case '*': anim = new Anim(Assets.iFireTile,new int[]{0,1,2,3,4,5,6,7,8,9},5); break;
         }
     }
 
@@ -41,7 +41,7 @@ public class TileDeath extends Tile {
 
     @Override
     public Anim getImage(float deltaTime) {
-        anim.add(deltaTime);
+        anim.addRandom(deltaTime);
         return anim;
     }
 

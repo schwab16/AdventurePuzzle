@@ -46,6 +46,18 @@ public class Anim {
         }
     }
 
+    public void addRandom(float deltaTime)
+    {
+        frameDT += deltaTime;
+
+        if (frameDT > frameLength)
+        {
+            frameDT -= frameLength;
+            currentFrame = (int)(Math.random() * frameOrder.length);
+            coord = new Coord(C.blocksSize * frameOrder[currentFrame], 0);
+        }
+    }
+
     public void setTile(int frame)
     {
         frameDT = 0;
