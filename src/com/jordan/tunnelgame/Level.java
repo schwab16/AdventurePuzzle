@@ -14,6 +14,7 @@ public class Level {
     public int packID;
     public int levelNum;
     public String name = "";
+    public boolean bomb = false;
 
     public Level(int packID, int levelNum)
     {
@@ -55,6 +56,7 @@ public class Level {
         orbs = new ArrayList<Orb>();
         stars = new ArrayList<Star>();
         tiles = new Tile[C.xBlocks][C.yBlocks];
+        bomb = false;
         Assets.backgroundByString(bg);
 
         Scanner starSC = new Scanner(starString);
@@ -78,12 +80,17 @@ public class Level {
                 if (typeID == ' ') tiles[x][y] = new TileEmpty(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'f') tiles[x][y] = new TileFinish(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'b') tiles[x][y] = new TileBasic(new Coord(x*pix,y*pix),charID);
+                else if (typeID == 'c') tiles[x][y] = new TileCracked(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'd') tiles[x][y] = new TileDeath(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'h') tiles[x][y] = new TileHalf(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'K') tiles[x][y] = new TileKey(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'k') tiles[x][y] = new TileKeyhole(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 's') tiles[x][y] = new TileSlip(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'v') tiles[x][y] = new TileVanish(new Coord(x*pix,y*pix),charID);
+                else if (typeID == 'x') {
+                    tiles[x][y] = new TileBomb(new Coord(x*pix,y*pix),charID);
+                    bomb = true;
+                }
                 else if (typeID == 'w') {
                     tiles[x][y] = new TileWarp(new Coord(x*pix,y*pix),'0',TileWarp.currentID++,charID);
                     TileWarp.otherWarps.add((TileWarp)tiles[x][y]);

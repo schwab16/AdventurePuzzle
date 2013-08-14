@@ -9,6 +9,7 @@ public abstract class Tile {
     public Coord coord;
     public char id;
     public Anim anim;
+    public Tile[][] tiles;
 
     public Tile(Coord coord, char id)
     {
