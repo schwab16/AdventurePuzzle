@@ -23,7 +23,7 @@ public class Assets {
     public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons, saveButtons, helpButtons;
 
     public static Image iChaser, iOrb, iTile;
-    public static Image iBasicTile, iSmoke, iBomb, iKeyRed, iKeyBlue, iKeyYellow, iKeyholeRed, iKeyholeBlue, iKeyholeYellow, iCloudTile, iHalfTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
+    public static Image iBasicTile, iDirtTile, iSmoke, iBomb, iKeyRed, iKeyBlue, iKeyYellow, iKeyholeRed, iKeyholeBlue, iKeyholeYellow, iCloudTile, iHalfTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
 
     public static Paint paint1, paint2;
 
@@ -100,6 +100,7 @@ public class Assets {
         iChaser = g.newImage("chaser.png", ImageFormat.RGB565); tiles.add(iChaser); charCodes.add("Ca");
         iOrb = g.newImage("orb.png", ImageFormat.RGB565); tiles.add(iOrb); charCodes.add( "Oa");
         iBasicTile = g.newImage("basictile.png", ImageFormat.RGB565); tiles.add(iBasicTile); charCodes.add( "b+");
+        iDirtTile = g.newImage("dirttile.png", ImageFormat.RGB565); tiles.add(iDirtTile); charCodes.add( "b<");
         iFireTile = g.newImage("firetile.png", ImageFormat.RGB565); tiles.add(iFireTile); charCodes.add( "d*");
         iIceTile = g.newImage("icetile.png", ImageFormat.RGB565); tiles.add(iIceTile); charCodes.add( "s_");
         iMetalTile = g.newImage("metaltile.png", ImageFormat.RGB565); tiles.add(iMetalTile); charCodes.add( "b&");
