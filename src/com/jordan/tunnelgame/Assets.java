@@ -23,7 +23,7 @@ public class Assets {
     public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons, saveButtons, helpButtons;
 
     public static Image iChaser, iOrb, iTile;
-    public static Image iBasicTile, iDirtTile, iSmoke, iBomb, iKeyRed, iKeyBlue, iKeyYellow, iKeyholeRed, iKeyholeBlue, iKeyholeYellow, iCloudTile, iHalfTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
+    public static Image iBasicTile, iTouchTile, iDirtTile, iSmoke, iBomb, iKeyRed, iKeyBlue, iKeyYellow, iKeyholeRed, iKeyholeBlue, iKeyholeYellow, iCloudTile, iHalfTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
 
     public static Paint paint1, paint2;
 
@@ -117,6 +117,7 @@ public class Assets {
         iStoneTile = g.newImage("stonetile.png", ImageFormat.RGB565); tiles.add(iStoneTile); charCodes.add( "c/");
         iSmoke = g.newImage("smoke.png", ImageFormat.RGB565);
         iBomb = g.newImage("bomb.png", ImageFormat.RGB565); tiles.add(iBomb); charCodes.add( "xx");
+        iTouchTile = g.newImage("touchtile.png", ImageFormat.RGB565); tiles.add(iTouchTile); tiles.add(iTouchTile); charCodes.add( "te"); charCodes.add( "tf");
 
         paint1 = new Paint();
         paint1.setTextSize(C.pauseArea);

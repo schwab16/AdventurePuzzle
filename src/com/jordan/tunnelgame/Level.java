@@ -86,6 +86,7 @@ public class Level {
                 else if (typeID == 'K') tiles[x][y] = new TileKey(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'k') tiles[x][y] = new TileKeyhole(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 's') tiles[x][y] = new TileSlip(new Coord(x*pix,y*pix),charID);
+                else if (typeID == 't') tiles[x][y] = new TileTouch(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'v') tiles[x][y] = new TileVanish(new Coord(x*pix,y*pix),charID);
                 else if (typeID == 'x') {
                     tiles[x][y] = new TileBomb(new Coord(x*pix,y*pix),charID);

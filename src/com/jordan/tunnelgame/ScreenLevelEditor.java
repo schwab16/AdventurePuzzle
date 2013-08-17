@@ -105,7 +105,8 @@ public class ScreenLevelEditor extends Screen {
         Graphics g = game.getGraphics();
         GameDrawer.draw(g,level,0,-1);
         g.drawImage(Assets.menu,0,0);
-        g.drawImage(selectedImage,C.editorCurrentBlockX,C.editorCurrentBlockY,0,0,C.blocksSize,selectedImage.getHeight());
+        int k = (currentTile == 23) ? 80 : 0;
+        g.drawImage(selectedImage,C.editorCurrentBlockX,C.editorCurrentBlockY,0+k,0,C.blocksSize,selectedImage.getHeight());
     }
 
 
@@ -215,9 +216,13 @@ public class ScreenLevelEditor extends Screen {
         Graphics g = game.getGraphics();
         g.drawImage(Assets.menu,0,0);
         int x = 0, y= 0;
-        for (Image i: Assets.tiles)
+        for (int k = 0; k < Assets.tiles.size(); k++)
         {
-            g.drawImage(i,x,y,0,0,C.blocksSize,i.getHeight());
+            Image i = Assets.tiles.get(k);
+            if (k == 23)
+                g.drawImage(i,x,y,80,0,C.blocksSize,i.getHeight());
+            else
+                g.drawImage(i,x,y,0,0,C.blocksSize,i.getHeight());
             x+=C.blocksSize;
             if (x == C.width - C.blocksSize) {
                 x = 0;

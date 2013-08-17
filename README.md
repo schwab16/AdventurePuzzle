@@ -23,8 +23,8 @@ TODO LIST Ike:
 1-locked icon
 2-medal menu rectangles
 2-make 6 different colors of orbs/chasers
-2.5-anim gems (or make a new orb)
-3-bomb tile
+2-anim gems (or make a new orb)
+3-bomb tile, touch tile
 3-smoke anim for bomb
 4-keys and keyholes (no anim)
 5-anim chaser (take 2)

@@ -28,6 +28,9 @@ public class LevelStorage {
     'Kr' by: key tile (unlocks keyhole)
     'kr' by: keyhole tile
 
+    'tf' : touch tile (filled default)
+    'te' : touch tile (empty default)
+
     'vc' : vanish cloud tile
 
     's_' : ice tile
@@ -68,7 +71,7 @@ public class LevelStorage {
                         "  Kb            w2kr    Ob      " +
                         "            Oa  krf!kr          " +
                         "                  b+      Cb    " +
-                        "            b+b+b+b+d*b+b+b+    " +
+                        "        tetftfb+b+b+d*b+b+b+    " +
                         "b+  w1                          " +
                         "b+kb                            " +
                         "b+Krb+          Ca      xx      " +
