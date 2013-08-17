@@ -22,13 +22,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9b212e8-d19b-4fe8-8a11-4a18ddaf91b3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/touchtile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jordan/tunnelgame/TileTouch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordan/tunnelgame/Assets.java" afterPath="$PROJECT_DIR$/src/com/jordan/tunnelgame/Assets.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordan/tunnelgame/Level.java" afterPath="$PROJECT_DIR$/src/com/jordan/tunnelgame/Level.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordan/tunnelgame/LevelStorage.java" afterPath="$PROJECT_DIR$/src/com/jordan/tunnelgame/LevelStorage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java" afterPath="$PROJECT_DIR$/src/com/jordan/tunnelgame/ScreenLevelEditor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RobotGameCopy1.iws" />
@@ -803,7 +796,11 @@
       <created>1376509860810</created>
       <updated>1376509860810</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="touchtile">
+      <created>1376706530028</created>
+      <updated>1376706530028</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -890,7 +887,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="error fixing!" />
     <MESSAGE value="ready fix &amp; splash memory improved" />
     <MESSAGE value="level editor memory improved" />
     <MESSAGE value="button stuff improved" />
@@ -915,7 +911,8 @@
     <MESSAGE value="clouds animations" />
     <MESSAGE value="dirt" />
     <MESSAGE value="fire anim" />
-    <option name="LAST_COMMIT_MESSAGE" value="fire anim" />
+    <MESSAGE value="touchtile" />
+    <option name="LAST_COMMIT_MESSAGE" value="touchtile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
