@@ -197,8 +197,7 @@ public class ScreenGame extends Screen {
     }
 
     public void resume1() {
-        if (state == GameState.Running)
-            state = GameState.Paused;
+        state = GameState.Running;
     }
 
 	@Override
