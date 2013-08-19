@@ -23,7 +23,8 @@ public class Assets {
     public static ButtonSet returnButtons, pauseButtons, finishButtons, failButtons, mainButtons, saveButtons, helpButtons;
 
     public static Image iChaser, iOrb, iTile;
-    public static Image iBasicTile, iTouchTile, iDirtTile, iSmoke, iBomb, iKeyRed, iKeyBlue, iKeyYellow, iKeyholeRed, iKeyholeBlue, iKeyholeYellow, iCloudTile, iHalfTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
+    public static Image iBasicTile, iTouchTile, iDirtTile, iSmoke, iBomb, iGrassTile;
+    public static Image iKeyRed, iKeyBlue, iKeyYellow, iKeyholeRed, iKeyholeBlue, iKeyholeYellow, iCloudTile, iHalfTile, iRockTile, iStoneTile, iFireTile, iIceTile, iMetalTile, iSnowTile, iWarpTile, iFinishTile;
 
     public static Paint paint1, paint2;
 
@@ -93,13 +94,17 @@ public class Assets {
         levelmedal = g.newImage("levelmedal.png", ImageFormat.RGB565);
         locked = g.newImage("locked.png", ImageFormat.RGB565);
 
-        //tiles
+        //tiles (id important)
         iTile = g.newImage("emptytile.png", ImageFormat.RGB565); tiles.add(iTile); charCodes.add( "  ");
         iWarpTile = g.newImage("warp.png", ImageFormat.RGB565); tiles.add(iWarpTile); charCodes.add( "w0");
         iFinishTile = g.newImage("finish.png", ImageFormat.RGB565); tiles.add(iFinishTile); charCodes.add( "f!");
         iChaser = g.newImage("chaser.png", ImageFormat.RGB565); tiles.add(iChaser); charCodes.add("Ca");
         iOrb = g.newImage("orb.png", ImageFormat.RGB565); tiles.add(iOrb); charCodes.add( "Oa");
         iBasicTile = g.newImage("basictile.png", ImageFormat.RGB565); tiles.add(iBasicTile); charCodes.add( "b+");
+        iTouchTile = g.newImage("touchtile.png", ImageFormat.RGB565); tiles.add(iTouchTile); tiles.add(iTouchTile); charCodes.add( "te"); charCodes.add( "tf");
+
+        //id non important
+        iGrassTile = g.newImage("grasstile.png", ImageFormat.RGB565); tiles.add(iGrassTile); charCodes.add( "b~");
         iDirtTile = g.newImage("dirttile.png", ImageFormat.RGB565); tiles.add(iDirtTile); charCodes.add( "b<");
         iFireTile = g.newImage("firetile.png", ImageFormat.RGB565); tiles.add(iFireTile); charCodes.add( "d*");
         iIceTile = g.newImage("icetile.png", ImageFormat.RGB565); tiles.add(iIceTile); charCodes.add( "s_");
@@ -117,7 +122,7 @@ public class Assets {
         iStoneTile = g.newImage("stonetile.png", ImageFormat.RGB565); tiles.add(iStoneTile); charCodes.add( "c/");
         iSmoke = g.newImage("smoke.png", ImageFormat.RGB565);
         iBomb = g.newImage("bomb.png", ImageFormat.RGB565); tiles.add(iBomb); charCodes.add( "xx");
-        iTouchTile = g.newImage("touchtile.png", ImageFormat.RGB565); tiles.add(iTouchTile); tiles.add(iTouchTile); charCodes.add( "te"); charCodes.add( "tf");
+
 
         paint1 = new Paint();
         paint1.setTextSize(C.pauseArea);

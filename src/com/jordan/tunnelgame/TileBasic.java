@@ -11,6 +11,7 @@ public class TileBasic extends Tile {
             case '<': anim = new Anim(Assets.iDirtTile,new int[]{0}, 100); break;
             case '&': anim = new Anim(Assets.iMetalTile,new int[]{0}, 100); break;
             case '^': anim = new Anim(Assets.iSnowTile,new int[]{0}, 100); break;
+            case '~': anim = new Anim(Assets.iGrassTile,new int[]{0}, 100); break;
         }
     }
 
