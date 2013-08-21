@@ -16,6 +16,8 @@ TODO LIST Jordan:
 -buying from in game
 -pause on resume from home button
 -locked finished (gradual entry to finish tile, on chaser anim)
+-spike blocks that shoot up every so often, if you are on them then you die
+
 
 
 TODO LIST Ike:
