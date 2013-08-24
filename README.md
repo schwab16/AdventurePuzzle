@@ -22,16 +22,14 @@ TODO LIST Jordan:
 
 TODO LIST Ike:
 =======
-1-locked icon
+1-Super mario style start screens...
 2-medal menu rectangles
 2-make 6 different colors of orbs/chasers
 2-anim gems (or make a new orb)
-3-bomb tile, touch tile
+3-bomb tile
 3-smoke anim for bomb
-4-keys and keyholes (no anim)
 5-anim chaser (take 2)
 5-anim fire tile
-6-decide / make corners
 7-new backgrounds: desert, ocean, forest, jungle, prairie, city, building
 7-non unique functioning new tiles: wood, glass, spikes, lava
 8-pack screens
